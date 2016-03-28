@@ -7,6 +7,17 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="150"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Label Content="* mapa *" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
         
+        <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Vertical" Background="LightGray">
+            <Button Name="btnAddBusiness" Content="Dodaj Lokal" HorizontalAlignment="Right" Width="150" Click="btnAddBusiness_Click"></Button>
+            <Button Name="btnAddType" Content="Dodaj tip lokala"></Button>
+            <Button Name="btnAddTag" Content="Dodaj Etiketu" Click="btnAddTag_Click"></Button>
+        </StackPanel>
     </Grid>
 </Window>

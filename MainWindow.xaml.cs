@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HCI.GUI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,24 @@ namespace HCI
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void btnAddBusiness_Click(object sender, RoutedEventArgs e)
+        {
+            Window w = new PremisesDialog();
+            w.ShowDialog();
+        }
+
+        private void btnAddType_Click(object sender, RoutedEventArgs e)
+        {
+            Window w = new TypeDialog();
+            w.ShowDialog();
+        }
+
+        private void btnAddTag_Click(object sender, RoutedEventArgs e)
+        {
+            Window w = new TagsDialog();
+            w.ShowDialog();
         }
     }
 }
