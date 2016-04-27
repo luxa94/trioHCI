@@ -11,7 +11,7 @@
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
-        
+
         <Grid Grid.Column="0" Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition MaxWidth="150"></ColumnDefinition>
@@ -31,7 +31,7 @@
                 <RowDefinition Height="30"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
-            
+
             <!-- row 0 -->
             <Label Grid.Column="0" Grid.Row="0" Content="Oznaka:"></Label>
             <TextBox Name="tbId" Grid.Column="1" Grid.Row="0" VerticalContentAlignment="Center" Text="{Binding Path=Id}" Margin="0,2,2,2"></TextBox>
@@ -64,7 +64,7 @@
             <!-- row 8 -->
             <Label Grid.Column="0" Grid.Row="8" Content="Kapacitet:"/>
             <TextBox Name="tbCapacity" Grid.Column="1" Grid.Row="8" VerticalContentAlignment="Center" Text="{Binding Path=Capacity,UpdateSourceTrigger=PropertyChanged}" Margin="0,2,2,2"></TextBox>
-            
+
             <!-- row 9 -->
             <Label Grid.Column="0" Grid.Row="9" Content="Datum otvaranja:"/>
             <DatePicker Name="dpOpeningDate" Grid.Column="1" Grid.Row="9" Text="{Binding Path=Date}" Margin="0,2,2,2"></DatePicker>
@@ -80,10 +80,10 @@
                 <Button Name="btnAddNewType" Grid.Column="1" Grid.Row="0" Content="Novi tip" Margin="2" Padding="20,0" Click="btnAddNewType_Click"></Button>
             </Grid>
         </Grid>
-        
+
         <StackPanel Grid.Column="0" Grid.Row="1" Orientation="Horizontal" FlowDirection="RightToLeft" Background="LightGray">
             <Button Name="btnCancel" Content="Cancel" IsCancel="True" Margin="10" Padding="20,5"></Button>
-            <Button Name="btnSave" Content="Save" IsDefault="True" Click="btnSave_Click" Margin="10" Padding="20,5"></Button>
+            <Button Name="btnSave" Content="Save" IsDefault="True" Click="btnSave_Click" Margin="10" Padding="20,5"/>
         </StackPanel>
     </Grid>
 </Window>

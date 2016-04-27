@@ -15,5 +15,7 @@ namespace HCI.Model.Global
         public static ObservableCollection<Premises> Premisses = new ObservableCollection<Premises>();
         public static ObservableCollection<Type> Types = new ObservableCollection<Type>();
         public static ObservableCollection<Tag> Tags = new ObservableCollection<Tag>();
+
+       
     }
 }
