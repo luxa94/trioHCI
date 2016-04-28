@@ -48,7 +48,7 @@ namespace HCI.GUI
         {
             if (isSelected == true)
             {
-                Premises.Remove(p1);
+                Premises.Remove(Premises[dgrMain.SelectedIndex]);
             }
             else
             {
