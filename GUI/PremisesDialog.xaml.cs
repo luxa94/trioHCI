@@ -69,8 +69,8 @@ namespace HCI.GUI
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             Console.WriteLine("saved");
-            Window w = new TableView();
-            w.ShowDialog();
+       //     Window w = new TableView();
+       //     w.ShowDialog();
        //     w.Close();
 
         }
