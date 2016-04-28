@@ -13,7 +13,8 @@ Svaki **lokal** je opisan preko:
 * opisa
 * tipa
 * statusa za služenje alkohola
-* ikonice, da li je dostupan za hendikepirane
+* ikonice
+* da li je dostupan za hendikepirane
 * da li je u njemu dozvoljeno pušenje
 * da li prima rezervacije
 * kategorije cena
