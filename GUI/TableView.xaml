@@ -5,18 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HCI.GUI"
         mc:Ignorable="d"
-        Title="TableView" Height="434" Width="486">
+        Title="TableView" Height="633" Width="486">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition />
-            
+
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <DataGrid x:Name="dgrMain" ItemsSource="{Binding Path=Premises}" IsReadOnly="True" SelectionChanged="dgrMain_SelectionChanged"/>
-        <Grid Grid.Column="0" Grid.Row="1" DataContext="{Binding ElementName=dgrMain,Path=SelectedItem}">
+        <Grid Grid.Column="0" Grid.Row="1" DataContext="{Binding ElementName=dgrMain,Path=SelectedItem}" Height="271" VerticalAlignment="Top">
             <Grid.RowDefinitions>
                 <RowDefinition Height="25"/>
                 <RowDefinition Height="25"/>
@@ -43,18 +43,19 @@
             <TextBlock Grid.Column="0" Grid.Row="7">IsReservingAvailable:</TextBlock>
             <TextBlock Grid.Column="0" Grid.Row="8">Capacity:</TextBlock>
             <TextBlock Grid.Column="0" Grid.Row="9">OpeningDate:</TextBlock>
-            
+
 
             <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Path=Id}"></TextBox>
             <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Path=Name}"></TextBox>
             <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Path=Description}"></TextBox>
-            <CheckBox Grid.Column="1" Grid.Row="3" IsChecked="{Binding Path=AlcoholServing}"></CheckBox>
+            <TextBox Grid.Column="1" Grid.Row="3" Text="{Binding Path=AlcoholServing}"></TextBox>
             <TextBox Grid.Column="1" Grid.Row="4" Text="{Binding Path=Price}"></TextBox>
             <CheckBox Grid.Column="1" Grid.Row="5" IsChecked="{Binding Path=IsHandicapable}"></CheckBox>
-            <CheckBox Grid.Column="1" Grid.Row="6" IsChecked="{Binding Path=IsSmokingAlowed}"></CheckBox>
+            <CheckBox Grid.Column="1" Grid.Row="6" IsChecked="{Binding Path=IsSmokingAlowed}"/>
             <CheckBox Grid.Column="1" Grid.Row="7" IsChecked="{Binding Path=IsReservingAvailable}"></CheckBox>
             <TextBox Grid.Column="1" Grid.Row="8" Text="{Binding Path=Capacity}"></TextBox>
             <TextBox Grid.Column="1" Grid.Row="9" Text="{Binding Path=OpeningDate}"></TextBox>
         </Grid>
+        <Button x:Name="button" Content="Delete" HorizontalAlignment="Left" Height="26" Margin="334,265,0,0" Grid.Row="1" VerticalAlignment="Top" Width="134" Click="buttonDelete_Click"/>
     </Grid>
 </Window>

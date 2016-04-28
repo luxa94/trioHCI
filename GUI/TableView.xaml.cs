@@ -24,13 +24,16 @@ namespace HCI.GUI
     public partial class TableView : Window
     {
         public ObservableCollection<Premises> Premises{ get; set;}
-
+        public Premises p1;
+        public bool isSelected = false;
         public TableView()
         {
             InitializeComponent();
             this.DataContext = this;
             Premises = new ObservableCollection<Premises>();
-            Premises.Add(new Premises( "1", "Pingvin", "Najbolji!", "yes", "low", true, true, true, 10, new DateTime(2011, 6, 10)));
+            p1 = new Premises("1", "Pingvin", "Najbolji!", "yes", "low", true, true, true, 10, new DateTime(2011, 6, 10));
+            Premises.Add(p1);
+     //       Premises.Add(new Premises( );
             Premises.Add(new Premises("2", "Gusan", "Best beer!", "yes", "low", false, true, true, 50, new DateTime(2011, 7, 10)));
             Premises.Add(new Premises("3", "Popaj", "Najbolji!", "yes", "low", true, true, true, 20, new DateTime(2011, 8, 10)));
             Console.WriteLine();
@@ -38,7 +41,19 @@ namespace HCI.GUI
 
         private void dgrMain_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            isSelected = true;
+        }
 
+        private void buttonDelete_Click(object sender, RoutedEventArgs e)
+        {
+            if (isSelected == true)
+            {
+                Premises.Remove(p1);
+            }
+            else
+            {
+                MessageBox.Show("You must select one item!");
+            }
         }
     }
 }
