@@ -50,5 +50,17 @@ namespace HCI
             Window w = new TableView();
             w.ShowDialog();
         }
+
+        private void btnViewAllTypes_Click(object sender, RoutedEventArgs e)
+        {
+            Window w = new TypeTableView();
+            w.ShowDialog();
+        }
+
+        private void btnViewAllTags_Click(object sender, RoutedEventArgs e)
+        {
+            Window w = new TagTableView();
+            w.ShowDialog();
+        }
     }
 }
