@@ -24,7 +24,6 @@ namespace HCI.GUI
     public partial class TableView : Window
     {
         public ObservableCollection<Premises> Premises{ get; set;}
-        public bool isSelected = false;
 
         public TableView()
         {
@@ -36,19 +35,21 @@ namespace HCI.GUI
 
         private void dgrMain_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            isSelected = true;
+            tbName.IsEnabled = true;
+            tbDesc.IsEnabled = true;
+            tbAlc.IsEnabled = true;
+            tbPrice.IsEnabled = true;
+            tbHand.IsEnabled = true;
+            tbSmok.IsEnabled = true;
+            tbReser.IsEnabled = true;
+            tbCapa.IsEnabled = true;
+            tbOpen.IsEnabled = true;
+            button.IsEnabled = true;
         }
 
         private void buttonDelete_Click(object sender, RoutedEventArgs e)
         {
-            if (isSelected == true)
-            {
-                Premises.Remove(Premises[dgrMain.SelectedIndex]);
-            }
-            else
-            {
-                MessageBox.Show("You must select one item!");
-            }
+            Premises.Remove(Premises[dgrMain.SelectedIndex]);
         }
     }
 }

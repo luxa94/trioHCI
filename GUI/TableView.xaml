@@ -46,17 +46,17 @@
             <Label Grid.Column="0" Grid.Row="9" Margin="0,0,0,-11">OpeningDate:</Label>
 
 
-            <TextBox Name="tbId" Grid.Column="1" Grid.Row="0" Text="{Binding Path=Id}"></TextBox>
-            <TextBox Name="tbName" Grid.Column="1" Grid.Row="1" Text="{Binding Path=Name}"></TextBox>
-            <TextBox Name="tbDesc" Grid.Column="1" Grid.Row="2" Text="{Binding Path=Description}"></TextBox>
-            <TextBox Name="tbAlc" Grid.Column="1" Grid.Row="3" Text="{Binding Path=AlcoholServing}"></TextBox>
-            <TextBox Name="tbPrice" Grid.Column="1" Grid.Row="4" Text="{Binding Path=Price}"></TextBox>
-            <CheckBox Name="tbHand" Grid.Column="1" Grid.Row="5" IsChecked="{Binding Path=IsHandicapable}"></CheckBox>
-            <CheckBox Name="tbSmok" Grid.Column="1" Grid.Row="6" IsChecked="{Binding Path=IsSmokingAlowed}"/>
-            <CheckBox Name="tbReser" Grid.Column="1" Grid.Row="7" IsChecked="{Binding Path=IsReservingAvailable}"></CheckBox>
-            <TextBox Name="tbCapa" Grid.Column="1" Grid.Row="8" Text="{Binding Path=Capacity}"></TextBox>
-            <TextBox Name="tbOpen" Grid.Column="1" Grid.Row="9" Text="{Binding Path=OpeningDate}"></TextBox>
+            <TextBox Name="tbId" Grid.Column="1" Grid.Row="0" Text="{Binding Path=Id}" IsEnabled="False"></TextBox>
+            <TextBox Name="tbName" Grid.Column="1" Grid.Row="1" Text="{Binding Path=Name}" IsEnabled="False"></TextBox>
+            <TextBox Name="tbDesc" Grid.Column="1" Grid.Row="2" Text="{Binding Path=Description}" IsEnabled="False"></TextBox>
+            <TextBox Name="tbAlc" Grid.Column="1" Grid.Row="3" Text="{Binding Path=AlcoholServing}" IsEnabled="False"></TextBox>
+            <TextBox Name="tbPrice" Grid.Column="1" Grid.Row="4" Text="{Binding Path=Price}" IsEnabled="False"></TextBox>
+            <CheckBox Name="tbHand" Grid.Column="1" Grid.Row="5" IsChecked="{Binding Path=IsHandicapable}" IsEnabled ="False"></CheckBox>
+            <CheckBox Name="tbSmok" Grid.Column="1" Grid.Row="6" IsChecked="{Binding Path=IsSmokingAlowed}" IsEnabled="False"/>
+            <CheckBox Name="tbReser" Grid.Column="1" Grid.Row="7" IsChecked="{Binding Path=IsReservingAvailable}" IsEnabled="False"></CheckBox>
+            <TextBox Name="tbCapa" Grid.Column="1" Grid.Row="8" Text="{Binding Path=Capacity}" IsEnabled="False"></TextBox>
+            <TextBox Name="tbOpen" Grid.Column="1" Grid.Row="9" Text="{Binding Path=OpeningDate}" IsEnabled="False"></TextBox>
         </Grid>
-        <Button x:Name="button" Content="Delete" HorizontalAlignment="Left" Height="26" Margin="334,265,0,0" Grid.Row="1" VerticalAlignment="Top" Width="134" Click="buttonDelete_Click"/>
+        <Button x:Name="button" Content="Delete" HorizontalAlignment="Left" Height="26" Margin="334,265,0,0" Grid.Row="1" VerticalAlignment="Top" Width="134" Click="buttonDelete_Click" IsEnabled="False"/>
     </Grid>
 </Window>
