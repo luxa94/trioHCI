@@ -30,12 +30,18 @@ namespace HCI.GUI
         {
             InitializeComponent();
             this.DataContext = this;
+
+            /*
             Premises = new ObservableCollection<Premises>();
             p1 = new Premises("1", "Pingvin", "Najbolji!", "yes", "low", true, true, true, 10, new DateTime(2011, 6, 10));
             Premises.Add(p1);
      //       Premises.Add(new Premises( );
             Premises.Add(new Premises("2", "Gusan", "Best beer!", "yes", "low", false, true, true, 50, new DateTime(2011, 7, 10)));
             Premises.Add(new Premises("3", "Popaj", "Najbolji!", "yes", "low", true, true, true, 20, new DateTime(2011, 8, 10)));
+            */
+
+            Premises = Globals.Premisses;
+                
             Console.WriteLine();
         }
 
@@ -48,7 +54,7 @@ namespace HCI.GUI
         {
             if (isSelected == true)
             {
-                Premises.Remove(p1);
+                Premises.Remove(Premises[dgrMain.SelectedIndex]);
             }
             else
             {

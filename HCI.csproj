@@ -91,7 +91,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="GUI\TagTableView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GUI\TypeDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\TypeTableView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -112,8 +120,14 @@
     <Compile Include="GUI\TagsDialog.xaml.cs">
       <DependentUpon>TagsDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GUI\TagTableView.xaml.cs">
+      <DependentUpon>TagTableView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GUI\TypeDialog.xaml.cs">
       <DependentUpon>TypeDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\TypeTableView.xaml.cs">
+      <DependentUpon>TypeTableView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

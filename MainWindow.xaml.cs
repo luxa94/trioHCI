@@ -44,5 +44,23 @@ namespace HCI
             Window w = new TagsDialog();
             w.ShowDialog();
         }
+
+        private void btnViewAllPremises_Click(object sender, RoutedEventArgs e)
+        {
+            Window w = new TableView();
+            w.ShowDialog();
+        }
+
+        private void btnViewAllTypes_Click(object sender, RoutedEventArgs e)
+        {
+            Window w = new TypeTableView();
+            w.ShowDialog();
+        }
+
+        private void btnViewAllTags_Click(object sender, RoutedEventArgs e)
+        {
+            Window w = new TagTableView();
+            w.ShowDialog();
+        }
     }
 }

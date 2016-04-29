@@ -15,9 +15,14 @@
         <Label Content="* mapa *" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
         
         <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Vertical" Background="LightGray">
+            <Button Name="btnViewAllPremises" Content="Pregled svih lokala" Click="btnViewAllPremises_Click"/>
+            <Button x:Name="btnViewAllTypes" Content="Pregled svih tipova" Click="btnViewAllTypes_Click"/>
+            <Button x:Name="btnViewAllTags" Content="Pregled svih tagova" Click="btnViewAllTags_Click"/>
+            <Separator></Separator>
             <Button Name="btnAddBusiness" Content="Dodaj Lokal" HorizontalAlignment="Right" Width="150" Click="btnAddBusiness_Click"></Button>
             <Button Name="btnAddType" Content="Dodaj tip lokala" Click="btnAddType_Click" ></Button>
             <Button Name="btnAddTag" Content="Dodaj Etiketu" Click="btnAddTag_Click"></Button>
+            
         </StackPanel>
     </Grid>
 </Window>
