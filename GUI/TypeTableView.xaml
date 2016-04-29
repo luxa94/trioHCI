@@ -8,6 +8,7 @@
         mc:Ignorable="d"
         Title="Type table view" Height="285" Width="300">
     <Grid>
+<<<<<<< HEAD
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition />
@@ -38,5 +39,9 @@
 
         </Grid>
         <Button x:Name="button" Content="Delete" HorizontalAlignment="Left" Height="26" Margin="142,90,0,0" Grid.Row="1" VerticalAlignment="Top" Width="140" Click="buttonDelete_Click"/>
+=======
+        <DataGrid x:Name="dgrType" ItemsSource="{Binding Path=Types}" IsReadOnly="True"/>
+         
+>>>>>>> 3ee656899c73558f41298da6ee360d1a21256b97
     </Grid>
 </Window>
