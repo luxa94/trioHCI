@@ -8,6 +8,6 @@
         Title="Pregled tipova" Height="300" Width="300">
     <Grid>
         <DataGrid x:Name="dgrType" ItemsSource="{Binding Path=Types}" IsReadOnly="True"/>
-
+         
     </Grid>
 </Window>

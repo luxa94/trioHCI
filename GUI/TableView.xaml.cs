@@ -41,6 +41,19 @@ namespace HCI.GUI
             */
 
             Premises = Globals.Premisses;
+            if (isSelected == false)
+            {
+                tbId.IsEnabled = false;
+                tbAlc.IsEnabled = false;
+                tbCapa.IsEnabled = false;
+                tbDesc.IsEnabled = false;
+                tbHand.IsEnabled = false;
+                tbName.IsEnabled = false;
+                tbOpen.IsEnabled = false;
+                tbPrice.IsEnabled = false;
+                tbReser.IsEnabled = false;
+                tbSmok.IsEnabled = false;
+            }
                 
             Console.WriteLine();
         }
