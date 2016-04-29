@@ -37,7 +37,7 @@ namespace HCI.GUI
             tbDescription.IsEnabled = true;
             colorPicker.IsEnabled = true;
             button.IsEnabled = true;
-    
+            button1.IsEnabled = true;
         }
 
         private void ColorPicker_SelectedColorChanged(object sender, EventArgs e)

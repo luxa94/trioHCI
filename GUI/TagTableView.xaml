@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HCI.GUI"
         mc:Ignorable="d"
-        Title="Tag table view" Height="285" Width="300">
+        Title="Tag table view" Height="285" Width="301">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition />
@@ -34,12 +34,12 @@
 
 
             <TextBox Name="tbId" Grid.Column="1" Grid.Row="0" Text="{Binding Path=Id}" IsEnabled="False"></TextBox>
-       <!--     <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Path=Color}"></TextBox> -->
+            <!--     <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Path=Color}"></TextBox> -->
             <xctk:ColorPicker Name="colorPicker" Grid.Column="1" Grid.Row="1" SelectedColorChanged="ColorPicker_SelectedColorChanged" IsEnabled="False"></xctk:ColorPicker>
 
-            <TextBox Name="tbDescription" Grid.Column="1" Grid.Row="2" Text="{Binding Path=Description}" IsEnabled="False"></TextBox> 
-            
+            <TextBox Name="tbDescription" Grid.Column="1" Grid.Row="2" Text="{Binding Path=Description}" IsEnabled="False"></TextBox>
         </Grid>
-        <Button x:Name="button" Content="Delete" HorizontalAlignment="Left" Height="26" Margin="142,90,0,0" Grid.Row="1" VerticalAlignment="Top" Width="140" Click="buttonDelete_Click" IsEnabled="False"/>
+        <Button x:Name="button1" Content="Cancel" HorizontalAlignment="Left" Height="26" Margin="4,90,0,0" Grid.Row="1" VerticalAlignment="Top" Width="134" IsEnabled="False"/>
+        <Button x:Name="button" Content="Delete" HorizontalAlignment="Left" Height="26" Margin="143,90,0,0" Grid.Row="1" VerticalAlignment="Top" Width="134" Click="buttonDelete_Click" IsEnabled="False"/>
     </Grid>
 </Window>

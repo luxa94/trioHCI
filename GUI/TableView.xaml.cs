@@ -45,6 +45,7 @@ namespace HCI.GUI
             tbCapa.IsEnabled = true;
             tbOpen.IsEnabled = true;
             button.IsEnabled = true;
+            button1.IsEnabled = true;
         }
 
         private void buttonDelete_Click(object sender, RoutedEventArgs e)

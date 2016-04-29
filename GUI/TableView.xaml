@@ -57,6 +57,7 @@
             <TextBox Name="tbCapa" Grid.Column="1" Grid.Row="8" Text="{Binding Path=Capacity}" IsEnabled="False"></TextBox>
             <TextBox Name="tbOpen" Grid.Column="1" Grid.Row="9" Text="{Binding Path=OpeningDate}" IsEnabled="False"></TextBox>
         </Grid>
-        <Button x:Name="button" Content="Delete" HorizontalAlignment="Left" Height="26" Margin="334,265,0,0" Grid.Row="1" VerticalAlignment="Top" Width="134" Click="buttonDelete_Click" IsEnabled="False"/>
+        <Button x:Name="button" Content="Delete" HorizontalAlignment="Left" Height="26" Margin="319,265,0,0" Grid.Row="1" VerticalAlignment="Top" Width="144" Click="buttonDelete_Click" IsEnabled="False"/>
+        <Button x:Name="button1" Content="Cancel" HorizontalAlignment="Left" Height="26" Margin="5,265,0,0" Grid.Row="1" VerticalAlignment="Top" Width="144" IsEnabled="False"/>
     </Grid>
 </Window>

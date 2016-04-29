@@ -35,6 +35,7 @@ namespace HCI.GUI
             tbName.IsEnabled = true;
             tbDescription.IsEnabled = true;
             button.IsEnabled = true;
+            button1.IsEnabled = true;
         }
 
         private void buttonDelete_Click(object sender, RoutedEventArgs e)
