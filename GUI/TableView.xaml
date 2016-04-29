@@ -42,7 +42,7 @@
             <Label Grid.Column="0" Grid.Row="6">IsSmokingAlowed:</Label>
             <Label Grid.Column="0" Grid.Row="7">IsReservingAvailable:</Label>
             <Label Grid.Column="0" Grid.Row="8">Capacity:</Label>
-            <Label Grid.Column="0" Grid.Row="9">OpeningDate:</Label>
+            <Label Grid.Column="0" Grid.Row="9" Margin="0,0,0,-11">OpeningDate:</Label>
 
 
             <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Path=Id}"></TextBox>

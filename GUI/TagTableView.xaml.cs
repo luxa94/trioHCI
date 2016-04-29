@@ -1,4 +1,5 @@
 ﻿using HCI.Model.Global;
+using HCI.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -22,11 +23,32 @@ namespace HCI.GUI
     public partial class TagTableView : Window
     {
         public ObservableCollection<Model.Tag> Tags { get; set; }
+        public bool isSelected = false;
+
         public TagTableView()
         {
             InitializeComponent();
             this.DataContext = this;
             Tags = Globals.Tags;
+        }
+
+        private void dgrMain_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            isSelected = true;
+        }
+
+
+
+        private void buttonDelete_Click(object sender, RoutedEventArgs e)
+        {
+            if (isSelected == true)
+            {
+                Tags.Remove(Tags[dgrMain.SelectedIndex]);
+            }
+            else
+            {
+                MessageBox.Show("You must select one item!");
+            }
         }
     }
 }

@@ -20,20 +20,8 @@ namespace HCI.Model
             }
         }
 
-        //    public String Id { get; set; }
-        //       public String Name { get; set; }
-        //      public String Description { get; set; }
-        //      public String AlcoholServing { get; set; }
-        //      public String Price { get; set; }
-        //      public bool IsHandicapable { get; set; }
-        //      public bool IsSmokingAlowed { get; set; }
-        //       public bool IsReservingAvailable { get; set; }
-        //       public int Capacity { get; set; }
-        //  public DateTime OpeningDate { get; set; }
-
         public Type Type { get; set; }
         public ObservableCollection<Tag> Tags { get; set; }
-
         private String id;
         private String name;
         private String description;
@@ -221,22 +209,18 @@ namespace HCI.Model
             Tags = new ObservableCollection<Tag>();
         }
 
-        public Premises(String id, String name, String description, String alcoholServing, String price, bool isHandicapable, bool isSmokingAlowed, bool isReservingAvailable, int capacity, DateTime openingDate)
-        {
-            this.id = id;
-            this.name = name;
-            this.description = description;
-            this.alcoholServing = alcoholServing;
-            this.price = price;
-            this.isHandicapable = isHandicapable;
-            this.isSmokingAlowed = IsSmokingAlowed;
-            this.isReservingAvailable = isReservingAvailable;
-            this.capacity = capacity;
-            this.openingDate = openingDate;
-
-
-    }
-
-       
+        /*       public Premises(String id, String name, String description, String alcoholServing, String price, bool isHandicapable, bool isSmokingAlowed, bool isReservingAvailable, int capacity, DateTime openingDate)
+               {
+                   this.id = id;
+                   this.name = name;
+                   this.description = description;
+                   this.alcoholServing = alcoholServing;
+                   this.price = price;
+                   this.isHandicapable = isHandicapable;
+                   this.isSmokingAlowed = IsSmokingAlowed;
+                   this.isReservingAvailable = isReservingAvailable;
+                   this.capacity = capacity;
+                   this.openingDate = openingDate;
+               }*/
     }
 }

@@ -27,6 +27,9 @@ namespace HCI.GUI
         {
             InitializeComponent();
             tag = new Tag();
+            tbId.DataContext = tag;
+            colorPicker.DataContext = tag;
+            tbDescription.DataContext = tag;
         }
 
         private void btnSave_Click(object sender, RoutedEventArgs e)

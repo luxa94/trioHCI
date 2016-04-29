@@ -24,8 +24,8 @@ namespace HCI.GUI
     public partial class TableView : Window
     {
         public ObservableCollection<Premises> Premises{ get; set;}
-        public Premises p1;
         public bool isSelected = false;
+
         public TableView()
         {
             InitializeComponent();

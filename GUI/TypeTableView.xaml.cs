@@ -22,11 +22,30 @@ namespace HCI.GUI
     public partial class TypeTableView : Window
     {
         public ObservableCollection<Model.Type> Types { get; set; }
+        public bool isSelected = false;
+
         public TypeTableView()
         {
             InitializeComponent();
             this.DataContext = this;
             Types = Globals.Types;
+        }
+
+        private void dgrMain_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            isSelected = true;
+        }
+
+        private void buttonDelete_Click(object sender, RoutedEventArgs e)
+        {
+            if (isSelected == true)
+            {
+                Types.Remove(Types[dgrMain.SelectedIndex]);
+            }
+            else
+            {
+                MessageBox.Show("You must select one item!");
+            }
         }
     }
 }
