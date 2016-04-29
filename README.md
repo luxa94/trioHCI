@@ -13,7 +13,8 @@ Svaki **lokal** je opisan preko:
 * opisa
 * tipa
 * statusa za služenje alkohola
-* ikonice, da li je dostupan za hendikepirane
+* ikonice
+* da li je dostupan za hendikepirane
 * da li je u njemu dozvoljeno pušenje
 * da li prima rezervacije
 * kategorije cena
@@ -22,7 +23,9 @@ Svaki **lokal** je opisan preko:
 
 **Ikonica** je sličica koja se učitava i koja se koristi da se lokal označi na mapi i može da se i ne postavi i,
 ako se ne postavi, onda se podrazumevano uzima ikonica tipa. 
-Status služenja alkohola je jedna od sledećih vrednosti:
+
+
+**Status služenja** alkohola je jedna od sledećih vrednosti:
 * ne služi
 * služi samo do 23:00
 * služi i kasno noću.
@@ -33,8 +36,12 @@ Status služenja alkohola je jedna od sledećih vrednosti:
 - visoke cene
 - izuzetno visoke cene. 
  
-Lokali takođe mogu biti i "tagovani" sa nijednom, jednom, ili više **etiketa**. Etikete specificira korisnik i one su opisane
-svojom jedinstvenom ljudski-čitljivom oznakom koju unosi korisnik, bojom i opisom.
+Lokali takođe mogu biti i "tagovani" sa nijednom, jednom, ili više etiketa. 
+
+**Etikete** specificira korisnik i one su opisane:
+- svojom jedinstvenom ljudski-čitljivom oznakom koju unosi korisnik
+- bojom
+- opisom.
 
 **Tip lokala** je opisan preko:
 - svoje jedinstvene ljudski-čitljive oznake koju unosi korisnik
