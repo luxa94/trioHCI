@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HCI.GUI"
         mc:Ignorable="d"
-        Title="Tag table view" Height="633" Width="486">
+        Title="Tag table view" Height="708" Width="486">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition />
@@ -17,8 +17,9 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <DataGrid x:Name="dgrMain" ItemsSource="{Binding Path=Premises}" IsReadOnly="True" SelectionChanged="dgrMain_SelectionChanged"/>
-        <Grid Grid.Column="0" Grid.Row="1" DataContext="{Binding ElementName=dgrMain,Path=SelectedItem}" Height="271" VerticalAlignment="Top">
+        <Grid Grid.Column="0" Grid.Row="1" DataContext="{Binding ElementName=dgrMain,Path=SelectedItem}" Height="274" VerticalAlignment="Top">
             <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
                 <RowDefinition Height="25"/>
                 <RowDefinition Height="25"/>
                 <RowDefinition Height="25"/>
@@ -45,6 +46,16 @@
             <Label Grid.Column="0" Grid.Row="8">Capacity:</Label>
             <Label Grid.Column="0" Grid.Row="9" Margin="0,0,0,-11">OpeningDate:</Label>
 
+            <Label Grid.Column="0" Grid.Row="10" Content="Type:"/>
+            <Grid Grid.Column="1" Grid.Row="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <ComboBox Name="cbType" SelectedItem="{Binding Path=Type}" VerticalAlignment="Center" Margin="0,2,2,2" DisplayMemberPath="Name" Height="21" IsEnabled= "False"></ComboBox>
+                <Button Name="btnAddNewType" Grid.Column="1" Grid.Row="0" Content="New type" Margin="2" Padding="20,0" Click="btnAddNewType_Click" IsEnabled ="False"></Button>
+            </Grid>
+
 
             <TextBox Name="tbId" Grid.Column="1" Grid.Row="0" Text="{Binding Path=Id}" IsEnabled="False"></TextBox>
             <TextBox Name="tbName" Grid.Column="1" Grid.Row="1" Text="{Binding Path=Name}" IsEnabled="False"></TextBox>
@@ -57,7 +68,7 @@
             <TextBox Name="tbCapa" Grid.Column="1" Grid.Row="8" Text="{Binding Path=Capacity}" IsEnabled="False"></TextBox>
             <TextBox Name="tbOpen" Grid.Column="1" Grid.Row="9" Text="{Binding Path=OpeningDate}" IsEnabled="False"></TextBox>
         </Grid>
-        <Button x:Name="button" Content="Delete" HorizontalAlignment="Left" Height="26" Margin="319,265,0,0" Grid.Row="1" VerticalAlignment="Top" Width="144" Click="buttonDelete_Click" IsEnabled="False"/>
-        <Button x:Name="button1" Content="Cancel" HorizontalAlignment="Left" Height="26" Margin="5,265,0,0" Grid.Row="1" VerticalAlignment="Top" Width="144" IsEnabled="False"/>
+        <Button x:Name="button" Content="Delete" HorizontalAlignment="Left" Height="26" Margin="317,291,0,0" Grid.Row="1" VerticalAlignment="Top" Width="144" Click="buttonDelete_Click" IsEnabled="False"/>
+        <Button x:Name="button1" Content="Cancel" HorizontalAlignment="Left" Height="26" Margin="6,291,0,0" Grid.Row="1" VerticalAlignment="Top" Width="144" IsEnabled="False"/>
     </Grid>
 </Window>

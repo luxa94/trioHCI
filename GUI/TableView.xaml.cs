@@ -46,11 +46,19 @@ namespace HCI.GUI
             tbOpen.IsEnabled = true;
             button.IsEnabled = true;
             button1.IsEnabled = true;
+            cbType.IsEnabled = true;
+            btnAddNewType.IsEnabled = true;
         }
 
         private void buttonDelete_Click(object sender, RoutedEventArgs e)
         {
             Premises.Remove(Premises[dgrMain.SelectedIndex]);
+        }
+
+        private void btnAddNewType_Click(object sender, RoutedEventArgs e)
+        {
+            Window w = new TypeDialog();
+            w.ShowDialog();
         }
     }
 }
