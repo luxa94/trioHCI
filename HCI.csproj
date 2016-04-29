@@ -121,10 +121,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Global\Globals.cs" />
-    <Compile Include="Model\Premises.cs" />
-    <Compile Include="Model\Tag.cs" />
-    <Compile Include="Model\Type.cs" />
+    <Compile Include="GUI\Model\Global\Globals.cs" />
+    <Compile Include="GUI\Model\Premises.cs" />
+    <Compile Include="GUI\Model\Tag.cs" />
+    <Compile Include="GUI\Model\Type.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
