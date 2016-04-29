@@ -34,9 +34,9 @@ Status služenja alkohola je jedna od sledećih vrednosti:
 - visoke cene
 - izuzetno visoke cene. 
  
-Lokali takođe mogu biti i "tagovani" sa nijednom, jednom, ili više **etiketa**. 
+Lokali takođe mogu biti i "tagovani" sa nijednom, jednom, ili više etiketa. 
 
-Etikete specificira korisnik i one su opisane:
+**Etikete** specificira korisnik i one su opisane:
 - svojom jedinstvenom ljudski-čitljivom oznakom koju unosi korisnik
 - bojom
 - opisom.
