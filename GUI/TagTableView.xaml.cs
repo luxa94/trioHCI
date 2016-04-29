@@ -23,7 +23,7 @@ namespace HCI.GUI
     public partial class TagTableView : Window
     {
         public ObservableCollection<Model.Tag> Tags { get; set; }
-        public bool isSelected = false;
+  
 
         public TagTableView()
         {
@@ -34,21 +34,28 @@ namespace HCI.GUI
 
         private void dgrMain_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            isSelected = true;
+            tbDescription.IsEnabled = true;
+            colorPicker.IsEnabled = true;
+            button.IsEnabled = true;
+    
         }
 
+        private void ColorPicker_SelectedColorChanged(object sender, EventArgs e)
+        {
+            if (dgrMain.SelectedIndex != -1)
+            {
+                Tags[dgrMain.SelectedIndex].Color = colorPicker.SelectedColor.ToString();
+                Console.WriteLine(Tags[dgrMain.SelectedIndex].Color);
+            }
+        }
 
 
         private void buttonDelete_Click(object sender, RoutedEventArgs e)
         {
-            if (isSelected == true)
-            {
+            
                 Tags.Remove(Tags[dgrMain.SelectedIndex]);
-            }
-            else
-            {
-                MessageBox.Show("You must select one item!");
-            }
+            
+          
         }
     }
 }

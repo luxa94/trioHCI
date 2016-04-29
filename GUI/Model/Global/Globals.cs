@@ -9,8 +9,8 @@ namespace HCI.Model.Global
 {
     public class Globals
     {
-        public static String[] AlcoholServings = { "ne služi", "služi samo do 23:00", "služi i kasno noću" };
-        public static String[] PriceCategories = { "niske cene", "srednje cene", "visoke cene", "izuzetno visoke cene" };
+        public static String[] AlcoholServings = { "does not serve", "serve before 23:00", "serve all the time" };
+        public static String[] PriceCategories = { "low prices", "medium prices", "high prices", "extremely high prices" };
 
         public static ObservableCollection<Premises> Premisses = new ObservableCollection<Premises>();
         public static ObservableCollection<Type> Types = new ObservableCollection<Type>();

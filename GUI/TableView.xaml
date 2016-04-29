@@ -2,10 +2,11 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HCI.GUI"
         mc:Ignorable="d"
-        Title="Pregled lokala" Height="633" Width="486">
+        Title="Tag table view" Height="633" Width="486">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition />
@@ -15,8 +16,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="dgrMain" ItemsSource="{Binding Path=Premises}" IsReadOnly="True" SelectionChanged="dgrMain_SelectionChanged" AutoGenerateColumns="False"/>
-
+        <DataGrid x:Name="dgrMain" ItemsSource="{Binding Path=Premises}" IsReadOnly="True" SelectionChanged="dgrMain_SelectionChanged"/>
         <Grid Grid.Column="0" Grid.Row="1" DataContext="{Binding ElementName=dgrMain,Path=SelectedItem}" Height="271" VerticalAlignment="Top">
             <Grid.RowDefinitions>
                 <RowDefinition Height="25"/>

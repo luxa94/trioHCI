@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HCI.GUI"
         mc:Ignorable="d"
-        Title="Dodaj novi lokal" Height="700" Width="500">
+        Title="Add new permises" Height="700" Width="500">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
@@ -33,51 +33,51 @@
             </Grid.RowDefinitions>
 
             <!-- row 0 -->
-            <Label Grid.Column="0" Grid.Row="0" Content="Oznaka:"></Label>
+            <Label Grid.Column="0" Grid.Row="0" Content="Id:"></Label>
             <TextBox Name="tbId" Grid.Column="1" Grid.Row="0" VerticalContentAlignment="Center" Text="{Binding Path=Id}" Margin="0,2,2,2"></TextBox>
 
             <!-- row 1 -->
-            <Label Grid.Column="0" Grid.Row="1" Content="Naziv:"></Label>
+            <Label Grid.Column="0" Grid.Row="1" Content="Name:"></Label>
             <TextBox Name="tbName" Grid.Column="1" Grid.Row="1" VerticalContentAlignment="Center" Text="{Binding Path=Name}" Margin="0,2,2,2"></TextBox>
 
             <!-- row 2 -->
-            <Label Grid.Column="0" Grid.Row="2" Content="Opis:"/>
+            <Label Grid.Column="0" Grid.Row="2" Content="Description:"/>
             <TextBox Name="tbDescription" Grid.Column="1" Grid.Row="2" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Text="{Binding Path=Description}" Margin="0,2,2,2"></TextBox>
 
             <!-- row 3 -->
-            <CheckBox Name="cbHandicapable" Grid.Row="3" Grid.Column="1" Content="Dostupno osabama sa invaloditetom" VerticalAlignment="Center" IsChecked="{Binding Path=IsHandicapable}"></CheckBox>
+            <CheckBox Name="cbHandicapable" Grid.Row="3" Grid.Column="1" Content="Accessible for persons with disabilities" VerticalAlignment="Center" IsChecked="{Binding Path=IsHandicapable}"></CheckBox>
 
             <!-- row 4 -->
-            <CheckBox Name="cbSmoking" Grid.Row="4" Grid.Column="1" Content="Dozvoljeno pušenje" VerticalAlignment="Center" IsChecked="{Binding Path=IsSmokingAlowed}"></CheckBox>
+            <CheckBox Name="cbSmoking" Grid.Row="4" Grid.Column="1" Content="Smoking allowed" VerticalAlignment="Center" IsChecked="{Binding Path=IsSmokingAlowed}"></CheckBox>
 
             <!-- row 5 -->
-            <CheckBox Name="cbReservations" Grid.Row="5" Grid.Column="1" Content="Moguća rezervacija" VerticalAlignment="Center" IsChecked="{Binding Path=IsReservingAvailable}"></CheckBox>
+            <CheckBox Name="cbReservations" Grid.Row="5" Grid.Column="1" Content="Possible reservations" VerticalAlignment="Center" IsChecked="{Binding Path=IsReservingAvailable}"></CheckBox>
 
             <!-- row 6 -->
-            <Label Grid.Column="0" Grid.Row="6" Content="Služenje alkohola:"/>
+            <Label Grid.Column="0" Grid.Row="6" Content="Serving alcohol:"/>
             <ComboBox Name="cbAlcohol" Grid.Column="1" Grid.Row="6" SelectedItem="{Binding Path=AlcoholServing}" VerticalAlignment="Center" Margin="0,0,2,0"></ComboBox>
 
             <!-- row 7 -->
-            <Label Grid.Column="0" Grid.Row="7" Content="Cene:"/>
+            <Label Grid.Column="0" Grid.Row="7" Content="Prices:"/>
             <ComboBox Name="cbPrice" Grid.Column="1" Grid.Row="7" SelectedItem="{Binding Path=Price}" VerticalAlignment="Center" Margin="0,0,2,0"></ComboBox>
 
             <!-- row 8 -->
-            <Label Grid.Column="0" Grid.Row="8" Content="Kapacitet:"/>
+            <Label Grid.Column="0" Grid.Row="8" Content="Capacity:"/>
             <TextBox Name="tbCapacity" Grid.Column="1" Grid.Row="8" VerticalContentAlignment="Center" Text="{Binding Path=Capacity,UpdateSourceTrigger=PropertyChanged}" Margin="0,2,2,2"></TextBox>
 
             <!-- row 9 -->
-            <Label Grid.Column="0" Grid.Row="9" Content="Datum otvaranja:"/>
+            <Label Grid.Column="0" Grid.Row="9" Content="Opening date:"/>
             <DatePicker Name="dpOpeningDate" Grid.Column="1" Grid.Row="9" Text="{Binding Path=Date}" Margin="0,2,2,2"></DatePicker>
 
             <!-- row 10 -->
-            <Label Grid.Column="0" Grid.Row="10" Content="Tip:"/>
+            <Label Grid.Column="0" Grid.Row="10" Content="Type:"/>
             <Grid Grid.Column="1" Grid.Row="10">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <ComboBox Name="cbType"  SelectedItem="{Binding Path=Type}" VerticalAlignment="Center" Margin="0,0,2,0" DisplayMemberPath="Name"></ComboBox>
-                <Button Name="btnAddNewType" Grid.Column="1" Grid.Row="0" Content="Novi tip" Margin="2" Padding="20,0" Click="btnAddNewType_Click"></Button>
+                <Button Name="btnAddNewType" Grid.Column="1" Grid.Row="0" Content="New type" Margin="2" Padding="20,0" Click="btnAddNewType_Click"></Button>
             </Grid>
         </Grid>
 

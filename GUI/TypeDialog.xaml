@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HCI.GUI"
         mc:Ignorable="d"
-        Title="TypeDialog" Height="300" Width="500">
+        Title="Add new type" Height="300" Width="500">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
@@ -24,15 +24,15 @@
             </Grid.RowDefinitions>
 
             <!-- row 0 -->
-            <Label Grid.Column="0" Grid.Row="0" Content="Oznaka:"></Label>
+            <Label Grid.Column="0" Grid.Row="0" Content="Id:"></Label>
             <TextBox Name="tbId" Grid.Column="1" Grid.Row="0" VerticalContentAlignment="Center" Text="{Binding Path=Id}" Margin="0,2,2,2"></TextBox>
 
             <!-- row 1 -->
-            <Label Grid.Column="0" Grid.Row="1" Content="Naziv:"></Label>
+            <Label Grid.Column="0" Grid.Row="1" Content="Name:"></Label>
             <TextBox Name="tbName" Grid.Column="1" Grid.Row="1" VerticalContentAlignment="Center" Text="{Binding Path=Name}" Margin="0,2,2,2"></TextBox>
 
             <!-- row 2 -->
-            <Label Grid.Column="0" Grid.Row="2" Content="Opis:"/>
+            <Label Grid.Column="0" Grid.Row="2" Content="Description:"/>
             <TextBox Name="tbDescription" Grid.Column="1" Grid.Row="2" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Text="{Binding Path=Description}" Margin="0,2,2,2"></TextBox>
         </Grid>
 

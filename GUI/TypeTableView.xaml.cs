@@ -22,7 +22,6 @@ namespace HCI.GUI
     public partial class TypeTableView : Window
     {
         public ObservableCollection<Model.Type> Types { get; set; }
-        public bool isSelected = false;
 
         public TypeTableView()
         {
@@ -33,19 +32,14 @@ namespace HCI.GUI
 
         private void dgrMain_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            isSelected = true;
+            tbName.IsEnabled = true;
+            tbDescription.IsEnabled = true;
+            button.IsEnabled = true;
         }
 
         private void buttonDelete_Click(object sender, RoutedEventArgs e)
         {
-            if (isSelected == true)
-            {
-                Types.Remove(Types[dgrMain.SelectedIndex]);
-            }
-            else
-            {
-                MessageBox.Show("You must select one item!");
-            }
+            Types.Remove(Types[dgrMain.SelectedIndex]); 
         }
     }
 }
