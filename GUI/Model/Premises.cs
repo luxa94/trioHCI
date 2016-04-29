@@ -209,7 +209,7 @@ namespace HCI.Model
             Tags = new ObservableCollection<Tag>();
         }
 
-        /*       public Premises(String id, String name, String description, String alcoholServing, String price, bool isHandicapable, bool isSmokingAlowed, bool isReservingAvailable, int capacity, DateTime openingDate)
+               public Premises(String id, String name, String description, String alcoholServing, String price, bool isHandicapable, bool isSmokingAlowed, bool isReservingAvailable, int capacity, DateTime openingDate)
                {
                    this.id = id;
                    this.name = name;
@@ -221,6 +221,6 @@ namespace HCI.Model
                    this.isReservingAvailable = isReservingAvailable;
                    this.capacity = capacity;
                    this.openingDate = openingDate;
-               }*/
+               }
     }
 }
