@@ -78,7 +78,7 @@ namespace HCI.GUI
             tbOpen.IsEnabled = true;
             button.IsEnabled = true;
             button1.IsEnabled = true;
-            
+
         }
 
         private void buttonDelete_Click(object sender, RoutedEventArgs e)
@@ -101,6 +101,12 @@ namespace HCI.GUI
         {
           
 
+        }
+
+        private void btnAddNewType_Click(object sender, RoutedEventArgs e)
+        {
+            Window w = new TypeDialog();
+            w.ShowDialog();
         }
     }
 }

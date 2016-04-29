@@ -22,6 +22,7 @@ namespace HCI.Model
 
         public Type Type { get; set; }
         public ObservableCollection<Tag> Tags { get; set; }
+        public ObservableCollection<Type> Types { get; set; }
         private String id;
         private String name;
         private String description;
@@ -207,6 +208,7 @@ namespace HCI.Model
         public Premises()
         {
             Tags = new ObservableCollection<Tag>();
+            Types = new ObservableCollection<Type>();
         }
 
                public Premises(String id, String name, String description, String alcoholServing, String price, bool isHandicapable, bool isSmokingAlowed, bool isReservingAvailable, int capacity, DateTime openingDate)
