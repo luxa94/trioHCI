@@ -16,7 +16,7 @@
         
         <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Vertical" Background="LightGray">
             <Button Name="btnAddBusiness" Content="Dodaj Lokal" HorizontalAlignment="Right" Width="150" Click="btnAddBusiness_Click"></Button>
-            <Button Name="btnAddType" Content="Dodaj tip lokala" Click="btnAddType_Click"></Button>
+            <Button Name="btnAddType" Content="Dodaj tip lokala" Click="btnAddType_Click" ></Button>
             <Button Name="btnAddTag" Content="Dodaj Etiketu" Click="btnAddTag_Click"></Button>
         </StackPanel>
     </Grid>

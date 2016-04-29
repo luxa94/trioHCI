@@ -13,12 +13,14 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace HCI.GUI
 {
     /// <summary>
     /// Interaction logic for PremisesDialog.xaml
     /// </summary>
+
     public partial class PremisesDialog : Window
     {
         private Premises premises;
@@ -67,9 +69,11 @@ namespace HCI.GUI
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             Console.WriteLine("saved");
-            Close();
-        }
+            Window w = new TableView();
+            w.ShowDialog();
+       //     w.Close();
 
+        }
         private void btnAddNewType_Click(object sender, RoutedEventArgs e)
         {
             Window w = new TypeDialog();
