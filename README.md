@@ -23,7 +23,9 @@ Svaki **lokal** je opisan preko:
 
 **Ikonica** je sličica koja se učitava i koja se koristi da se lokal označi na mapi i može da se i ne postavi i,
 ako se ne postavi, onda se podrazumevano uzima ikonica tipa. 
-Status služenja alkohola je jedna od sledećih vrednosti:
+
+
+**Status služenja** alkohola je jedna od sledećih vrednosti:
 * ne služi
 * služi samo do 23:00
 * služi i kasno noću.
