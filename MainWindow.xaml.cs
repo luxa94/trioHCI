@@ -25,6 +25,11 @@ namespace HCI
         public MainWindow()
         {
             InitializeComponent();
+
+            using (var ctx = new DatabaseModel())
+            {
+
+            }
         }
 
         private void btnAddBusiness_Click(object sender, RoutedEventArgs e)

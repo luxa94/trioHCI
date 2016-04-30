@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace HCI.Model
 {
@@ -33,7 +34,7 @@ namespace HCI.Model
         private Boolean isReservingAvailable;
         public int capacity;
         public DateTime openingDate;
-
+        [Key]
         public string Id
         {
             get
