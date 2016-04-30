@@ -109,7 +109,10 @@ namespace HCI.GUI
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
+            //mali hack jer se izgubi selektovani jedino ovde
+            int sIndex = dgrMain.SelectedIndex;
             Premises[dgrMain.SelectedIndex] = Selected;
+            dgrMain.SelectedIndex = sIndex;
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
