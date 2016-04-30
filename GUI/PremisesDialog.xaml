@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HCI.GUI"
+        xmlns:System="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="Add new permises" Height="700" Width="500">
     <Grid>
@@ -67,7 +68,7 @@
 
             <!-- row 9 -->
             <Label Grid.Column="0" Grid.Row="9" Content="Opening date:"/>
-            <DatePicker Name="dpOpeningDate" Grid.Column="1" Grid.Row="9" Text="{Binding Path=Date}" Margin="0,2,2,2"></DatePicker>
+            <DatePicker Name="dpOpeningDate" Grid.Column="1" Grid.Row="9" SelectedDate="{Binding Path=OpeningDate}" Margin="0,2,2,2"></DatePicker>
 
             <!-- row 10 -->
             <Label Grid.Column="0" Grid.Row="10" Content="Type:"/>
