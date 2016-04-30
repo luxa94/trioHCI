@@ -41,8 +41,55 @@ namespace HCI.GUI
             tbPrice.DataContext = Selected;
             tbReser.DataContext = Selected;
             tbSmok.DataContext = Selected;
+            cbType.DataContext = Selected;
             Premises = Globals.Premisses;
 
+        }
+
+        private void setSelected()
+        {
+            if (dgrMain.SelectedIndex != -1)
+            {                
+                //deep copy
+                Selected.Id = Premises[dgrMain.SelectedIndex].Id;
+                Selected.Name = Premises[dgrMain.SelectedIndex].Name;
+                Selected.Description = Premises[dgrMain.SelectedIndex].Description;
+                Selected.AlcoholServing = Premises[dgrMain.SelectedIndex].AlcoholServing;
+                Selected.Price = Premises[dgrMain.SelectedIndex].Price;
+                Selected.IsSmokingAlowed = Premises[dgrMain.SelectedIndex].IsSmokingAlowed;
+                Selected.IsHandicapable = Premises[dgrMain.SelectedIndex].IsHandicapable;
+                Selected.IsReservingAvailable = Premises[dgrMain.SelectedIndex].IsReservingAvailable;
+                Selected.Capacity = Premises[dgrMain.SelectedIndex].Capacity;
+                Selected.OpeningDate = Premises[dgrMain.SelectedIndex].OpeningDate;
+                Selected.Type = Premises[dgrMain.SelectedIndex].Type;
+            }
+            else
+            {
+                //deep copy
+                Selected.Id = "";
+                Selected.Name = "";
+                Selected.Description = "";
+                Selected.IsHandicapable = false;
+                Selected.IsReservingAvailable = false;
+                Selected.IsSmokingAlowed = false;
+                Selected.Capacity = 0;
+                Selected.OpeningDate = new DateTime();
+            }
+        }
+
+        private void enableFields(bool e)
+        {
+            tbName.IsEnabled = e;
+            tbDesc.IsEnabled = e;
+            tbAlc.IsEnabled = e;
+            tbPrice.IsEnabled = e;
+            tbHand.IsEnabled = e;
+            tbSmok.IsEnabled = e;
+            tbReser.IsEnabled = e;
+            tbCapa.IsEnabled = e;
+            tbOpen.IsEnabled = e;
+            btnCancel.IsEnabled = e;
+            btnDelete.IsEnabled = e;
         }
 
         private void dgrMain_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -50,56 +97,11 @@ namespace HCI.GUI
             if (dgrMain.SelectedIndex != -1)
             {
                 Console.WriteLine("***** indeks selektovanog: " + dgrMain.SelectedIndex);
-                Selected = Premises[dgrMain.SelectedIndex];
-                //deep copy
-                Selected = new Premises(
-                    Premises[dgrMain.SelectedIndex].Id,
-                    Premises[dgrMain.SelectedIndex].Name,
-                    Premises[dgrMain.SelectedIndex].Description,
-                    Premises[dgrMain.SelectedIndex].AlcoholServing,
-                    Premises[dgrMain.SelectedIndex].Price,
-                    Premises[dgrMain.SelectedIndex].IsHandicapable,
-                    Premises[dgrMain.SelectedIndex].IsSmokingAlowed,
-                    Premises[dgrMain.SelectedIndex].IsReservingAvailable,
-                    Premises[dgrMain.SelectedIndex].Capacity,
-                    Premises[dgrMain.SelectedIndex].OpeningDate
-                    );
+                setSelected();
                 Console.WriteLine("******* id selektovanog: " + Selected.Id);
+                Console.WriteLine("******* datum selektovanog: " + Selected.OpeningDate);
             }
-            
-            tbName.IsEnabled = true;
-            tbDesc.IsEnabled = true;
-            tbAlc.IsEnabled = true;
-            tbPrice.IsEnabled = true;
-            tbHand.IsEnabled = true;
-            tbSmok.IsEnabled = true;
-            tbReser.IsEnabled = true;
-            tbCapa.IsEnabled = true;
-            tbOpen.IsEnabled = true;
-            button.IsEnabled = true;
-            button1.IsEnabled = true;
-
-        }
-
-        private void buttonDelete_Click(object sender, RoutedEventArgs e)
-        {
-            Premises.Remove(Premises[dgrMain.SelectedIndex]);
-            tbName.IsEnabled = false;
-            tbDesc.IsEnabled = false;
-            tbAlc.IsEnabled = false;
-            tbPrice.IsEnabled = false;
-            tbHand.IsEnabled = false;
-            tbSmok.IsEnabled = false;
-            tbReser.IsEnabled = false;
-            tbCapa.IsEnabled = false;
-            tbOpen.IsEnabled = false;
-            button.IsEnabled = false;
-            button1.IsEnabled = false;
-        }
-
-        private void button1_Click(object sender, RoutedEventArgs e)
-        {
-          
+            enableFields(true);
 
         }
 
@@ -107,6 +109,19 @@ namespace HCI.GUI
         {
             Window w = new TypeDialog();
             w.ShowDialog();
+        }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+           
+            Premises.Remove(Premises[dgrMain.SelectedIndex]);
+            setSelected();
+            enableFields(false);
+        }
+
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            setSelected();
         }
     }
 }
