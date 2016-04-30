@@ -83,7 +83,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="GUI\TableView.xaml">
+    <Page Include="GUI\PremisesTableView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -114,8 +114,8 @@
     <Compile Include="GUI\PremisesDialog.xaml.cs">
       <DependentUpon>PremisesDialog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GUI\TableView.xaml.cs">
-      <DependentUpon>TableView.xaml</DependentUpon>
+    <Compile Include="GUI\PremisesTableView.xaml.cs">
+      <DependentUpon>PremisesTableView.xaml</DependentUpon>
     </Compile>
     <Compile Include="GUI\TagsDialog.xaml.cs">
       <DependentUpon>TagsDialog.xaml</DependentUpon>

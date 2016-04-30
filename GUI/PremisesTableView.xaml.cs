@@ -1,7 +1,8 @@
-﻿using System;
-using HCI.Model;
+﻿using HCI.Model;
 using HCI.Model.Global;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,20 +14,18 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using System.Collections.ObjectModel;
-
 
 namespace HCI.GUI
 {
     /// <summary>
-    /// Interaction logic for TableView.xaml
+    /// Interaction logic for PremisesTableView.xaml
     /// </summary>
-    public partial class TableView : Window
+    public partial class PremisesTableView : Window
     {
-        public ObservableCollection<Premises> Premises{ get; set;}
+        public ObservableCollection<Premises> Premises { get; set; }
         public Premises Selected { get; set; }
 
-        public TableView()
+        public PremisesTableView()
         {
             InitializeComponent();
             Selected = new Premises();
@@ -42,14 +41,14 @@ namespace HCI.GUI
             tbReser.DataContext = Selected;
             tbSmok.DataContext = Selected;
             cbType.DataContext = Selected;
+            cbType.ItemsSource = Globals.Types;
             Premises = Globals.Premisses;
-
         }
 
         private void setSelected()
         {
             if (dgrMain.SelectedIndex != -1)
-            {                
+            {
                 //deep copy
                 Selected.Id = Premises[dgrMain.SelectedIndex].Id;
                 Selected.Name = Premises[dgrMain.SelectedIndex].Name;
@@ -88,8 +87,11 @@ namespace HCI.GUI
             tbReser.IsEnabled = e;
             tbCapa.IsEnabled = e;
             tbOpen.IsEnabled = e;
+            cbType.IsEnabled = e;
             btnCancel.IsEnabled = e;
             btnDelete.IsEnabled = e;
+            btnAddNewType.IsEnabled = e;
+            btnSave.IsEnabled = e;
         }
 
         private void dgrMain_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -99,24 +101,34 @@ namespace HCI.GUI
                 Console.WriteLine("***** indeks selektovanog: " + dgrMain.SelectedIndex);
                 setSelected();
                 Console.WriteLine("******* id selektovanog: " + Selected.Id);
-                Console.WriteLine("******* datum selektovanog: " + Selected.OpeningDate);
+                Console.WriteLine("******* tip selektovanog: " + Selected.Type);
             }
             enableFields(true);
 
+        }
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+            Premises[dgrMain.SelectedIndex] = Selected;
+        }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgrMain.SelectedIndex != -1)
+            {
+                Premises.Remove(Premises[dgrMain.SelectedIndex]);
+                setSelected();
+                enableFields(false);
+            }
+            else{
+                MessageBox.Show("You have to select one premise from table!");
+            }
         }
 
         private void btnAddNewType_Click(object sender, RoutedEventArgs e)
         {
             Window w = new TypeDialog();
             w.ShowDialog();
-        }
-
-        private void btnDelete_Click(object sender, RoutedEventArgs e)
-        {
-           
-            Premises.Remove(Premises[dgrMain.SelectedIndex]);
-            setSelected();
-            enableFields(false);
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
