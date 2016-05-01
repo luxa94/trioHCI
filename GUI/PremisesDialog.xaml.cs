@@ -69,9 +69,7 @@ namespace HCI.GUI
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             Console.WriteLine("saved");
-            //     Window w = new TableView();
-            //     w.ShowDialog();
-            //     w.Close();
+            Console.WriteLine("******* datum sacuvanog: " + premises.OpeningDate);
             Globals.Premisses.Add(premises);
             Close();
         }
