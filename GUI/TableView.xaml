@@ -6,20 +6,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HCI.GUI"
         mc:Ignorable="d"
-        Title="Premises table view" Height="633" Width="486">
+        Title="Premises table view" Height="633" Width="700">
 
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition />
-            <RowDefinition />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto"/>
 
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="dgrMain" ItemsSource="{Binding Path=Premises}" IsReadOnly="True" SelectionChanged="dgrMain_SelectionChanged"/>
+        <DataGrid Grid.Column="0" Grid.Row="0"  x:Name="dgrMain" ItemsSource="{Binding Path=Premises}" IsReadOnly="True" SelectionChanged="dgrMain_SelectionChanged"/>
  
-        <Grid Grid.Column="0" Grid.Row="1" Height="271" VerticalAlignment="Top">
+        <Grid Grid.Column="0" Grid.Row="1" VerticalAlignment="Top">
             <Grid.RowDefinitions>
                 <RowDefinition Height="25"/>
                 <RowDefinition Height="25"/>
@@ -31,7 +32,7 @@
                 <RowDefinition Height="25"/>
                 <RowDefinition Height="25"/>
                 <RowDefinition Height="25"/>
-                <RowDefinition Height="25"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition MaxWidth="150"></ColumnDefinition>
@@ -46,7 +47,7 @@
             <Label Grid.Column="0" Grid.Row="6">IsSmokingAlowed:</Label>
             <Label Grid.Column="0" Grid.Row="7">IsReservingAvailable:</Label>
             <Label Grid.Column="0" Grid.Row="8">Capacity:</Label>
-            <Label Grid.Column="0" Grid.Row="9" Margin="0,0,0,-11">OpeningDate:</Label>
+            <Label Grid.Column="0" Grid.Row="9" >OpeningDate:</Label>
 
             <Label Grid.Column="0" Grid.Row="10" Content="Type:"/>
             <Grid Grid.Column="1" Grid.Row="10">
@@ -54,7 +55,7 @@
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <ComboBox Name="cbType" SelectedItem="{Binding Path=Type}" VerticalAlignment="Center" Margin="0,2,2,2" DisplayMemberPath="Name" Height="21" IsEnabled= "False"></ComboBox>
+                <ComboBox Name="cbType" SelectedItem="{Binding Path=Type, Mode=TwoWay}" SelectedValue="{Binding Path=TypeId}" VerticalAlignment="Center" Margin="0,2,2,2" DisplayMemberPath="Name" SelectedValuePath="Id" IsEnabled="False"></ComboBox>
                 <Button Name="btnAddNewType" Grid.Column="1" Grid.Row="0" Content="New type" Margin="2" Padding="20,0" Click="btnAddNewType_Click" IsEnabled ="False"></Button>
             </Grid>
 
@@ -71,7 +72,10 @@
             <TextBox Name="tbOpen" Grid.Column="1" Grid.Row="9" Text="{Binding Path=OpeningDate}" IsEnabled="False"></TextBox>
         </Grid>
 
-        <Button x:Name="btnDelete" Content="Delete" HorizontalAlignment="Left" Height="26" Margin="319,265,0,0" Grid.Row="1" VerticalAlignment="Top" Width="144" Click="btnDelete_Click" IsEnabled="False"/>
-        <Button x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Height="26" Margin="5,265,0,0" Grid.Row="1" VerticalAlignment="Top" Width="144" IsEnabled="False" Click="btnCancel_Click"/>
+        <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="2" FlowDirection="RightToLeft" Background="LightGray">
+            <Button Name="btnSave" Content="Save" Margin="10" Height="26" VerticalAlignment="Top" Width="144" Click="btnSave_Click"></Button>
+            <Button x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="10" Height="26" VerticalAlignment="Top" Width="144" IsEnabled="False" Click="btnCancel_Click"/>
+            <Button x:Name="btnDelete" Content="Delete" HorizontalAlignment="Left" Margin="10" Height="26" VerticalAlignment="Top" Width="144" Click="btnDelete_Click" IsEnabled="False"/>
+        </StackPanel>
     </Grid>
 </Window>

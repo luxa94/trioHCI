@@ -7,12 +7,15 @@ using System.Threading.Tasks;
 using System.IO;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Runtime.InteropServices;
 
 namespace HCI.Model
 {
     public class Premises : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+
         protected virtual void OnPropertyChanged(string name)
         {
             if (PropertyChanged != null)
@@ -20,10 +23,22 @@ namespace HCI.Model
                 PropertyChanged(this, new PropertyChangedEventArgs(name));
             }
         }
+        public string TypeId { get; set; }
 
-        public Type Type { get; set; }
+        [ForeignKey("TypeId")]
+        public Type Type {
+            get { return _type; }
+            set
+            {
+                _type = value;
+                if (value != null)
+                {
+                    TypeId = value.Id;
+                }
+            }
+        }
         public ObservableCollection<Tag> Tags { get; set; }
-        public ObservableCollection<Type> Types { get; set; }
+        private Type _type;
         private String id;
         private String name;
         private String description;
@@ -34,13 +49,11 @@ namespace HCI.Model
         private Boolean isReservingAvailable;
         public int capacity;
         public DateTime openingDate;
+
         [Key]
         public string Id
         {
-            get
-            {
-                return id;
-            }
+            get { return id; }
 
             set
             {
@@ -49,16 +62,12 @@ namespace HCI.Model
                     id = value;
                     OnPropertyChanged("Id");
                 }
-
             }
         }
 
         public string Name
         {
-            get
-            {
-                return name;
-            }
+            get { return name; }
 
             set
             {
@@ -72,14 +81,11 @@ namespace HCI.Model
 
         public string Description
         {
-            get
-            {
-                return description;
-            }
+            get { return description; }
 
             set
             {
-                if(value != description)
+                if (value != description)
                 {
                     description = value;
                     OnPropertyChanged("Description");
@@ -89,10 +95,7 @@ namespace HCI.Model
 
         public string AlcoholServing
         {
-            get
-            {
-                return alcoholServing;
-            }
+            get { return alcoholServing; }
 
             set
             {
@@ -106,10 +109,7 @@ namespace HCI.Model
 
         public string Price
         {
-            get
-            {
-                return price;
-            }
+            get { return price; }
 
             set
             {
@@ -123,10 +123,7 @@ namespace HCI.Model
 
         public bool IsHandicapable
         {
-            get
-            {
-                return isHandicapable;
-            }
+            get { return isHandicapable; }
 
             set
             {
@@ -140,10 +137,7 @@ namespace HCI.Model
 
         public bool IsSmokingAlowed
         {
-            get
-            {
-                return isSmokingAlowed;
-            }
+            get { return isSmokingAlowed; }
 
             set
             {
@@ -157,10 +151,7 @@ namespace HCI.Model
 
         public bool IsReservingAvailable
         {
-            get
-            {
-                return isReservingAvailable;
-            }
+            get { return isReservingAvailable; }
 
             set
             {
@@ -174,10 +165,7 @@ namespace HCI.Model
 
         public int Capacity
         {
-            get
-            {
-                return capacity;
-            }
+            get { return capacity; }
 
             set
             {
@@ -191,10 +179,7 @@ namespace HCI.Model
 
         public DateTime OpeningDate
         {
-            get
-            {
-                return openingDate;
-            }
+            get { return openingDate; }
 
             set
             {
@@ -208,22 +193,23 @@ namespace HCI.Model
 
         public Premises()
         {
-            Tags = new ObservableCollection<Tag>();
-            Types = new ObservableCollection<Type>();
+//            Tags = new ObservableCollection<Tag>();
+            openingDate = DateTime.Now;
         }
 
-               public Premises(String id, String name, String description, String alcoholServing, String price, bool isHandicapable, bool isSmokingAlowed, bool isReservingAvailable, int capacity, DateTime openingDate)
-               {
-                   this.id = id;
-                   this.name = name;
-                   this.description = description;
-                   this.alcoholServing = alcoholServing;
-                   this.price = price;
-                   this.isHandicapable = isHandicapable;
-                   this.isSmokingAlowed = IsSmokingAlowed;
-                   this.isReservingAvailable = isReservingAvailable;
-                   this.capacity = capacity;
-                   this.openingDate = openingDate;
-               }
+        public Premises(String id, String name, String description, String alcoholServing, String price,
+            bool isHandicapable, bool isSmokingAlowed, bool isReservingAvailable, int capacity, DateTime openingDate)
+        {
+            this.id = id;
+            this.name = name;
+            this.description = description;
+            this.alcoholServing = alcoholServing;
+            this.price = price;
+            this.isHandicapable = isHandicapable;
+            this.isSmokingAlowed = IsSmokingAlowed;
+            this.isReservingAvailable = isReservingAvailable;
+            this.capacity = capacity;
+            this.openingDate = openingDate;
+        }
     }
 }

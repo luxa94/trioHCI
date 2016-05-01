@@ -34,8 +34,12 @@ namespace HCI.GUI
         }
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
-        {
-            Globals.Types.Add(type);
+        {    
+            using (var ctx = new DatabaseModel())
+            {
+                ctx.Types.Add(type);
+                ctx.SaveChanges();
+            }
             Close();
         }
     }

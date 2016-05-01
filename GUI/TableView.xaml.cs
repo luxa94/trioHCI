@@ -24,6 +24,7 @@ namespace HCI.GUI
     public partial class TableView : Window
     {
         public ObservableCollection<Premises> Premises{ get; set;}
+        public ObservableCollection<Model.Type> Types { get; set; }
         public Premises Selected { get; set; }
 
         public TableView()
@@ -42,8 +43,12 @@ namespace HCI.GUI
             tbReser.DataContext = Selected;
             tbSmok.DataContext = Selected;
             cbType.DataContext = Selected;
-            Premises = Globals.Premisses;
-
+            using (var ctx = new DatabaseModel())
+            {
+                Premises = new ObservableCollection<Premises>(ctx.Premises.Include("Type"));
+                Types = new ObservableCollection<Model.Type>(ctx.Types);
+                cbType.ItemsSource = Types;
+            }
         }
 
         private void setSelected()
@@ -90,6 +95,8 @@ namespace HCI.GUI
             tbOpen.IsEnabled = e;
             btnCancel.IsEnabled = e;
             btnDelete.IsEnabled = e;
+            cbType.IsEnabled = e;
+            btnAddNewType.IsEnabled = e;
         }
 
         private void dgrMain_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -122,6 +129,11 @@ namespace HCI.GUI
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
             setSelected();
+        }
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

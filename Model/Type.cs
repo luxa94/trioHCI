@@ -4,11 +4,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Windows.Controls;
 
 namespace HCI.Model
 {
     public class Type : INotifyPropertyChanged
     {
+        public override bool Equals(object obj)
+        {
+            Type other = obj as Type;
+            if (other == null)
+            {
+                return false;
+            }
+            return this.Id.Equals(other.id);
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged(string name)
         {
@@ -18,10 +31,19 @@ namespace HCI.Model
             }
         }
 
+        public Type()
+        {
+            Premises = new List<Premises>();
+        }
+
+        [InverseProperty("Type")]
+        public ICollection<Premises> Premises { get; set; }
+
         private String id;
         private String name;
         private String description;
 
+        [Key]
         public string Id
         {
             get

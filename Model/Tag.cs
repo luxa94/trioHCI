@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace HCI.Model
 {
@@ -21,6 +23,9 @@ namespace HCI.Model
         private String color;
         private String description;
 
+        public ObservableCollection<Premises> Premises { get; set; }
+
+        [Key]
         public string Id
         {
             get

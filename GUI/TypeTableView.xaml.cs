@@ -27,7 +27,10 @@ namespace HCI.GUI
         {
             InitializeComponent();
             this.DataContext = this;
-            Types = Globals.Types;
+            using (var ctx = new DatabaseModel())
+            {
+                Types = new ObservableCollection<Model.Type>(ctx.Types);
+            }
         }
 
         private void dgrMain_SelectionChanged(object sender, SelectionChangedEventArgs e)

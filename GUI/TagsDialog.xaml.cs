@@ -34,7 +34,11 @@ namespace HCI.GUI
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            Globals.Tags.Add(tag);
+            using (var ctx = new DatabaseModel())
+            {
+                ctx.Tags.Add(tag);
+                ctx.SaveChanges();
+            }
             Close();
         }
 

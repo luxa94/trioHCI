@@ -29,7 +29,10 @@ namespace HCI.GUI
         {
             InitializeComponent();
             this.DataContext = this;
-            Tags = Globals.Tags;
+            using (var ctx = new DatabaseModel())
+            {
+                Tags = new ObservableCollection<Tag>(ctx.Tags);
+            }
         }
 
         private void dgrMain_SelectionChanged(object sender, SelectionChangedEventArgs e)
