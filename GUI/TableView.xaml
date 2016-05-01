@@ -52,7 +52,7 @@
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <ComboBox Name="cbType" SelectedItem="{Binding Path=Type}" VerticalAlignment="Center" Margin="0,2,2,2" DisplayMemberPath="Name" Height="21" IsEnabled= "False"></ComboBox>
+                <ComboBox Name="cbType" SelectedItem="{Binding Path=Premises.Type}" VerticalAlignment="Center" Margin="0,2,2,2" DisplayMemberPath="Name" Height="21" IsEnabled= "False"></ComboBox>
                 <Button Name="btnAddNewType" Grid.Column="1" Grid.Row="0" Content="New type" Margin="2" Padding="20,0" Click="btnAddNewType_Click" IsEnabled ="False"></Button>
             </Grid>
 
