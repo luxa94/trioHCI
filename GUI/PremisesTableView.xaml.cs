@@ -43,6 +43,7 @@ namespace HCI.GUI
             cbType.DataContext = Selected;
             cbType.ItemsSource = Globals.Types;
             Premises = Globals.Premisses;
+            enableFields(false);
         }
 
         private void setSelected()

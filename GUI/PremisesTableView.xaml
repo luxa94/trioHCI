@@ -43,14 +43,7 @@
             <Label Grid.Column="0" Grid.Row="8">Capacity:</Label>
             <Label Grid.Column="0" Grid.Row="9" Margin="0,0,0,-11">OpeningDate:</Label>
             <Label Grid.Column="0" Grid.Row="10" Content="Type:"/>
-            <Grid Grid.Column="1" Grid.Row="10">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="Auto"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <ComboBox Name="cbType" SelectedItem="{Binding Path=Premises.Type}" VerticalAlignment="Center" Margin="0,2,2,2" DisplayMemberPath="Name" Height="21" IsEnabled= "False"></ComboBox>
-                <Button Name="btnAddNewType" Grid.Column="1" Grid.Row="0" Content="New type" Margin="2" Padding="20,0" Click="btnAddNewType_Click" IsEnabled ="False"></Button>
-            </Grid>
+
 
             <TextBox Name="tbId" Grid.Column="1" Grid.Row="0" Text="{Binding Path=Id}" IsEnabled="False"></TextBox>
             <TextBox Name="tbName" Grid.Column="1" Grid.Row="1" Text="{Binding Path=Name}" IsEnabled="False"></TextBox>
@@ -62,6 +55,14 @@
             <CheckBox Name="tbReser" Grid.Column="1" Grid.Row="7" IsChecked="{Binding Path=IsReservingAvailable}" IsEnabled="False"></CheckBox>
             <TextBox Name="tbCapa" Grid.Column="1" Grid.Row="8" Text="{Binding Path=Capacity}" IsEnabled="False"></TextBox>
             <TextBox Name="tbOpen" Grid.Column="1" Grid.Row="9" Text="{Binding Path=OpeningDate}" IsEnabled="False"></TextBox>
+            <Grid Grid.Column="1" Grid.Row="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <ComboBox Name="cbType" SelectedValue="{Binding Path=Type.Id}" VerticalAlignment="Center" Margin="0,2,2,2" DisplayMemberPath="Name" Height="21" IsEnabled= "False"></ComboBox>
+                <Button Name="btnAddNewType" Grid.Column="1" Grid.Row="0" Content="New type" Margin="2" Padding="20,0" Click="btnAddNewType_Click" IsEnabled ="False"></Button>
+            </Grid>
         </Grid>
         <StackPanel Grid.Column="0" Grid.Row="2" Orientation="Horizontal" FlowDirection="RightToLeft" Background="LightGray">
             <Button Name="btnDelete" Content="Delete" Click="btnDelete_Click" Margin="10" Padding="20,5"></Button>
