@@ -11,6 +11,7 @@
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition />
+            <RowDefinition Height="Auto"></RowDefinition>
 
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -39,7 +40,10 @@
 
             <TextBox Name="tbDescription" Grid.Column="1" Grid.Row="2" Text="{Binding Path=Description}" IsEnabled="False"></TextBox>
         </Grid>
-        <Button x:Name="button1" Content="Cancel" HorizontalAlignment="Left" Height="26" Margin="4,90,0,0" Grid.Row="1" VerticalAlignment="Top" Width="134" IsEnabled="False"/>
-        <Button x:Name="button" Content="Delete" HorizontalAlignment="Left" Height="26" Margin="143,90,0,0" Grid.Row="1" VerticalAlignment="Top" Width="134" Click="buttonDelete_Click" IsEnabled="False"/>
+        <StackPanel Grid.Column="0" Grid.Row="2" Orientation="Horizontal" FlowDirection="RightToLeft" Background="LightGray">
+            <Button x:Name="btnDelete" Content="Delete" Click="buttonDelete_Click" Margin="10" Padding="20,5" IsEnabled="False"/>
+            <Button x:Name="btnCancel" Content="Cancel" Click="btnCancel_Click" Margin="10" Padding="20,5" IsEnabled="False"/>
+            <Button x:Name="btnSave" Content="Save" IsDefault="True" Click="btnSave_Click" Margin="10" Padding="20,5" IsEnabled="False"/>
+        </StackPanel>
     </Grid>
 </Window>

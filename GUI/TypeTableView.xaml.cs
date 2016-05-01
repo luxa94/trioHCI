@@ -1,4 +1,5 @@
 ﻿using HCI.Model.Global;
+using HCI.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -22,25 +23,79 @@ namespace HCI.GUI
     public partial class TypeTableView : Window
     {
         public ObservableCollection<Model.Type> Types { get; set; }
+        public Model.Type Selected { get;  set;}
 
         public TypeTableView()
         {
             InitializeComponent();
+            Selected = new Model.Type();
             this.DataContext = this;
+            tbId.DataContext = Selected;
+            tbName.DataContext = Selected;
+            tbDescription.DataContext = Selected;
             Types = Globals.Types;
+        }
+
+        private void setSelected()
+        {
+            if (dgrMain.SelectedIndex != -1)
+            {
+                //deep copy
+                Selected.Id = Types[dgrMain.SelectedIndex].Id;
+                Selected.Name = Types[dgrMain.SelectedIndex].Name;
+                Selected.Description = Types[dgrMain.SelectedIndex].Description;
+            }
+            else
+            {
+                //deep copy
+                Selected.Id = "";
+                Selected.Name = "";
+                Selected.Description = "";
+            }
+        }
+
+        private void enableFields(bool e)
+        {
+            tbName.IsEnabled = e;
+            tbDescription.IsEnabled = e;
+            btnCancel.IsEnabled = e;
+            btnDelete.IsEnabled = e;
+            btnSave.IsEnabled = e;
         }
 
         private void dgrMain_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            tbName.IsEnabled = true;
-            tbDescription.IsEnabled = true;
-            button.IsEnabled = true;
-            button1.IsEnabled = true;
+   
+            if (dgrMain.SelectedIndex != -1)
+            {
+                setSelected();
+            }
+            enableFields(true);
         }
 
         private void buttonDelete_Click(object sender, RoutedEventArgs e)
         {
-            Types.Remove(Types[dgrMain.SelectedIndex]); 
+            if (dgrMain.SelectedIndex != -1)
+            {
+                Types.Remove(Types[dgrMain.SelectedIndex]);
+                setSelected();
+                enableFields(false);
+            }
+            else {
+                MessageBox.Show("You have to select one premise from table!");
+            } 
+        }
+
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            setSelected();
+        }
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+            int sIndex = dgrMain.SelectedIndex;
+            Types[dgrMain.SelectedIndex] = Selected;
+            dgrMain.SelectedIndex = sIndex;
         }
     }
 }
