@@ -31,13 +31,13 @@ namespace HCI.GUI
             Selected = new Premises();
             this.DataContext = this;
             tbId.DataContext = Selected;
-            tbAlc.DataContext = Selected;
+            cbAlcohol.ItemsSource = Globals.AlcoholServings;
             tbCapa.DataContext = Selected;
             tbDesc.DataContext = Selected;
             tbHand.DataContext = Selected;
             tbName.DataContext = Selected;
             tbOpen.DataContext = Selected;
-            tbPrice.DataContext = Selected;
+            cbPrice.ItemsSource = Globals.PriceCategories;
             tbReser.DataContext = Selected;
             tbSmok.DataContext = Selected;
             cbType.DataContext = Selected;
@@ -74,6 +74,8 @@ namespace HCI.GUI
                 Selected.IsSmokingAlowed = false;
                 Selected.Capacity = 0;
                 Selected.OpeningDate = new DateTime();
+                // Resiti problem sa combom!
+                // - price, alcohol i type, color kod taga
             }
         }
 
@@ -81,8 +83,8 @@ namespace HCI.GUI
         {
             tbName.IsEnabled = e;
             tbDesc.IsEnabled = e;
-            tbAlc.IsEnabled = e;
-            tbPrice.IsEnabled = e;
+            cbAlcohol.IsEnabled = e;
+            cbPrice.IsEnabled = e;
             tbHand.IsEnabled = e;
             tbSmok.IsEnabled = e;
             tbReser.IsEnabled = e;

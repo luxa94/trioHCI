@@ -48,8 +48,8 @@
             <TextBox Name="tbId" Grid.Column="1" Grid.Row="0" Text="{Binding Path=Id}" IsEnabled="False"></TextBox>
             <TextBox Name="tbName" Grid.Column="1" Grid.Row="1" Text="{Binding Path=Name}" IsEnabled="False"></TextBox>
             <TextBox Name="tbDesc" Grid.Column="1" Grid.Row="2" Text="{Binding Path=Description}" IsEnabled="False"></TextBox>
-            <TextBox Name="tbAlc" Grid.Column="1" Grid.Row="3" Text="{Binding Path=AlcoholServing}" IsEnabled="False"></TextBox>
-            <TextBox Name="tbPrice" Grid.Column="1" Grid.Row="4" Text="{Binding Path=Price}" IsEnabled="False"></TextBox>
+            <ComboBox Name="cbAlcohol" Grid.Column="1" Grid.Row="3" SelectedItem="{Binding Path=AlcoholServing}" VerticalAlignment="Center" Margin="0,0,2,0" IsEnabled ="False"></ComboBox>
+            <ComboBox Name="cbPrice" Grid.Column="1" Grid.Row="4" SelectedItem="{Binding Path=Price}" VerticalAlignment="Center" Margin="0,0,2,0" IsEditable="False"></ComboBox>
             <CheckBox Name="tbHand" Grid.Column="1" Grid.Row="5" IsChecked="{Binding Path=IsHandicapable}" IsEnabled="False"></CheckBox>
             <CheckBox Name="tbSmok" Grid.Column="1" Grid.Row="6" IsChecked="{Binding Path=IsSmokingAlowed}" IsEnabled="False"></CheckBox>
             <CheckBox Name="tbReser" Grid.Column="1" Grid.Row="7" IsChecked="{Binding Path=IsReservingAvailable}" IsEnabled="False"></CheckBox>
