@@ -53,6 +53,7 @@ namespace HCI.GUI
                 Selected.Description = "";
             }
         }
+
         private void enableFields(bool e)
         {
             tbName.IsEnabled = e;
