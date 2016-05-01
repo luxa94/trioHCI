@@ -32,6 +32,7 @@ namespace HCI.GUI
             this.DataContext = this;
             tbId.DataContext = Selected;
             cbAlcohol.ItemsSource = Globals.AlcoholServings;
+            cbAlcohol.DataContext = this;
             tbCapa.DataContext = Selected;
             tbDesc.DataContext = Selected;
             tbHand.DataContext = Selected;
@@ -55,14 +56,18 @@ namespace HCI.GUI
                 Selected.Name = Premises[dgrMain.SelectedIndex].Name;
                 Selected.Description = Premises[dgrMain.SelectedIndex].Description;
                 Selected.AlcoholServing = Premises[dgrMain.SelectedIndex].AlcoholServing;
+                cbAlcohol.SelectedItem = Selected.AlcoholServing;
                 Selected.Price = Premises[dgrMain.SelectedIndex].Price;
+                cbPrice.SelectedItem = Selected.Price;
                 Selected.IsSmokingAlowed = Premises[dgrMain.SelectedIndex].IsSmokingAlowed;
                 Selected.IsHandicapable = Premises[dgrMain.SelectedIndex].IsHandicapable;
                 Selected.IsReservingAvailable = Premises[dgrMain.SelectedIndex].IsReservingAvailable;
                 Selected.Capacity = Premises[dgrMain.SelectedIndex].Capacity;
                 Selected.OpeningDate = Premises[dgrMain.SelectedIndex].OpeningDate;
                 Selected.Type = Premises[dgrMain.SelectedIndex].Type;
+                cbType.SelectedItem = Selected.Type.Id;
             }
+           
             else
             {
                 //deep copy
@@ -77,6 +82,7 @@ namespace HCI.GUI
                 // Resiti problem sa combom!
                 // - price, alcohol i type, color kod taga
             }
+   
         }
 
         private void enableFields(bool e)

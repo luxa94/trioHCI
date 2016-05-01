@@ -21,6 +21,8 @@ namespace HCI.Model
         private String id;
         private String name;
         private String description;
+        private String pathImage;
+        
 
         public string Id
         {
@@ -70,6 +72,19 @@ namespace HCI.Model
                     description = value;
                     OnPropertyChanged("Description");
                 }
+            }
+        }
+
+        public string PathImage
+        {
+            get
+            {
+                return pathImage;
+            }
+
+            set
+            {
+                pathImage = value;
             }
         }
     }

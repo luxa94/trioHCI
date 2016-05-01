@@ -97,7 +97,7 @@ namespace HCI.Model
                 if (value != alcoholServing)
                 {
                     alcoholServing = value;
-                    OnPropertyChanged("AlcoholServing");
+                    OnPropertyChanged("AlcoholServing2");
                 }
             }
         }

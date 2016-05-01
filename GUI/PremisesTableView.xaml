@@ -13,7 +13,9 @@
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
-        <DataGrid Grid.Row="0" Grid.Column="0" x:Name="dgrMain" ItemsSource="{Binding Path=Premises}" IsReadOnly="True" SelectionChanged="dgrMain_SelectionChanged"/>
+        <DataGrid Grid.Row="0" Grid.Column="0" x:Name="dgrMain" ItemsSource="{Binding Path=Premises}" IsReadOnly="True" SelectionChanged="dgrMain_SelectionChanged" />
+        
+        
         <Grid Grid.Row="1" Grid.Column="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition MaxWidth="150"></ColumnDefinition>
@@ -42,13 +44,13 @@
             <Label Grid.Column="0" Grid.Row="7">IsReservingAvailable:</Label>
             <Label Grid.Column="0" Grid.Row="8">Capacity:</Label>
             <Label Grid.Column="0" Grid.Row="9" Margin="0,0,0,-11">OpeningDate:</Label>
-            <Label Grid.Column="0" Grid.Row="10" Content="Type:"/>
+            <Label Grid.Column="0" Grid.Row="10">Type:</Label>
 
 
             <TextBox Name="tbId" Grid.Column="1" Grid.Row="0" Text="{Binding Path=Id}" IsEnabled="False"></TextBox>
             <TextBox Name="tbName" Grid.Column="1" Grid.Row="1" Text="{Binding Path=Name}" IsEnabled="False"></TextBox>
             <TextBox Name="tbDesc" Grid.Column="1" Grid.Row="2" Text="{Binding Path=Description}" IsEnabled="False"></TextBox>
-            <ComboBox Name="cbAlcohol" Grid.Column="1" Grid.Row="3" SelectedItem="{Binding Path=AlcoholServing}" VerticalAlignment="Center" Margin="0,0,2,0" IsEnabled ="False"></ComboBox>
+            <ComboBox Name="cbAlcohol" Grid.Column="1" Grid.Row="3" SelectedItem="{Binding Selected.AlcoholServing}" VerticalAlignment="Center" Margin="0,0,2,0" IsEnabled ="False"></ComboBox>
             <ComboBox Name="cbPrice" Grid.Column="1" Grid.Row="4" SelectedItem="{Binding Path=Price}" VerticalAlignment="Center" Margin="0,0,2,0" IsEditable="False"></ComboBox>
             <CheckBox Name="tbHand" Grid.Column="1" Grid.Row="5" IsChecked="{Binding Path=IsHandicapable}" IsEnabled="False"></CheckBox>
             <CheckBox Name="tbSmok" Grid.Column="1" Grid.Row="6" IsChecked="{Binding Path=IsSmokingAlowed}" IsEnabled="False"></CheckBox>
@@ -60,7 +62,7 @@
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <ComboBox Name="cbType" SelectedValue="{Binding Path=Type.Id}" VerticalAlignment="Center" Margin="0,2,2,2" DisplayMemberPath="Name" Height="21" IsEnabled= "False"></ComboBox>
+                <ComboBox Name="cbType" SelectedItem="{Binding Path=Type.Id}" VerticalAlignment="Center" Margin="0,2,2,2" DisplayMemberPath="Name" Height="21" IsEnabled= "False"></ComboBox>
                 <Button Name="btnAddNewType" Grid.Column="1" Grid.Row="0" Content="New type" Margin="2" Padding="20,0" Click="btnAddNewType_Click" IsEnabled ="False"></Button>
             </Grid>
         </Grid>
