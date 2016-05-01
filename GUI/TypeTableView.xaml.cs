@@ -22,13 +22,13 @@ namespace HCI.GUI
     /// </summary>
     public partial class TypeTableView : Window
     {
-        public ObservableCollection<Model.Type> Types { get; set; }
-        public Model.Type Selected { get;  set;}
+        public ObservableCollection<HCI.Model.Type> Types { get; set; }
+        public HCI.Model.Type Selected { get;  set;}
 
         public TypeTableView()
         {
             InitializeComponent();
-            Selected = new Model.Type();
+            Selected = new HCI.Model.Type();
             this.DataContext = this;
             tbId.DataContext = Selected;
             tbName.DataContext = Selected;

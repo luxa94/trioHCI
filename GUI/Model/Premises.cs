@@ -1,14 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
 using System.ComponentModel;
+using System.Runtime.Serialization;
+using System.Xml.Serialization;
 
 namespace HCI.Model
 {
+    [DataContract]
     public class Premises : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
@@ -33,6 +31,7 @@ namespace HCI.Model
         public int capacity;
         public DateTime openingDate;
 
+        [DataMember]
         public string Id
         {
             get
@@ -51,6 +50,7 @@ namespace HCI.Model
             }
         }
 
+        [DataMember]
         public string Name
         {
             get
@@ -68,6 +68,7 @@ namespace HCI.Model
             }
         }
 
+        [DataMember]
         public string Description
         {
             get
@@ -85,6 +86,7 @@ namespace HCI.Model
             }
         }
 
+        [DataMember]
         public string AlcoholServing
         {
             get
@@ -102,6 +104,7 @@ namespace HCI.Model
             }
         }
 
+        [DataMember]
         public string Price
         {
             get
@@ -119,6 +122,7 @@ namespace HCI.Model
             }
         }
 
+        [DataMember]
         public bool IsHandicapable
         {
             get
@@ -136,6 +140,7 @@ namespace HCI.Model
             }
         }
 
+        [DataMember]
         public bool IsSmokingAlowed
         {
             get
@@ -153,6 +158,7 @@ namespace HCI.Model
             }
         }
 
+        [DataMember]
         public bool IsReservingAvailable
         {
             get
@@ -170,6 +176,7 @@ namespace HCI.Model
             }
         }
 
+        [DataMember]
         public int Capacity
         {
             get
@@ -187,6 +194,7 @@ namespace HCI.Model
             }
         }
 
+        [DataMember]
         public DateTime OpeningDate
         {
             get

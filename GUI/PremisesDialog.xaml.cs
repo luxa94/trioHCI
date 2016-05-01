@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.IO;
+using HCI.GUI.Model.Global;
 
 namespace HCI.GUI
 {
@@ -71,6 +72,7 @@ namespace HCI.GUI
             Console.WriteLine("saved");
             Console.WriteLine("******* datum sacuvanog: " + premises.OpeningDate);
             Globals.Premisses.Add(premises);
+           // Serialization.serialize();
             Close();
         }
         private void btnAddNewType_Click(object sender, RoutedEventArgs e)

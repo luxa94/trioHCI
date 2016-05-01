@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using System.Runtime.Serialization;
 
 namespace HCI.Model
 {
+    [DataContract]
     public class Type : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
@@ -22,6 +24,7 @@ namespace HCI.Model
         private String name;
         private String description;
 
+        [DataMember]
         public string Id
         {
             get
@@ -38,7 +41,7 @@ namespace HCI.Model
                 }
             }
         }
-
+        [DataMember]
         public string Name
         {
             get
@@ -55,7 +58,7 @@ namespace HCI.Model
                 }
             }
         }
-
+        [DataMember]
         public string Description
         {
             get
