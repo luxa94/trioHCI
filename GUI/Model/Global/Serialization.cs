@@ -37,5 +37,29 @@ namespace HCI.GUI.Model.Global
             }
             
         }
+
+        public static void deserialize()
+        {
+            XmlSerializer deserializerPremises = new XmlSerializer(typeof(ObservableCollection<Premises>));
+            XmlSerializer deserializerTags = new XmlSerializer(typeof(ObservableCollection<Tag>));
+            XmlSerializer deserializerTypes = new XmlSerializer(typeof(ObservableCollection<HCI.Model.Type>));
+
+            Console.WriteLine("Deserijalizujem...");
+
+            using (TextReader twPremises = new StreamReader("../../Serialization/premises.xml"))
+            {
+                Globals.Premisses = (ObservableCollection<Premises>)deserializerPremises.Deserialize(twPremises);
+            }
+
+            using (TextReader twTags = new StreamReader("../../Serialization/tags.xml"))
+            {
+                Globals.Tags = (ObservableCollection<Tag>)deserializerTags.Deserialize(twTags);
+            }
+
+            using (TextReader twTypes = new StreamReader("../../Serialization/types.xml"))
+            {
+                Globals.Types = (ObservableCollection<HCI.Model.Type>)deserializerTypes.Deserialize(twTypes);
+            }
+        }
     }
 }

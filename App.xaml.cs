@@ -18,5 +18,10 @@ namespace HCI
         {
             Serialization.serialize();
         }
+
+        private void Application_Startup(object sender, StartupEventArgs e)
+        {
+            Serialization.deserialize();
+        }
     }
 }
