@@ -22,12 +22,12 @@ namespace HCI.GUI
     /// </summary>
     public partial class TypeDialog : Window
     {
-        private Model.Type type; 
+        private HCI.Model.Type type;
 
         public TypeDialog()
         {
             InitializeComponent();
-            type = new Model.Type();
+            type = new HCI.Model.Type();
 
             tbDescription.DataContext = type;
             tbId.DataContext = type;

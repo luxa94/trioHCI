@@ -22,7 +22,7 @@ namespace HCI.GUI
     /// </summary>
     public partial class TagTableView : Window
     {
-        public ObservableCollection<Model.Tag> Tags { get; set; }
+        public ObservableCollection<Tag> Tags { get; set; }
         public Tag Selected { get; set; }
   
 
