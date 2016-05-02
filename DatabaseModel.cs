@@ -43,7 +43,6 @@ namespace HCI
 
         public void UpdatePremises(Premises p)
         {
-            p.Type = Types.SingleOrDefault(t => t.Id == p.TypeId);
             Entry(p).State = EntityState.Modified;
             SaveChanges();
         }

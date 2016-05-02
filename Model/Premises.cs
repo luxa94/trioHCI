@@ -21,19 +21,8 @@ namespace HCI.Model
                 PropertyChanged(this, new PropertyChangedEventArgs(name));
             }
         }
-        public string TypeId { get; set; }
         
-        public Type Type {
-            get { return _type; }
-            set
-            {
-                _type = value;
-                if (value != null)
-                {
-                    TypeId = value.Id;
-                }
-            }
-        }
+        public virtual Type Type { get; set; }
         public ObservableCollection<Tag> Tags { get; set; }
         private Type _type;
         private String id;
@@ -259,7 +248,6 @@ namespace HCI.Model
             this.Capacity = other.capacity;
             this.OpeningDate = other.openingDate;
             this.PathImage = other.pathImage;
-            this.TypeId = other.TypeId;
             this.Type = other.Type;
             this.Tags = new ObservableCollection<Tag>(other.Tags);
         }
