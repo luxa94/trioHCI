@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:HCI.GUI"
         xmlns:System="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="Add new permises" Height="700" Width="700">
+        Title="Add new permises" Height="700" Width="700" Background="LightCyan">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
@@ -41,7 +41,7 @@
             <Label Grid.Column="0" Grid.Row="0" Content="Id:" />
             <TextBox Name="tbId" Grid.Column="1" Grid.Row="0" VerticalContentAlignment="Center"
                      Text="{Binding Path=Id}" Margin="0,2,2,2" />
-
+            
             <!-- row 1 -->
             <Label Grid.Column="0" Grid.Row="1" Content="Name:" />
             <TextBox Name="tbName" Grid.Column="1" Grid.Row="1" VerticalContentAlignment="Center"
