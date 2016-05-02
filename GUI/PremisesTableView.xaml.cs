@@ -54,10 +54,6 @@ namespace HCI.GUI
             using (var ctx = new DatabaseModel())
             {
                 Premises = new ObservableCollection<Premises>(ctx.Premises.Include(p => p.Tags).Include(p => p.Type));
-//                foreach (Premises p in Premises)
-//                {
-//                    p.Type = ctx.Types.Single(t => t.Id == p.TypeId);
-//                }
                 Types = new ObservableCollection<HCI.Model.Type>(ctx.Types);
                 cbType.ItemsSource = Types;
             }
