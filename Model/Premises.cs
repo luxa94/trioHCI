@@ -193,7 +193,7 @@ namespace HCI.Model
 
         public Premises()
         {
-//            Tags = new ObservableCollection<Tag>();
+            Tags = new ObservableCollection<Tag>();
             openingDate = DateTime.Now;
         }
 

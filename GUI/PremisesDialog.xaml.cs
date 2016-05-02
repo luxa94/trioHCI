@@ -27,8 +27,11 @@ namespace HCI.GUI
 
     public partial class PremisesDialog : Window
     {
+        Point startPoint = new Point();
         private Premises premises;
         private ObservableCollection<Model.Type> Types;
+        public ObservableCollection<Tag> AllTags { get; set; }
+        public ObservableCollection<Tag> SelectedTags { get; set; }
 
         public Premises Premises
         {
@@ -64,11 +67,18 @@ namespace HCI.GUI
             dpOpeningDate.DataContext = premises;
 
             cbType.DataContext = premises;
+            SelectedTags = new ObservableCollection<Tag>();
+
             using (var ctx = new DatabaseModel())
             {
                 Types = new ObservableCollection<Type>(ctx.Types);
+                AllTags = new ObservableCollection<Tag>(ctx.Tags);
                 cbType.ItemsSource = Types;
-            }            
+                cbType.SelectedItem = Premises.Type;
+                lvAllTags.ItemsSource = AllTags;
+                
+            }
+            lvSelected.ItemsSource = SelectedTags;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -80,12 +90,15 @@ namespace HCI.GUI
         {
             Console.WriteLine("saved");
             Console.WriteLine("******* datum sacuvanog: " + premises.OpeningDate);
+            premises.Tags = new ObservableCollection<Tag>(SelectedTags);
+      
             using (var ctx = new DatabaseModel())
             {
-                premises.Type.Premises.Add(premises);
-                ctx.Premises.AddOrUpdate(premises);
-                ctx.Types.Attach(premises.Type);
-                ctx.SaveChanges();
+//                premises.Type.Premises.Add(premises);
+//                ctx.Premises.AddOrUpdate(premises);
+//                ctx.Types.Attach(premises.Type);
+//                ctx.SaveChanges();
+                ctx.AddPremises(premises);
             }
             Close();
         }
@@ -98,6 +111,83 @@ namespace HCI.GUI
             {
                 Types = new ObservableCollection<Type>(ctx.Types);
                 cbType.ItemsSource = Types;
+            }
+        }
+
+        private static T FindAncestor<T>(DependencyObject current) where T : DependencyObject
+        {
+            do
+            {
+                if (current is T)
+                {
+                    return (T)current;
+                }
+                current = VisualTreeHelper.GetParent(current);
+            }
+            while (current != null);
+            return null;
+        }
+
+        private void ListView_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            startPoint = e.GetPosition(null);
+        }
+
+        private void ListView_MouseMove(object sender, MouseEventArgs e)
+        {
+            Point mousePos = e.GetPosition(null);
+            Vector diff = startPoint - mousePos;
+
+            if (e.LeftButton == MouseButtonState.Pressed &&
+                (Math.Abs(diff.X) > SystemParameters.MinimumHorizontalDragDistance ||
+                Math.Abs(diff.Y) > SystemParameters.MinimumVerticalDragDistance))
+            {
+                // Get the dragged ListViewItem
+                ListView listView = sender as ListView;
+                ListViewItem listViewItem =
+                    FindAncestor<ListViewItem>((DependencyObject)e.OriginalSource);
+                if (listViewItem != null)
+                { 
+                    // Find the data behind the ListViewItem
+                    Tag t = listView.ItemContainerGenerator.
+                        ItemFromContainer(listViewItem) as Tag;
+
+                    // Initialize the drag & drop operation
+                    DataObject dragData = new DataObject("myFormat", t);
+                    DragDrop.DoDragDrop(listViewItem, dragData, DragDropEffects.Move);
+                }
+            }
+        }
+
+        private void ListView_DragEnter(object sender, DragEventArgs e)
+        {
+            if (!e.Data.GetDataPresent("myFormat") || sender == e.Source)
+            {
+                e.Effects = DragDropEffects.None;
+            }
+        }
+
+        private void ListView_Drop(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent("myFormat"))
+            {
+                Tag student = e.Data.GetData("myFormat") as Tag;
+                AllTags.Remove(student);
+                SelectedTags.Remove(student);
+                SelectedTags.Add(student);
+                Console.WriteLine(SelectedTags.ToString());
+            }
+        }
+
+        private void AllList_Drop(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent("myFormat"))
+            {
+                Tag student = e.Data.GetData("myFormat") as Tag;
+                SelectedTags.Remove(student);
+                AllTags.Remove(student);
+                AllTags.Add(student);
+                Console.WriteLine(SelectedTags.ToString());
             }
         }
     }

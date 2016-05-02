@@ -1,3 +1,4 @@
+using System.Data.Entity.Migrations;
 using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace HCI
@@ -43,6 +44,21 @@ namespace HCI
                     pt.MapRightKey("TagId");
                     pt.ToTable("PremisesTag");
                 });
+        }
+
+        public void AddPremises(Premises p)
+        { 
+            Premises.Add(p);
+            p.Type.Premises.Add(p);
+            Types.Attach(p.Type);
+
+            foreach (Tag t in p.Tags)
+            {
+                Tags.Attach(t);
+                t.Premises.Add(p);
+            }
+
+            SaveChanges();
         }
 
         // Add a DbSet for each entity type that you want to include in your model. For more information 

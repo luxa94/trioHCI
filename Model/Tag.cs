@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HCI.Model
 {
@@ -23,7 +24,13 @@ namespace HCI.Model
         private String color;
         private String description;
 
-        public ObservableCollection<Premises> Premises { get; set; }
+        public Tag()
+        {
+            Premises = new HashSet<Premises>();
+        }
+
+        [InverseProperty("Tags")]
+        public HashSet<Premises> Premises { get; set; }
 
         [Key]
         public string Id

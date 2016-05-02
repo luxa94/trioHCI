@@ -9,82 +9,132 @@
         Title="Add new permises" Height="700" Width="500">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <Grid Grid.Column="0" Grid.Row="0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition MaxWidth="150"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition MaxWidth="150" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="30"></RowDefinition>
-                <RowDefinition Height="30"></RowDefinition>
-                <RowDefinition Height="90"></RowDefinition>
-                <RowDefinition Height="30"></RowDefinition>
-                <RowDefinition Height="30"></RowDefinition>
-                <RowDefinition Height="30"></RowDefinition>
-                <RowDefinition Height="30"></RowDefinition>
-                <RowDefinition Height="30"></RowDefinition>
-                <RowDefinition Height="30"></RowDefinition>
-                <RowDefinition Height="30"></RowDefinition>
-                <RowDefinition Height="30"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="90" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
             <!-- row 0 -->
-            <Label Grid.Column="0" Grid.Row="0" Content="Id:"></Label>
-            <TextBox Name="tbId" Grid.Column="1" Grid.Row="0" VerticalContentAlignment="Center" Text="{Binding Path=Id}" Margin="0,2,2,2"></TextBox>
+            <Label Grid.Column="0" Grid.Row="0" Content="Id:" />
+            <TextBox Name="tbId" Grid.Column="1" Grid.Row="0" VerticalContentAlignment="Center"
+                     Text="{Binding Path=Id}" Margin="0,2,2,2" />
 
             <!-- row 1 -->
-            <Label Grid.Column="0" Grid.Row="1" Content="Name:"></Label>
-            <TextBox Name="tbName" Grid.Column="1" Grid.Row="1" VerticalContentAlignment="Center" Text="{Binding Path=Name}" Margin="0,2,2,2"></TextBox>
+            <Label Grid.Column="0" Grid.Row="1" Content="Name:" />
+            <TextBox Name="tbName" Grid.Column="1" Grid.Row="1" VerticalContentAlignment="Center"
+                     Text="{Binding Path=Name}" Margin="0,2,2,2" />
 
             <!-- row 2 -->
-            <Label Grid.Column="0" Grid.Row="2" Content="Description:"/>
-            <TextBox Name="tbDescription" Grid.Column="1" Grid.Row="2" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Text="{Binding Path=Description}" Margin="0,2,2,2"></TextBox>
+            <Label Grid.Column="0" Grid.Row="2" Content="Description:" />
+            <TextBox Name="tbDescription" Grid.Column="1" Grid.Row="2" AcceptsReturn="True" TextWrapping="Wrap"
+                     VerticalScrollBarVisibility="Auto" Text="{Binding Path=Description}" Margin="0,2,2,2" />
 
             <!-- row 3 -->
-            <CheckBox Name="cbHandicapable" Grid.Row="3" Grid.Column="1" Content="Accessible for persons with disabilities" VerticalAlignment="Center" IsChecked="{Binding Path=IsHandicapable}"></CheckBox>
+            <CheckBox Name="cbHandicapable" Grid.Row="3" Grid.Column="1"
+                      Content="Accessible for persons with disabilities" VerticalAlignment="Center"
+                      IsChecked="{Binding Path=IsHandicapable}" />
 
             <!-- row 4 -->
-            <CheckBox Name="cbSmoking" Grid.Row="4" Grid.Column="1" Content="Smoking allowed" VerticalAlignment="Center" IsChecked="{Binding Path=IsSmokingAlowed}"></CheckBox>
+            <CheckBox Name="cbSmoking" Grid.Row="4" Grid.Column="1" Content="Smoking allowed"
+                      VerticalAlignment="Center" IsChecked="{Binding Path=IsSmokingAlowed}" />
 
             <!-- row 5 -->
-            <CheckBox Name="cbReservations" Grid.Row="5" Grid.Column="1" Content="Possible reservations" VerticalAlignment="Center" IsChecked="{Binding Path=IsReservingAvailable}"></CheckBox>
+            <CheckBox Name="cbReservations" Grid.Row="5" Grid.Column="1" Content="Possible reservations"
+                      VerticalAlignment="Center" IsChecked="{Binding Path=IsReservingAvailable}" />
 
             <!-- row 6 -->
-            <Label Grid.Column="0" Grid.Row="6" Content="Serving alcohol:"/>
-            <ComboBox Name="cbAlcohol" Grid.Column="1" Grid.Row="6" SelectedItem="{Binding Path=AlcoholServing}" VerticalAlignment="Center" Margin="0,0,2,0"></ComboBox>
+            <Label Grid.Column="0" Grid.Row="6" Content="Serving alcohol:" />
+            <ComboBox Name="cbAlcohol" Grid.Column="1" Grid.Row="6" SelectedItem="{Binding Path=AlcoholServing}"
+                      VerticalAlignment="Center" Margin="0,0,2,0" />
 
             <!-- row 7 -->
-            <Label Grid.Column="0" Grid.Row="7" Content="Prices:"/>
-            <ComboBox Name="cbPrice" Grid.Column="1" Grid.Row="7" SelectedItem="{Binding Path=Price}" VerticalAlignment="Center" Margin="0,0,2,0"></ComboBox>
+            <Label Grid.Column="0" Grid.Row="7" Content="Prices:" />
+            <ComboBox Name="cbPrice" Grid.Column="1" Grid.Row="7" SelectedItem="{Binding Path=Price}"
+                      VerticalAlignment="Center" Margin="0,0,2,0" />
 
             <!-- row 8 -->
-            <Label Grid.Column="0" Grid.Row="8" Content="Capacity:"/>
-            <TextBox Name="tbCapacity" Grid.Column="1" Grid.Row="8" VerticalContentAlignment="Center" Text="{Binding Path=Capacity,UpdateSourceTrigger=PropertyChanged}" Margin="0,2,2,2"></TextBox>
+            <Label Grid.Column="0" Grid.Row="8" Content="Capacity:" />
+            <TextBox Name="tbCapacity" Grid.Column="1" Grid.Row="8" VerticalContentAlignment="Center"
+                     Text="{Binding Path=Capacity,UpdateSourceTrigger=PropertyChanged}" Margin="0,2,2,2" />
 
             <!-- row 9 -->
-            <Label Grid.Column="0" Grid.Row="9" Content="Opening date:"/>
-            <DatePicker Name="dpOpeningDate" Grid.Column="1" Grid.Row="9" SelectedDate="{Binding Path=OpeningDate}" Margin="0,2,2,2"></DatePicker>
+            <Label Grid.Column="0" Grid.Row="9" Content="Opening date:" />
+            <DatePicker Name="dpOpeningDate" Grid.Column="1" Grid.Row="9" SelectedDate="{Binding Path=OpeningDate}"
+                        Margin="0,2,2,2" />
 
             <!-- row 10 -->
-            <Label Grid.Column="0" Grid.Row="10" Content="Type:"/>
+            <Label Grid.Column="0" Grid.Row="10" Content="Type:" />
             <Grid Grid.Column="1" Grid.Row="10">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
-                <ComboBox Name="cbType"  SelectedItem="{Binding Path=Type}" VerticalAlignment="Center" Margin="0,0,2,0" DisplayMemberPath="Name"></ComboBox>
-                <Button Name="btnAddNewType" Grid.Column="1" Grid.Row="0" Content="New type" Margin="2" Padding="20,0" Click="btnAddNewType_Click"></Button>
+                <ComboBox Name="cbType" SelectedItem="{Binding Path=Type}" VerticalAlignment="Center" Margin="0,0,2,0"
+                          DisplayMemberPath="Name" />
+                <Button Name="btnAddNewType" Grid.Column="1" Grid.Row="0" Content="New type" Margin="2" Padding="20,0"
+                        Click="btnAddNewType_Click" />
+            </Grid>
+            <Grid Grid.Row="11" Grid.ColumnSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <GroupBox Grid.Column="0" Grid.Row="0" Header="All Tags" BorderBrush="Black" >
+                    <ListView Name="lvAllTags" ItemsSource="{Binding AllTags}" PreviewMouseLeftButtonDown="ListView_PreviewMouseLeftButtonDown" MouseMove="ListView_MouseMove" AllowDrop="True" DragEnter="ListView_DragEnter" Drop="AllList_Drop">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <WrapPanel>
+                                    <Canvas Height="25" Width="25" Background="{Binding Color}"></Canvas>
+                                    <TextBlock Text="{Binding Id}" />
+                                    <TextBlock Text=" " />
+                                    <TextBlock Text="{Binding Name}" />
+                                </WrapPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </GroupBox>
+
+                <GroupBox Grid.Column="1" Grid.Row="0" Header="Selected Tags" BorderBrush="Black">
+                    <ListView Name="lvSelected" ItemsSource="{Binding AlAllTagslTypes}" PreviewMouseLeftButtonDown="ListView_PreviewMouseLeftButtonDown" MouseMove="ListView_MouseMove" AllowDrop="True" DragEnter="ListView_DragEnter" Drop="ListView_Drop">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <WrapPanel>
+                                    <Canvas Height="25" Width="25" Background="{Binding Color}"></Canvas>
+                                    <TextBlock Text="{Binding Id}" />
+                                    <TextBlock Text=" " />
+                                    <TextBlock Text="{Binding Name}" />
+                                </WrapPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </GroupBox>
+                
             </Grid>
         </Grid>
 
-        <StackPanel Grid.Column="0" Grid.Row="1" Orientation="Horizontal" FlowDirection="RightToLeft" Background="LightGray">
-            <Button Name="btnCancel" Content="Cancel" IsCancel="True" Margin="10" Padding="20,5"></Button>
-            <Button Name="btnSave" Content="Save" IsDefault="True" Click="btnSave_Click" Margin="10" Padding="20,5"/>
+        <StackPanel Grid.Column="0" Grid.Row="1" Orientation="Horizontal" FlowDirection="RightToLeft"
+                    Background="LightGray">
+            <Button Name="btnCancel" Content="Cancel" IsCancel="True" Margin="10" Padding="20,5" />
+            <Button Name="btnSave" Content="Save" IsDefault="True" Click="btnSave_Click" Margin="10" Padding="20,5" />
         </StackPanel>
     </Grid>
 </Window>
