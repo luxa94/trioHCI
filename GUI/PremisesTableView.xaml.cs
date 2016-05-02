@@ -53,11 +53,11 @@ namespace HCI.GUI
             imgIcon.DataContext = Selected;
             using (var ctx = new DatabaseModel())
             {
-                Premises = new ObservableCollection<Premises>(ctx.Premises.Include("Tags").Include("Type").ToList());
-                foreach (Premises p in Premises)
-                {
-                    p.Type = ctx.Types.Single(t => t.Id == p.TypeId);
-                }
+                Premises = new ObservableCollection<Premises>(ctx.Premises.Include(p => p.Tags).Include(p => p.Type));
+//                foreach (Premises p in Premises)
+//                {
+//                    p.Type = ctx.Types.Single(t => t.Id == p.TypeId);
+//                }
                 Types = new ObservableCollection<HCI.Model.Type>(ctx.Types);
                 cbType.ItemsSource = Types;
             }
@@ -131,7 +131,6 @@ namespace HCI.GUI
                     lvAllTags.ItemsSource = AllTags;
                     lvSelected.ItemsSource = SelectedTags;
     //                cbType.ItemsSource = new ObservableCollection<HCI.Model.Type>(ctx.Types);
-                    cbType.SelectedItem = ctx.Types.SingleOrDefault(t => t.Id == Selected.Type.Id);
                 }
                 enableFields(true);
             }
@@ -141,6 +140,8 @@ namespace HCI.GUI
         {
             //mali hack jer se izgubi selektovani jedino ovde
             int sIndex = dgrMain.SelectedIndex;
+            Selected.Tags = SelectedTags;
+            
             Premises[dgrMain.SelectedIndex].Copy(Selected);
             
             using (var ctx = new DatabaseModel())
@@ -160,11 +161,11 @@ namespace HCI.GUI
                 {
                     ctx.Entry(Premises[dgrMain.SelectedIndex]).State = EntityState.Deleted;
                     ctx.SaveChanges();
-                    Premises = new ObservableCollection<Premises>(ctx.Premises.Include("Tags").Include("Type").ToList());
-                    foreach (Premises p in Premises)
-                    {
-                        p.Type = ctx.Types.Single(t => t.Id == p.TypeId);
-                    }
+                    Premises = new ObservableCollection<Premises>(ctx.Premises.Include(p => p.Tags).Include(p => p.Type).ToList());
+                    //                    foreach (Premises p in Premises)
+                    //                    {
+                    //                        p.Type = ctx.Types.Single(t => t.Id == p.TypeId);
+                    //                    }
                     dgrMain.ItemsSource = Premises;
                 }
                 dgrMain.SelectedIndex = -1;

@@ -22,34 +22,12 @@ namespace HCI
         {
             Database.SetInitializer(new DropCreateDatabaseIfModelChanges<DatabaseModel>()); // ovo odkomentarisati da ne bi brisao podatke iz baze!
 //            Database.SetInitializer(new DropCreateDatabaseAlways<DatabaseModel>()); // ovo je kada se prvi put pokrece!!!!
-
-            this.Configuration.LazyLoadingEnabled = false;
-            this.Configuration.ProxyCreationEnabled = true;
         }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-            modelBuilder.Entity<Premises>()
-                .HasRequired<Model.Type>(p => p.Type)
-                .WithMany(t => t.Premises)
-                .HasForeignKey(p => p.TypeId);
-
-            modelBuilder.Entity<Premises>()
-                .HasMany<Tag>(p => p.Tags)
-                .WithMany(t => t.Premises)
-                .Map(pt =>
-                {
-                    pt.MapLeftKey("PremisesId");
-                    pt.MapRightKey("TagId");
-                    pt.ToTable("PremisesTag");
-                });
-        }
 
         public void AddPremises(Premises p)
         { 
             Premises.Add(p);
-            p.Type.Premises.Add(p);
             Types.Attach(p.Type);
 
             foreach (Tag t in p.Tags)

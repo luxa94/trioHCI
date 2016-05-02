@@ -22,8 +22,7 @@ namespace HCI.Model
             }
         }
         public string TypeId { get; set; }
-
-        [ForeignKey("TypeId")]
+        
         public Type Type {
             get { return _type; }
             set

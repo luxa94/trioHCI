@@ -41,7 +41,7 @@ namespace HCI.Model
             Premises = new HashSet<Premises>();
         }
 
-        [InverseProperty("Tags")]
+        
         public HashSet<Premises> Premises { get; set; }
 
         [Key]

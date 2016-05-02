@@ -35,11 +35,9 @@ namespace HCI.Model
 
         public Type()
         {
-            Premises = new List<Premises>(); pathImage = "photo1.png";
+            pathImage = "photo1.png";
         }
 
-        [InverseProperty("Type")]
-        public ICollection<Premises> Premises { get; set; }
 
         private String id;
         private String name;
