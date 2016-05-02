@@ -3,6 +3,7 @@ using HCI.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -47,7 +48,6 @@ namespace HCI.GUI
                 //deep copy
                 Selected.Id = Tags[dgrMain.SelectedIndex].Id;
                 Selected.Color = Tags[dgrMain.SelectedIndex].Color;
-                
                 Selected.Description = Tags[dgrMain.SelectedIndex].Description;
             }
             else
@@ -80,7 +80,7 @@ namespace HCI.GUI
         {
             if (dgrMain.SelectedIndex != -1)
             {
-                Tags[dgrMain.SelectedIndex].Color = colorPicker.SelectedColor.ToString();
+                Selected.Color = colorPicker.SelectedColor.ToString();
                 Console.WriteLine(Tags[dgrMain.SelectedIndex].Color);
             }
         }
@@ -90,7 +90,13 @@ namespace HCI.GUI
         {
             if (dgrMain.SelectedIndex != -1)
             {
-                Tags.Remove(Tags[dgrMain.SelectedIndex]);
+                using (var ctx = new DatabaseModel())
+                {
+                    ctx.Entry(Tags[dgrMain.SelectedIndex]).State = EntityState.Deleted;
+                    ctx.SaveChanges();
+                    Tags = new ObservableCollection<Tag>(ctx.Tags);
+                    dgrMain.ItemsSource = Tags;
+                }
                 setSelected();
                 enableFields(false);
             }
@@ -110,6 +116,11 @@ namespace HCI.GUI
             Tags[dgrMain.SelectedIndex].Id = Selected.Id;
             Tags[dgrMain.SelectedIndex].Description = Selected.Description;
             Tags[dgrMain.SelectedIndex].Color = Selected.Color;
+            using (var ctx = new DatabaseModel())
+            {
+                ctx.Entry(Tags[dgrMain.SelectedIndex]).State = EntityState.Modified;
+                ctx.SaveChanges();
+            }
             dgrMain.SelectedIndex = sIndex;
         }
     }

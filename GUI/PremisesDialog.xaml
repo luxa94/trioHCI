@@ -112,8 +112,6 @@
                                 <WrapPanel>
                                     <Canvas Height="25" Width="25" Background="{Binding Color}" />
                                     <TextBlock Text="{Binding Id}" />
-                                    <TextBlock Text=" " />
-                                    <TextBlock Text="{Binding Name}" />
                                 </WrapPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -130,8 +128,6 @@
                                 <WrapPanel>
                                     <Canvas Height="25" Width="25" Background="{Binding Color}" />
                                     <TextBlock Text="{Binding Id}" />
-                                    <TextBlock Text=" " />
-                                    <TextBlock Text="{Binding Name}" />
                                 </WrapPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
