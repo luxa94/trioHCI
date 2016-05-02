@@ -40,6 +40,24 @@
     <Id>sfa</Id>
     <Name>asfd</Name>
     <Description>asf</Description>
+    <AlcoholServing>does not serve</AlcoholServing>
+    <IsHandicapable>false</IsHandicapable>
+    <IsSmokingAlowed>false</IsSmokingAlowed>
+    <IsReservingAvailable>false</IsReservingAvailable>
+    <Capacity>0</Capacity>
+    <OpeningDate>0001-01-01T00:00:00</OpeningDate>
+  </Premises>
+  <Premises>
+    <capacity>0</capacity>
+    <openingDate>0001-01-01T00:00:00</openingDate>
+    <Type>
+      <PathImage>photo.png</PathImage>
+    </Type>
+    <Tags />
+    <Id>sfa</Id>
+    <Name>asfd</Name>
+    <Description>asf</Description>
+    <AlcoholServing>does not serve</AlcoholServing>
     <IsHandicapable>false</IsHandicapable>
     <IsSmokingAlowed>false</IsSmokingAlowed>
     <IsReservingAvailable>false</IsReservingAvailable>

@@ -19,4 +19,16 @@
   <Type>
     <PathImage>C:\Users\Nina\Desktop\luxafuxa.png</PathImage>
   </Type>
+  <Type>
+    <Id>dfa</Id>
+    <Name>adf</Name>
+    <Description>af</Description>
+    <PathImage>food.png</PathImage>
+  </Type>
+  <Type>
+    <Id>sdf</Id>
+    <Name>asf</Name>
+    <Description>af</Description>
+    <PathImage>food.png</PathImage>
+  </Type>
 </ArrayOfType>
