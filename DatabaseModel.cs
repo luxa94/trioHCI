@@ -20,8 +20,8 @@ namespace HCI
         public DatabaseModel()
             : base("name=DatabaseModel")
         {
-            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<DatabaseModel>()); // ovo odkomentarisati da ne bi brisao podatke iz baze!
-//            Database.SetInitializer(new DropCreateDatabaseAlways<DatabaseModel>()); // ovo je kada se prvi put pokrece!!!!
+            //Database.SetInitializer(new DropCreateDatabaseIfModelChanges<DatabaseModel>()); // ovo odkomentarisati da ne bi brisao podatke iz baze!
+            Database.SetInitializer(new DropCreateDatabaseAlways<DatabaseModel>()); // ovo je kada se prvi put pokrece!!!!
         }
 
 

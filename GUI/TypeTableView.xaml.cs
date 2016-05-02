@@ -104,7 +104,9 @@ namespace HCI.GUI
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             int sIndex = dgrMain.SelectedIndex;
-            Types[dgrMain.SelectedIndex] = Selected;
+            Types[dgrMain.SelectedIndex].Id = Selected.Id;
+            Types[dgrMain.SelectedIndex].Name = Selected.Name;
+            Types[dgrMain.SelectedIndex].PathImage = Selected.PathImage;
             dgrMain.SelectedIndex = sIndex;
         }
 
