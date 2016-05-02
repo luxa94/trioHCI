@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.IO;
 using HCI.GUI.Model.Global;
+using Microsoft.Win32;
 
 namespace HCI.GUI
 {
@@ -60,6 +61,9 @@ namespace HCI.GUI
             dpOpeningDate.DataContext = premises;
 
             cbType.ItemsSource = Globals.Types;
+
+            imgIcon.DataContext = premises;
+            imgIcon.Source = new BitmapImage(new Uri(premises.PathImage, UriKind.Relative));
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -79,6 +83,18 @@ namespace HCI.GUI
         {
             Window w = new TypeDialog();
             w.ShowDialog();
+        }
+
+        private void button_Click_1(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog chooseImage = new OpenFileDialog();
+            chooseImage.Filter = "Image files (*.png; *.jpeg; *.ico)| *.png; *.jpeg; *.ico|All files(*.*)|*.*";
+
+            if (chooseImage.ShowDialog() == true)
+            {
+                premises.PathImage = chooseImage.FileName;
+                imgIcon.Source = new BitmapImage(new Uri(premises.PathImage, UriKind.RelativeOrAbsolute));
+            }
         }
     }
 }
