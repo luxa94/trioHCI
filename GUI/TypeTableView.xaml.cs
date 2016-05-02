@@ -14,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Microsoft.Win32;
 
 namespace HCI.GUI
 {
@@ -33,6 +34,8 @@ namespace HCI.GUI
             tbId.DataContext = Selected;
             tbName.DataContext = Selected;
             tbDescription.DataContext = Selected;
+            imgIcon.DataContext = Selected;
+            imgIcon.Source = new BitmapImage(new Uri(Selected.PathImage, UriKind.Relative));
             Types = Globals.Types;
         }
 
@@ -44,6 +47,8 @@ namespace HCI.GUI
                 Selected.Id = Types[dgrMain.SelectedIndex].Id;
                 Selected.Name = Types[dgrMain.SelectedIndex].Name;
                 Selected.Description = Types[dgrMain.SelectedIndex].Description;
+                Selected.PathImage = Types[dgrMain.SelectedIndex].PathImage;
+                imgIcon.Source = new BitmapImage(new Uri( Selected.PathImage, UriKind.RelativeOrAbsolute));
             }
             else
             {
@@ -51,6 +56,7 @@ namespace HCI.GUI
                 Selected.Id = "";
                 Selected.Name = "";
                 Selected.Description = "";
+                Selected.PathImage = "photo1.png";
             }
         }
 
@@ -61,6 +67,7 @@ namespace HCI.GUI
             btnCancel.IsEnabled = e;
             btnDelete.IsEnabled = e;
             btnSave.IsEnabled = e;
+            btnBrowse.IsEnabled = e;
         }
 
         private void dgrMain_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -96,6 +103,18 @@ namespace HCI.GUI
             int sIndex = dgrMain.SelectedIndex;
             Types[dgrMain.SelectedIndex] = Selected;
             dgrMain.SelectedIndex = sIndex;
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog chooseImage = new OpenFileDialog();
+            chooseImage.Filter = "Image files (*.png; *.jpeg; *.ico)| *.png; *.jpeg; *.ico|All files(*.*)|*.*";
+
+            if (chooseImage.ShowDialog() == true)
+            {
+                Selected.PathImage = chooseImage.FileName;
+                imgIcon.Source = new BitmapImage(new Uri(Selected.PathImage, UriKind.RelativeOrAbsolute));
+            }
         }
     }
 }

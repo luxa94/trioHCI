@@ -178,9 +178,6 @@
     <Resource Include="GUI\medicall.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="GUI\photo.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="GUI\photo1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
