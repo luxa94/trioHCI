@@ -28,10 +28,11 @@ namespace HCI.GUI
         {
             InitializeComponent();
             type = new HCI.Model.Type();
-
             tbDescription.DataContext = type;
             tbId.DataContext = type;
             tbName.DataContext = type;
+            imgIcon.DataContext = type;
+            imgIcon.Source = new BitmapImage(new Uri(type.PathImage, UriKind.Relative));
         }
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
@@ -42,10 +43,10 @@ namespace HCI.GUI
 
         private void btnBrowse_Click_1(object sender, RoutedEventArgs e)
         {
+            
             OpenFileDialog chooseImage = new OpenFileDialog();
             chooseImage.Filter = "Image files (*.png; *.jpeg; *.ico)| *.png; *.jpeg; *.ico|All files(*.*)|*.*";
 
-            //        DialogResult result = chooseImage.ShowDialog();
             if (chooseImage.ShowDialog() == true)
             {
                 type.PathImage = chooseImage.FileName;

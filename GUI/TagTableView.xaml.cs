@@ -44,7 +44,7 @@ namespace HCI.GUI
                 //deep copy
                 Selected.Id = Tags[dgrMain.SelectedIndex].Id;
                 Selected.Color = Tags[dgrMain.SelectedIndex].Color;
-             //   colorPicker.SelectedColor = new SolidColorBrush();
+                
                 Selected.Description = Tags[dgrMain.SelectedIndex].Description;
             }
             else

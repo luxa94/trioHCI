@@ -2,5 +2,21 @@
 <ArrayOfType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Type>
     <Id>aaaaaaaaaaaassssssssssss</Id>
+    <PathImage>photo.png</PathImage>
+  </Type>
+  <Type>
+    <Id>asf</Id>
+    <Name>asf</Name>
+    <Description>asdf</Description>
+    <PathImage>C:\Users\Nina\Desktop\luxafuxa.png</PathImage>
+  </Type>
+  <Type>
+    <Id>aerh</Id>
+    <Name>dart</Name>
+    <Description>agra</Description>
+    <PathImage>photo.png</PathImage>
+  </Type>
+  <Type>
+    <PathImage>C:\Users\Nina\Desktop\luxafuxa.png</PathImage>
   </Type>
 </ArrayOfType>

@@ -79,8 +79,7 @@ namespace HCI.GUI
                 Selected.IsSmokingAlowed = false;
                 Selected.Capacity = 0;
                 Selected.OpeningDate = new DateTime();
-                // Resiti problem sa combom!
-                // - price, alcohol i type, color kod taga
+                
             }
    
         }

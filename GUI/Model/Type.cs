@@ -24,6 +24,11 @@ namespace HCI.Model
         private String name;
         private String description;
         private String pathImage;
+
+        public Type()
+        {
+            pathImage = "food.png";
+        }
         
 
         [DataMember]

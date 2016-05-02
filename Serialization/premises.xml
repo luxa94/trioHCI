@@ -3,10 +3,43 @@
   <Premises>
     <capacity>0</capacity>
     <openingDate>0001-01-01T00:00:00</openingDate>
-    <Type />
+    <Type>
+      <PathImage>photo.png</PathImage>
+    </Type>
     <Tags />
     <Id>aaaaaaaaaaaaaaaaaaa</Id>
     <Name>aaaaaaaaaaaaa</Name>
+    <IsHandicapable>false</IsHandicapable>
+    <IsSmokingAlowed>false</IsSmokingAlowed>
+    <IsReservingAvailable>false</IsReservingAvailable>
+    <Capacity>0</Capacity>
+    <OpeningDate>0001-01-01T00:00:00</OpeningDate>
+  </Premises>
+  <Premises>
+    <capacity>0</capacity>
+    <openingDate>0001-01-01T00:00:00</openingDate>
+    <Type>
+      <PathImage>photo.png</PathImage>
+    </Type>
+    <Tags />
+    <Id>aaaaaaaaaaaaaaaaaaa</Id>
+    <Name>aaaaaaaaaaaaa</Name>
+    <IsHandicapable>false</IsHandicapable>
+    <IsSmokingAlowed>false</IsSmokingAlowed>
+    <IsReservingAvailable>false</IsReservingAvailable>
+    <Capacity>0</Capacity>
+    <OpeningDate>0001-01-01T00:00:00</OpeningDate>
+  </Premises>
+  <Premises>
+    <capacity>0</capacity>
+    <openingDate>0001-01-01T00:00:00</openingDate>
+    <Type>
+      <PathImage>photo.png</PathImage>
+    </Type>
+    <Tags />
+    <Id>sfa</Id>
+    <Name>asfd</Name>
+    <Description>asf</Description>
     <IsHandicapable>false</IsHandicapable>
     <IsSmokingAlowed>false</IsSmokingAlowed>
     <IsReservingAvailable>false</IsReservingAvailable>
