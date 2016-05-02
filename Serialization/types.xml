@@ -1,15 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ArrayOfType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Type>
-    <Id>aaaaaaaaaaaassssssssssss</Id>
-    <PathImage>photo.png</PathImage>
-  </Type>
-  <Type>
-    <Id>aaaaaaaaaaaassssssssssss</Id>
-    <PathImage>photo.png</PathImage>
-  </Type>
-  <Type>
-    <Id>aaaaaaaaaaaassssssssssss</Id>
-    <PathImage>photo.png</PathImage>
-  </Type>
-</ArrayOfType>
+<ArrayOfType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />

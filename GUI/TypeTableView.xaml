@@ -6,8 +6,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HCI.GUI"
         mc:Ignorable="d"
-        Title="Type table view" Height="285" Width="285">
-    <Grid>
+        Title="Type table view" Height="285" Width="292">
+    <Grid Margin="0,0,2,0">
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition />
@@ -30,7 +30,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition MaxWidth="150"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
-                
+
 
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" Grid.Row="0">Id:</Label>
@@ -47,7 +47,7 @@
             <Button x:Name="btnCancel" Content="Cancel" Click="btnCancel_Click" Margin="10" Padding="20,5" IsEnabled="False"/>
             <Button x:Name="btnSave" Content="Save" IsDefault="True" Click="btnSave_Click" Margin="10" Padding="20,5" IsEnabled="False"/>
         </StackPanel>
-        <Image x:Name="imgIcon" Grid.Column="2"  Source="{Binding PathImage}" HorizontalAlignment="Left" Height="42" Margin="26,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="42"/>
+        <Image x:Name="imgIcon" Grid.Column="2"  Source="{Binding PathImage}" HorizontalAlignment="Left" Height="42" Margin="28.333,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="42"/>
         <Button x:Name="btnBrowse" Content="Browse" Grid.Column="2" HorizontalAlignment="Left" Height="26" Margin="10,67,0,0" Grid.Row="1" VerticalAlignment="Top" Width="73" Click="button_Click" IsEnabled="False"/>
     </Grid>
 </Window>
