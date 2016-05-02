@@ -25,7 +25,17 @@ namespace HCI.Model
         private String id;
         private String color;
         private String description;
-        
+
+        public override bool Equals(object obj)
+        {
+            Tag other = obj as Tag;
+            if (other == null)
+            {
+                return false;
+            }
+            return this.Id.Equals(other.id);
+        }
+
         public Tag()
         {
             Premises = new HashSet<Premises>();

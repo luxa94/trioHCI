@@ -239,5 +239,30 @@ namespace HCI.Model
             this.capacity = capacity;
             this.openingDate = openingDate;
         }
+
+        public Premises Clone()
+        {
+            Premises p = new Premises();
+            p.Copy(this);
+            return p;
+        }
+
+        public void Copy(Premises other)
+        {
+            this.Id = other.Id;
+            this.Name = other.name;
+            this.Description = other.description;
+            this.AlcoholServing = other.alcoholServing;
+            this.Price = other.price;
+            this.IsHandicapable = other.isHandicapable;
+            this.IsSmokingAlowed = other.isSmokingAlowed;
+            this.IsReservingAvailable = other.isReservingAvailable;
+            this.Capacity = other.capacity;
+            this.OpeningDate = other.openingDate;
+            this.PathImage = other.pathImage;
+            this.TypeId = other.TypeId;
+            this.Type = other.Type;
+            this.Tags = new ObservableCollection<Tag>(other.Tags);
+        }
     }
 }

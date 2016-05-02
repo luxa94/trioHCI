@@ -6,76 +6,144 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HCI.GUI"
         mc:Ignorable="d"
-        Title="Premises table view" Height="633" Width="700">
+        Title="Premises table view" Height="633" Width="800">
 
     <Grid>
-        
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-        </Grid.RowDefinitions>
-        <DataGrid Grid.Row="0" Grid.Column="0" x:Name="dgrMain" ItemsSource="{Binding Path=Premises}" IsReadOnly="True" SelectionChanged="dgrMain_SelectionChanged" />
-        
-        
-        <Grid Grid.Row="1" Grid.Column="0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition MaxWidth="150"></ColumnDefinition>
-                        <ColumnDefinition Width="*"></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                <RowDefinition Height="25"/>
-                <RowDefinition Height="25"/>
-                <RowDefinition Height="25"/>
-                <RowDefinition Height="25"/>
-                <RowDefinition Height="25"/>
-                <RowDefinition Height="25"/>
-                <RowDefinition Height="25"/>
-                <RowDefinition Height="25"/>
-                <RowDefinition Height="25"/>
-                <RowDefinition Height="25"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <Label Grid.Column="0" Grid.Row="0">Id:</Label>
-            <Label Grid.Column="0" Grid.Row="1">Name:</Label>
-            <Label Grid.Column="0" Grid.Row="2">Description:</Label>
-            <Label Grid.Column="0" Grid.Row="3">AlcoholServing:</Label>
-            <Label Grid.Column="0" Grid.Row="4">Price:</Label>
-            <Label Grid.Column="0" Grid.Row="5">IsHandicapable:</Label>
-            <Label Grid.Column="0" Grid.Row="6">IsSmokingAlowed:</Label>
-            <Label Grid.Column="0" Grid.Row="7">IsReservingAvailable:</Label>
-                    <Label Grid.Column="0" Grid.Row="8">Capacity:</Label>
-                    <Label Grid.Column="0" Grid.Row="9" >OpeningDate:</Label>
 
-            <Label Grid.Column="0" Grid.Row="10" Content="Type:"/>
-            <Grid Grid.Column="1" Grid.Row="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <DataGrid Grid.Row="0" Grid.Column="0" x:Name="dgrMain" ItemsSource="{Binding Path=Premises}" IsReadOnly="True"
+                  SelectionChanged="dgrMain_SelectionChanged" />
+
+        <Grid Grid.Row="1" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Row="0" Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition MaxWidth="150" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label Grid.Column="0" Grid.Row="0">Id:</Label>
+                <Label Grid.Column="0" Grid.Row="1">Name:</Label>
+                <Label Grid.Column="0" Grid.Row="2">Description:</Label>
+                <Label Grid.Column="0" Grid.Row="3">AlcoholServing:</Label>
+                <Label Grid.Column="0" Grid.Row="4">Price:</Label>
+                <Label Grid.Column="0" Grid.Row="5">IsHandicapable:</Label>
+                <Label Grid.Column="0" Grid.Row="6">IsSmokingAlowed:</Label>
+                <Label Grid.Column="0" Grid.Row="7">IsReservingAvailable:</Label>
+                <Label Grid.Column="0" Grid.Row="8">Capacity:</Label>
+                <Label Grid.Column="0" Grid.Row="9">OpeningDate:</Label>
+
+                <Label Grid.Column="0" Grid.Row="10" Content="Type:" />
+                <Grid Grid.Column="1" Grid.Row="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <ComboBox Name="cbType" SelectedItem="{Binding Path=Type, Mode=TwoWay}" VerticalAlignment="Center" Margin="0,2,2,2"
+                              DisplayMemberPath="Name" SelectedValuePath="Id" IsEnabled="False" />
+                    <Button Name="btnAddNewType" Grid.Column="1" Grid.Row="0" Content="New type" Margin="2"
+                            Padding="20,0" Click="btnAddNewType_Click" IsEnabled="False" />
+                </Grid>
+
+
+                <TextBox Name="tbId" Grid.Column="1" Grid.Row="0" Text="{Binding Path=Id}" IsEnabled="False" />
+                <TextBox Name="tbName" Grid.Column="1" Grid.Row="1" Text="{Binding Path=Name}" IsEnabled="False" />
+                <TextBox Name="tbDesc" Grid.Column="1" Grid.Row="2" Text="{Binding Path=Description}" IsEnabled="False" />
+                <ComboBox Name="cbAlcohol" Grid.Column="1" Grid.Row="3"
+                          SelectedItem="{Binding Selected.AlcoholServing}" VerticalAlignment="Center" Margin="0,0,2,0"
+                          IsEnabled="False" />
+                <ComboBox Name="cbPrice" Grid.Column="1" Grid.Row="4" SelectedItem="{Binding Selected.Price}"
+                          VerticalAlignment="Center" Margin="0,0,2,0" IsEditable="False" />
+                <CheckBox Name="tbHand" Grid.Column="1" Grid.Row="5" IsChecked="{Binding Path=IsHandicapable}"
+                          IsEnabled="False" />
+                <CheckBox Name="tbSmok" Grid.Column="1" Grid.Row="6" IsChecked="{Binding Path=IsSmokingAlowed}"
+                          IsEnabled="False" />
+                <CheckBox Name="tbReser" Grid.Column="1" Grid.Row="7" IsChecked="{Binding Path=IsReservingAvailable}"
+                          IsEnabled="False" />
+                <TextBox Name="tbCapa" Grid.Column="1" Grid.Row="8" Text="{Binding Path=Capacity}" IsEnabled="False" />
+                <TextBox Name="tbOpen" Grid.Column="1" Grid.Row="9" Text="{Binding Path=OpeningDate}" IsEnabled="False" />
+            </Grid>
+            
+            <Grid Grid.Row="0" Grid.Column="1">
+                
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="150"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <ComboBox Name="cbType" SelectedItem="{Binding Path=Type, Mode=TwoWay}" SelectedValue="{Binding Path=TypeId}" VerticalAlignment="Center" Margin="0,2,2,2" DisplayMemberPath="Name" SelectedValuePath="Id" IsEnabled="False"></ComboBox>
-                <Button Name="btnAddNewType" Grid.Column="1" Grid.Row="0" Content="New type" Margin="2" Padding="20,0" Click="btnAddNewType_Click" IsEnabled ="False"></Button>
+                <GroupBox Grid.Column="0" Grid.Row="0" Header="All Tags" BorderBrush="Black">
+                    <ListView Name="lvAllTags" ItemsSource="{Binding AllTags}"
+                              PreviewMouseLeftButtonDown="ListView_PreviewMouseLeftButtonDown"
+                              MouseMove="ListView_MouseMove" AllowDrop="True" DragEnter="ListView_DragEnter"
+                              Drop="AllList_Drop">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <WrapPanel>
+                                    <Canvas Height="25" Width="25" Background="{Binding Color}" />
+                                    <TextBlock Text="{Binding Id}" />
+                                    <TextBlock Text=" " />
+                                    <TextBlock Text="{Binding Name}" />
+                                </WrapPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </GroupBox>
+
+                <GroupBox Grid.Column="1" Grid.Row="0" Header="Selected Tags" BorderBrush="Black">
+                    <ListView Name="lvSelected" ItemsSource="{Binding AlAllTagslTypes}"
+                              PreviewMouseLeftButtonDown="ListView_PreviewMouseLeftButtonDown"
+                              MouseMove="ListView_MouseMove" AllowDrop="True" DragEnter="ListView_DragEnter"
+                              Drop="ListView_Drop">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <WrapPanel>
+                                    <Canvas Height="25" Width="25" Background="{Binding Color}" />
+                                    <TextBlock Text="{Binding Id}" />
+                                    <TextBlock Text=" " />
+                                    <TextBlock Text="{Binding Name}" />
+                                </WrapPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </GroupBox>
+
+                <StackPanel Grid.Row="0" Grid.Column="2">
+                    <Label Content="Image:" HorizontalAlignment="Center" />
+                    <Image x:Name="imgIcon" Source="{Binding PathImage}" HorizontalAlignment="Center" MaxHeight="150" MaxWidth="150" />
+                    <Button x:Name="button" Content="Browse" Height="29" Width="93" Click="button_Click_1"
+                    HorizontalAlignment="Center" Margin="0,10,0,0" />
+                </StackPanel>
+
             </Grid>
-
-
-
-            <TextBox Name="tbId" Grid.Column="1" Grid.Row="0" Text="{Binding Path=Id}" IsEnabled="False"></TextBox>
-            <TextBox Name="tbName" Grid.Column="1" Grid.Row="1" Text="{Binding Path=Name}" IsEnabled="False"></TextBox>
-            <TextBox Name="tbDesc" Grid.Column="1" Grid.Row="2" Text="{Binding Path=Description}" IsEnabled="False"></TextBox>
-            <ComboBox Name="cbAlcohol" Grid.Column="1" Grid.Row="3" SelectedItem="{Binding Selected.AlcoholServing}" VerticalAlignment="Center" Margin="0,0,2,0" IsEnabled ="False"></ComboBox>
-            <ComboBox Name="cbPrice" Grid.Column="1" Grid.Row="4" SelectedItem="{Binding Selected.Price}" VerticalAlignment="Center" Margin="0,0,2,0" IsEditable="False"></ComboBox>
-            <CheckBox Name="tbHand" Grid.Column="1" Grid.Row="5" IsChecked="{Binding Path=IsHandicapable}" IsEnabled="False"></CheckBox>
-            <CheckBox Name="tbSmok" Grid.Column="1" Grid.Row="6" IsChecked="{Binding Path=IsSmokingAlowed}" IsEnabled="False"></CheckBox>
-            <CheckBox Name="tbReser" Grid.Column="1" Grid.Row="7" IsChecked="{Binding Path=IsReservingAvailable}" IsEnabled="False"></CheckBox>
-            <TextBox Name="tbCapa" Grid.Column="1" Grid.Row="8" Text="{Binding Path=Capacity}" IsEnabled="False"></TextBox>
-            <TextBox Name="tbOpen" Grid.Column="1" Grid.Row="9" Text="{Binding Path=OpeningDate}" IsEnabled="False"></TextBox>
+                
             
         </Grid>
 
-        <StackPanel Grid.Column="0" Grid.Row="2" Orientation="Horizontal" FlowDirection="RightToLeft" Background="LightGray">
-            <Button Name="btnDelete" Content="Delete" Click="btnDelete_Click" Margin="10" Padding="20,5"></Button>
-            <Button Name="btnCancel" Content="Cancel" Click="btnCancel_Click" Margin="10" Padding="20,5"></Button>
-                        <Button Name="btnSave" Content="Save" IsDefault="True" Click="btnSave_Click" Margin="10" Padding="20,5"/>
-       </StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="2" Orientation="Horizontal" FlowDirection="RightToLeft"
+                    Background="LightGray">
+            <Button Name="btnDelete" Content="Delete" Click="btnDelete_Click" Margin="10" Padding="20,5" />
+            <Button Name="btnCancel" Content="Cancel" Click="btnCancel_Click" Margin="10" Padding="20,5" />
+            <Button Name="btnSave" Content="Save" IsDefault="True" Click="btnSave_Click" Margin="10" Padding="20,5" />
+        </StackPanel>
     </Grid>
 </Window>

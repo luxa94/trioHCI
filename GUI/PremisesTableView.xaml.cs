@@ -3,6 +3,8 @@ using HCI.Model.Global;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +16,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Microsoft.Win32;
 using Xceed.Wpf.DataGrid.Views;
 
 namespace HCI.GUI
@@ -23,8 +26,11 @@ namespace HCI.GUI
     /// </summary>
     public partial class PremisesTableView : Window
     {
+        Point startPoint = new Point();
         public ObservableCollection<HCI.Model.Type> Types { get; set; }
         public ObservableCollection<Premises> Premises { get; set; }
+        public ObservableCollection<Tag> AllTags { get; set; }
+        public ObservableCollection<Tag> SelectedTags { get; set; }
         public Premises Selected { get; set; }
 
         public PremisesTableView()
@@ -44,34 +50,26 @@ namespace HCI.GUI
             tbReser.DataContext = Selected;
             tbSmok.DataContext = Selected;
             cbType.DataContext = Selected;
+            imgIcon.DataContext = Selected;
             using (var ctx = new DatabaseModel())
             {
-                Premises = new ObservableCollection<Premises>(ctx.Premises.Include("Type"));
+                Premises = new ObservableCollection<Premises>(ctx.Premises.Include("Tags").Include("Type").ToList());
+                foreach (Premises p in Premises)
+                {
+                    p.Type = ctx.Types.Single(t => t.Id == p.TypeId);
+                }
                 Types = new ObservableCollection<HCI.Model.Type>(ctx.Types);
                 cbType.ItemsSource = Types;
             }
             enableFields(false);
+            this.DataContext = this;
         }
 
         private void setSelected()
         {
             if (dgrMain.SelectedIndex != -1)
             {
-                //deep copy
-                Selected.Id = Premises[dgrMain.SelectedIndex].Id;
-                Selected.Name = Premises[dgrMain.SelectedIndex].Name;
-                Selected.Description = Premises[dgrMain.SelectedIndex].Description;
-                Selected.AlcoholServing = Premises[dgrMain.SelectedIndex].AlcoholServing;
-                cbAlcohol.SelectedItem = Selected.AlcoholServing;
-                Selected.Price = Premises[dgrMain.SelectedIndex].Price;
-                cbPrice.SelectedItem = Selected.Price;
-                Selected.IsSmokingAlowed = Premises[dgrMain.SelectedIndex].IsSmokingAlowed;
-                Selected.IsHandicapable = Premises[dgrMain.SelectedIndex].IsHandicapable;
-                Selected.IsReservingAvailable = Premises[dgrMain.SelectedIndex].IsReservingAvailable;
-                Selected.Capacity = Premises[dgrMain.SelectedIndex].Capacity;
-                Selected.OpeningDate = Premises[dgrMain.SelectedIndex].OpeningDate;
-                Selected.Type = Premises[dgrMain.SelectedIndex].Type;
-                cbType.SelectedItem = Selected.Type.Id;
+                Selected.Copy(Premises[dgrMain.SelectedIndex]);
             }
            
             else
@@ -85,7 +83,7 @@ namespace HCI.GUI
                 Selected.IsSmokingAlowed = false;
                 Selected.Capacity = 0;
                 Selected.OpeningDate = new DateTime();
-                
+                Selected.Tags = new ObservableCollection<Tag>();
             }
    
         }
@@ -107,6 +105,9 @@ namespace HCI.GUI
             cbType.IsEnabled = e;
             btnAddNewType.IsEnabled = e;
             btnSave.IsEnabled = e;
+            lvAllTags.IsEnabled = e;
+            lvSelected.IsEnabled = e;
+            button.IsEnabled = e;
         }
 
         private void dgrMain_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -117,16 +118,35 @@ namespace HCI.GUI
                 setSelected();
                 Console.WriteLine("******* id selektovanog: " + Selected.Id);
                 Console.WriteLine("******* tip selektovanog: " + Selected.Type);
+            
+                using (var ctx = new DatabaseModel())
+                {
+                    AllTags = new ObservableCollection<Tag>(ctx.Tags);
+                    SelectedTags = new ObservableCollection<Tag>(Selected.Tags);
+                    foreach (Tag tag in SelectedTags)
+                    {
+                        AllTags.Remove(tag);
+                    }
+                
+                    lvAllTags.ItemsSource = AllTags;
+                    lvSelected.ItemsSource = SelectedTags;
+    //                cbType.ItemsSource = new ObservableCollection<HCI.Model.Type>(ctx.Types);
+                    cbType.SelectedItem = ctx.Types.SingleOrDefault(t => t.Id == Selected.Type.Id);
+                }
+                enableFields(true);
             }
-            enableFields(true);
-
         }
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             //mali hack jer se izgubi selektovani jedino ovde
             int sIndex = dgrMain.SelectedIndex;
-            Premises[dgrMain.SelectedIndex] = Selected;
+            Premises[dgrMain.SelectedIndex].Copy(Selected);
+            
+            using (var ctx = new DatabaseModel())
+            {
+                ctx.UpdatePremises(Premises[dgrMain.SelectedIndex]);
+            }
             dgrMain.SelectedIndex = sIndex;
         }
 
@@ -134,7 +154,20 @@ namespace HCI.GUI
         {
             if (dgrMain.SelectedIndex != -1)
             {
-                Premises.Remove(Premises[dgrMain.SelectedIndex]);
+//                Premises.Remove(Premises[dgrMain.SelectedIndex]);
+               
+                using (var ctx = new DatabaseModel())
+                {
+                    ctx.Entry(Premises[dgrMain.SelectedIndex]).State = EntityState.Deleted;
+                    ctx.SaveChanges();
+                    Premises = new ObservableCollection<Premises>(ctx.Premises.Include("Tags").Include("Type").ToList());
+                    foreach (Premises p in Premises)
+                    {
+                        p.Type = ctx.Types.Single(t => t.Id == p.TypeId);
+                    }
+                    dgrMain.ItemsSource = Premises;
+                }
+                dgrMain.SelectedIndex = -1;
                 setSelected();
                 enableFields(false);
             }
@@ -154,6 +187,93 @@ namespace HCI.GUI
             setSelected();
         }
 
+        private void button_Click_1(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog chooseImage = new OpenFileDialog();
+            chooseImage.Filter = "Image files (*.png; *.jpg; *.jpeg; *.ico)| *.png; *.jpeg; *.jpg; *.ico|All files(*.*)|*.*";
 
+            if (chooseImage.ShowDialog() == true)
+            {
+                Selected.PathImage = chooseImage.FileName;
+                imgIcon.Source = new BitmapImage(new Uri(Selected.PathImage, UriKind.RelativeOrAbsolute));
+            }
+        }
+
+        private static T FindAncestor<T>(DependencyObject current) where T : DependencyObject
+        {
+            do
+            {
+                if (current is T)
+                {
+                    return (T)current;
+                }
+                current = VisualTreeHelper.GetParent(current);
+            }
+            while (current != null);
+            return null;
+        }
+
+        private void ListView_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            startPoint = e.GetPosition(null);
+        }
+
+        private void ListView_MouseMove(object sender, MouseEventArgs e)
+        {
+            Point mousePos = e.GetPosition(null);
+            Vector diff = startPoint - mousePos;
+
+            if (e.LeftButton == MouseButtonState.Pressed &&
+                (Math.Abs(diff.X) > SystemParameters.MinimumHorizontalDragDistance ||
+                Math.Abs(diff.Y) > SystemParameters.MinimumVerticalDragDistance))
+            {
+                // Get the dragged ListViewItem
+                ListView listView = sender as ListView;
+                ListViewItem listViewItem =
+                    FindAncestor<ListViewItem>((DependencyObject)e.OriginalSource);
+                if (listViewItem != null)
+                {
+                    // Find the data behind the ListViewItem
+                    Tag t = listView.ItemContainerGenerator.
+                        ItemFromContainer(listViewItem) as Tag;
+
+                    // Initialize the drag & drop operation
+                    DataObject dragData = new DataObject("myFormat", t);
+                    DragDrop.DoDragDrop(listViewItem, dragData, DragDropEffects.Move);
+                }
+            }
+        }
+
+        private void ListView_DragEnter(object sender, DragEventArgs e)
+        {
+            if (!e.Data.GetDataPresent("myFormat") || sender == e.Source)
+            {
+                e.Effects = DragDropEffects.None;
+            }
+        }
+
+        private void ListView_Drop(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent("myFormat"))
+            {
+                Tag student = e.Data.GetData("myFormat") as Tag;
+                AllTags.Remove(student);
+                SelectedTags.Remove(student);
+                SelectedTags.Add(student);
+                Console.WriteLine(SelectedTags.ToString());
+            }
+        }
+
+        private void AllList_Drop(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent("myFormat"))
+            {
+                Tag student = e.Data.GetData("myFormat") as Tag;
+                SelectedTags.Remove(student);
+                AllTags.Remove(student);
+                AllTags.Add(student);
+                Console.WriteLine(SelectedTags.ToString());
+            }
+        }
     }
 }
