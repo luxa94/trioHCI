@@ -107,7 +107,9 @@ namespace HCI.GUI
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             int sIndex = dgrMain.SelectedIndex;
-            Tags[dgrMain.SelectedIndex] = Selected;
+            Tags[dgrMain.SelectedIndex].Id = Selected.Id;
+            Tags[dgrMain.SelectedIndex].Description = Selected.Description;
+            Tags[dgrMain.SelectedIndex].Color = Selected.Color;
             dgrMain.SelectedIndex = sIndex;
         }
     }
