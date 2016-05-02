@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HCI.GUI"
         mc:Ignorable="d"
-        Title="Premises table view" Height="633" Width="800">
+        Title="Premises table view" Height="633" Width="800" Background="LightCyan">
 
     <Grid>
 

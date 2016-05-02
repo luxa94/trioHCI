@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HCI.GUI"
         mc:Ignorable="d"
-        Title="Tag table view" Height="285" Width="301">
+        Title="Tag table view" Height="285" Width="301" Background="LightCyan">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition />

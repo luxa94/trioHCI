@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HCI"
         mc:Ignorable="d"
-        Title="Main Window" Height="350" Width="525">
+        Title="Main Window" Height="350" Width="525" Background="LightCyan">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -13,7 +13,7 @@
         </Grid.ColumnDefinitions>
 
         <Label Content="* map *" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
-        
+
         <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Vertical" Background="LightGray">
             <Button Name="btnViewAllPremises" Content="View all premises" Click="btnViewAllPremises_Click"/>
             <Button x:Name="btnViewAllTypes" Content="View all types" Click="btnViewAllTypes_Click"/>
@@ -23,6 +23,7 @@
             <Button Name="btnAddType" Content="Add new type" Click="btnAddType_Click" ></Button>
             <Button Name="btnAddTag" Content="Add new tag" Click="btnAddTag_Click"></Button>
             
+
         </StackPanel>
     </Grid>
 </Window>
