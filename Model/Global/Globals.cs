@@ -8,7 +8,7 @@ namespace HCI.Model.Global
 {
     class Globals
     {
-        public static String[] AlcoholServings = { "does not serve", "serve before 23:00", "serve all the time" };
-        public static String[] PriceCategories = { "low prices", "medium prices", "high prices", "extremely high pricesd" };
+        public static String[] AlcoholServings = { "", "does not serve", "serve before 23:00", "serve all the time" };
+        public static String[] PriceCategories = { "", "low prices", "medium prices", "high prices", "extremely high pricesd" };
     }
 }

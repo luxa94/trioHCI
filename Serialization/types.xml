@@ -1,2 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ArrayOfType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+<ArrayOfType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Type>
+    <Name>sdfa</Name>
+    <Description>sdf</Description>
+    <PathImage>photo1.png</PathImage>
+  </Type>
+  <Type>
+    <Id>asdf</Id>
+    <Name>sfd</Name>
+    <Description>adfs</Description>
+    <PathImage>photo1.png</PathImage>
+  </Type>
+</ArrayOfType>
