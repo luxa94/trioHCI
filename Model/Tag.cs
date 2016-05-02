@@ -7,9 +7,11 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Runtime.Serialization;
 
 namespace HCI.Model
 {
+    [DataContract]
     public class Tag : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
@@ -23,7 +25,7 @@ namespace HCI.Model
         private String id;
         private String color;
         private String description;
-
+        
         public Tag()
         {
             Premises = new HashSet<Premises>();
@@ -33,6 +35,7 @@ namespace HCI.Model
         public HashSet<Premises> Premises { get; set; }
 
         [Key]
+        [DataMember]
         public string Id
         {
             get
@@ -49,7 +52,7 @@ namespace HCI.Model
                 }
             }
         }
-
+        [DataMember]
         public string Color
         {
             get
@@ -66,7 +69,7 @@ namespace HCI.Model
                 }
             }
         }
-
+        [DataMember]
         public string Description
         {
             get

@@ -1,4 +1,5 @@
 ﻿using HCI.Model.Global;
+using HCI.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -13,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Microsoft.Win32;
 
 namespace HCI.GUI
 {
@@ -21,29 +23,101 @@ namespace HCI.GUI
     /// </summary>
     public partial class TypeTableView : Window
     {
-        public ObservableCollection<Model.Type> Types { get; set; }
+        public ObservableCollection<HCI.Model.Type> Types { get; set; }
+        public HCI.Model.Type Selected { get;  set;}
 
         public TypeTableView()
         {
             InitializeComponent();
+            Selected = new HCI.Model.Type();
             this.DataContext = this;
             using (var ctx = new DatabaseModel())
             {
-                Types = new ObservableCollection<Model.Type>(ctx.Types);
+                Types = new ObservableCollection<HCI.Model.Type>(ctx.Types);
             }
+            tbId.DataContext = Selected;
+            tbName.DataContext = Selected;
+            tbDescription.DataContext = Selected;
+            imgIcon.DataContext = Selected;
+            imgIcon.Source = new BitmapImage(new Uri(Selected.PathImage, UriKind.Relative));
+        }
+
+        private void setSelected()
+        {
+            if (dgrMain.SelectedIndex != -1)
+            {
+                //deep copy
+                Selected.Id = Types[dgrMain.SelectedIndex].Id;
+                Selected.Name = Types[dgrMain.SelectedIndex].Name;
+                Selected.Description = Types[dgrMain.SelectedIndex].Description;
+                Selected.PathImage = Types[dgrMain.SelectedIndex].PathImage;
+                imgIcon.Source = new BitmapImage(new Uri( Selected.PathImage, UriKind.RelativeOrAbsolute));
+            }
+            else
+            {
+                //deep copy
+                Selected.Id = "";
+                Selected.Name = "";
+                Selected.Description = "";
+                Selected.PathImage = "photo1.png";
+            }
+        }
+
+        private void enableFields(bool e)
+        {
+            tbName.IsEnabled = e;
+            tbDescription.IsEnabled = e;
+            btnCancel.IsEnabled = e;
+            btnDelete.IsEnabled = e;
+            btnSave.IsEnabled = e;
+            btnBrowse.IsEnabled = e;
         }
 
         private void dgrMain_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            tbName.IsEnabled = true;
-            tbDescription.IsEnabled = true;
-            button.IsEnabled = true;
-            button1.IsEnabled = true;
+   
+            if (dgrMain.SelectedIndex != -1)
+            {
+                setSelected();
+            }
+            enableFields(true);
         }
 
         private void buttonDelete_Click(object sender, RoutedEventArgs e)
         {
-            Types.Remove(Types[dgrMain.SelectedIndex]); 
+            if (dgrMain.SelectedIndex != -1)
+            {
+                Types.Remove(Types[dgrMain.SelectedIndex]);
+                setSelected();
+                enableFields(false);
+            }
+            else {
+                MessageBox.Show("You have to select one premise from table!");
+            } 
+        }
+
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            setSelected();
+        }
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+            int sIndex = dgrMain.SelectedIndex;
+            Types[dgrMain.SelectedIndex] = Selected;
+            dgrMain.SelectedIndex = sIndex;
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog chooseImage = new OpenFileDialog();
+            chooseImage.Filter = "Image files (*.png; *.jpeg; *.ico)| *.png; *.jpeg; *.ico|All files(*.*)|*.*";
+
+            if (chooseImage.ShowDialog() == true)
+            {
+                Selected.PathImage = chooseImage.FileName;
+                imgIcon.Source = new BitmapImage(new Uri(Selected.PathImage, UriKind.RelativeOrAbsolute));
+            }
         }
     }
 }

@@ -52,7 +52,7 @@ namespace HCI
 
         private void btnViewAllPremises_Click(object sender, RoutedEventArgs e)
         {
-            Window w = new TableView();
+            Window w = new PremisesTableView();
             w.ShowDialog();
         }
 

@@ -22,25 +22,58 @@ namespace HCI.GUI
     /// </summary>
     public partial class TagTableView : Window
     {
-        public ObservableCollection<Model.Tag> Tags { get; set; }
+        public ObservableCollection<Tag> Tags { get; set; }
+        public Tag Selected { get; set; }
   
 
         public TagTableView()
         {
             InitializeComponent();
+            Selected = new Tag();
             this.DataContext = this;
             using (var ctx = new DatabaseModel())
             {
                 Tags = new ObservableCollection<Tag>(ctx.Tags);
             }
+            tbId.DataContext = Selected;
+            colorPicker.DataContext = Selected;
+            tbDescription.DataContext = Selected;
         }
 
+        private void setSelected()
+        {
+            if (dgrMain.SelectedIndex != -1)
+            {
+                //deep copy
+                Selected.Id = Tags[dgrMain.SelectedIndex].Id;
+                Selected.Color = Tags[dgrMain.SelectedIndex].Color;
+                
+                Selected.Description = Tags[dgrMain.SelectedIndex].Description;
+            }
+            else
+            {
+                //deep copy
+                Selected.Id = "";
+                Selected.Color = "FFFFFFFF";
+                Selected.Description = "";
+            }
+        }
+
+        private void enableFields(bool e)
+        {
+            colorPicker.IsEnabled = e;
+            tbDescription.IsEnabled = e;
+            btnCancel.IsEnabled = e;
+            btnDelete.IsEnabled = e;
+            btnSave.IsEnabled = e;
+        }
         private void dgrMain_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            tbDescription.IsEnabled = true;
-            colorPicker.IsEnabled = true;
-            button.IsEnabled = true;
-            button1.IsEnabled = true;
+            if (dgrMain.SelectedIndex != -1)
+            {
+                setSelected();
+            }
+            enableFields(true);
         }
 
         private void ColorPicker_SelectedColorChanged(object sender, EventArgs e)
@@ -55,10 +88,27 @@ namespace HCI.GUI
 
         private void buttonDelete_Click(object sender, RoutedEventArgs e)
         {
-            
+            if (dgrMain.SelectedIndex != -1)
+            {
                 Tags.Remove(Tags[dgrMain.SelectedIndex]);
-            
-          
+                setSelected();
+                enableFields(false);
+            }
+            else {
+                MessageBox.Show("You have to select one premise from table!");
+            }
+        }
+
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            setSelected();
+        }
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+            int sIndex = dgrMain.SelectedIndex;
+            Tags[dgrMain.SelectedIndex] = Selected;
+            dgrMain.SelectedIndex = sIndex;
         }
     }
 }

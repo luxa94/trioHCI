@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using HCI.Model;
 using HCI.Model.Global;
+using Microsoft.Win32;
 
 namespace HCI.GUI
 {
@@ -21,16 +22,17 @@ namespace HCI.GUI
     /// </summary>
     public partial class TypeDialog : Window
     {
-        private Model.Type type;
+        private HCI.Model.Type type;
 
         public TypeDialog()
         {
             InitializeComponent();
-            type = new Model.Type();
-
+            type = new HCI.Model.Type();
             tbDescription.DataContext = type;
             tbId.DataContext = type;
             tbName.DataContext = type;
+            imgIcon.DataContext = type;
+            imgIcon.Source = new BitmapImage(new Uri(type.PathImage, UriKind.Relative));
         }
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
@@ -41,6 +43,19 @@ namespace HCI.GUI
                 ctx.SaveChanges();
             }
             Close();
+        }
+
+        private void btnBrowse_Click_1(object sender, RoutedEventArgs e)
+        {
+            
+            OpenFileDialog chooseImage = new OpenFileDialog();
+            chooseImage.Filter = "Image files (*.png; *.jpeg; *.ico)| *.png; *.jpeg; *.ico|All files(*.*)|*.*";
+
+            if (chooseImage.ShowDialog() == true)
+            {
+                type.PathImage = chooseImage.FileName;
+                imgIcon.Source = new BitmapImage(new Uri(type.PathImage, UriKind.RelativeOrAbsolute));
+            }
         }
     }
 }

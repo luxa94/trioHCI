@@ -7,9 +7,11 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Windows.Controls;
+using System.Runtime.Serialization;
 
 namespace HCI.Model
 {
+    [DataContract]
     public class Type : INotifyPropertyChanged
     {
         public override bool Equals(object obj)
@@ -33,7 +35,7 @@ namespace HCI.Model
 
         public Type()
         {
-            Premises = new List<Premises>();
+            Premises = new List<Premises>(); pathImage = "photo1.png";
         }
 
         [InverseProperty("Type")]
@@ -42,7 +44,9 @@ namespace HCI.Model
         private String id;
         private String name;
         private String description;
-
+        private String pathImage;
+       
+        [DataMember]
         [Key]
         public string Id
         {
@@ -60,7 +64,7 @@ namespace HCI.Model
                 }
             }
         }
-
+        [DataMember]
         public string Name
         {
             get
@@ -77,7 +81,7 @@ namespace HCI.Model
                 }
             }
         }
-
+        [DataMember]
         public string Description
         {
             get
@@ -92,6 +96,19 @@ namespace HCI.Model
                     description = value;
                     OnPropertyChanged("Description");
                 }
+            }
+        }
+
+        public string PathImage
+        {
+            get
+            {
+                return pathImage;
+            }
+
+            set
+            {
+                pathImage = value;
             }
         }
     }

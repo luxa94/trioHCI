@@ -6,18 +6,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HCI.GUI"
         mc:Ignorable="d"
-        Title="Type table view" Height="285" Width="301">
+        Title="Type table view" Height="285" Width="285">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition />
+            <RowDefinition Height="Auto"></RowDefinition>
 
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="dgrMain" ItemsSource="{Binding Path=Types}" IsReadOnly="True" SelectionChanged="dgrMain_SelectionChanged"/>
-        <Grid Grid.Column="0" Grid.Row="1" DataContext="{Binding ElementName=dgrMain,Path=SelectedItem}" Height="271" VerticalAlignment="Top">
+        <DataGrid x:Name="dgrMain" Grid.ColumnSpan="3" ItemsSource="{Binding Path=Types}" IsReadOnly="True" SelectionChanged="dgrMain_SelectionChanged"/>
+        <Grid Grid.ColumnSpan="2" Grid.Row="1" DataContext="{Binding ElementName=dgrMain,Path=SelectedItem}" Height="271" VerticalAlignment="Top">
             <Grid.RowDefinitions>
                 <RowDefinition Height="25"/>
                 <RowDefinition Height="25"/>
@@ -27,16 +30,24 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition MaxWidth="150"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
+                
+
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" Grid.Row="0">Id:</Label>
             <Label Grid.Column="0" Grid.Row="1">Name:</Label>
             <Label Grid.Column="0" Grid.Row="2">Description:</Label>
 
-            <TextBox Name="tbId" Grid.Column="1" Grid.Row="0" Text="{Binding Path=Id}" IsEnabled="False"></TextBox>
+
+            <TextBox Name="tbId" Grid.Column="1" Grid.Row="0" Text="{Binding Path=Id}" IsEnabled="False"/>
             <TextBox Name="tbName" Grid.Column="1" Grid.Row="1" Text="{Binding Path=Name}" IsEnabled="False"></TextBox>
             <TextBox Name="tbDescription" Grid.Column="1" Grid.Row="2" Text="{Binding Path=Description}" IsEnabled="False"></TextBox>
         </Grid>
-        <Button x:Name="button1" Content="Cancel" HorizontalAlignment="Left" Height="26" Margin="5,90,0,0" Grid.Row="1" VerticalAlignment="Top" Width="134" IsEnabled ="False" RenderTransformOrigin="0.177,0.333"/>
-        <Button x:Name="button" Content="Delete" HorizontalAlignment="Left" Height="26" Margin="144,90,0,0" Grid.Row="1" VerticalAlignment="Top" Width="134" Click="buttonDelete_Click" IsEnabled="False"/>
+        <StackPanel Grid.ColumnSpan="3" Grid.Row="2" Orientation="Horizontal" FlowDirection="RightToLeft" Background="LightGray">
+            <Button x:Name="btnDelete" Content="Delete" Click="buttonDelete_Click" Margin="10" Padding="20,5" IsEnabled="False"/>
+            <Button x:Name="btnCancel" Content="Cancel" Click="btnCancel_Click" Margin="10" Padding="20,5" IsEnabled="False"/>
+            <Button x:Name="btnSave" Content="Save" IsDefault="True" Click="btnSave_Click" Margin="10" Padding="20,5" IsEnabled="False"/>
+        </StackPanel>
+        <Image x:Name="imgIcon" Grid.Column="2"  Source="{Binding PathImage}" HorizontalAlignment="Left" Height="42" Margin="26,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="42"/>
+        <Button x:Name="btnBrowse" Content="Browse" Grid.Column="2" HorizontalAlignment="Left" Height="26" Margin="10,67,0,0" Grid.Row="1" VerticalAlignment="Top" Width="73" Click="button_Click" IsEnabled="False"/>
     </Grid>
 </Window>

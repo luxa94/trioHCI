@@ -1,17 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.InteropServices;
+using System.Runtime.Serialization;
+using System.Xml.Serialization;
 
 namespace HCI.Model
 {
+    [DataContract]
     public class Premises : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
@@ -49,8 +47,9 @@ namespace HCI.Model
         private Boolean isReservingAvailable;
         public int capacity;
         public DateTime openingDate;
-
+        
         [Key]
+        [DataMember]
         public string Id
         {
             get { return id; }
@@ -65,6 +64,7 @@ namespace HCI.Model
             }
         }
 
+        [DataMember]
         public string Name
         {
             get { return name; }
@@ -79,6 +79,7 @@ namespace HCI.Model
             }
         }
 
+        [DataMember]
         public string Description
         {
             get { return description; }
@@ -93,6 +94,7 @@ namespace HCI.Model
             }
         }
 
+        [DataMember]
         public string AlcoholServing
         {
             get { return alcoholServing; }
@@ -102,11 +104,12 @@ namespace HCI.Model
                 if (value != alcoholServing)
                 {
                     alcoholServing = value;
-                    OnPropertyChanged("AlcoholServing");
+                    OnPropertyChanged("AlcoholServing2");
                 }
             }
         }
 
+        [DataMember]
         public string Price
         {
             get { return price; }
@@ -121,6 +124,7 @@ namespace HCI.Model
             }
         }
 
+        [DataMember]
         public bool IsHandicapable
         {
             get { return isHandicapable; }
@@ -135,6 +139,7 @@ namespace HCI.Model
             }
         }
 
+        [DataMember]
         public bool IsSmokingAlowed
         {
             get { return isSmokingAlowed; }
@@ -149,6 +154,7 @@ namespace HCI.Model
             }
         }
 
+        [DataMember]
         public bool IsReservingAvailable
         {
             get { return isReservingAvailable; }
@@ -163,6 +169,7 @@ namespace HCI.Model
             }
         }
 
+        [DataMember]
         public int Capacity
         {
             get { return capacity; }
@@ -177,6 +184,7 @@ namespace HCI.Model
             }
         }
 
+        [DataMember]
         public DateTime OpeningDate
         {
             get { return openingDate; }

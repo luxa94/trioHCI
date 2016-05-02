@@ -106,7 +106,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="GUI\TableView.xaml">
+    <Page Include="GUI\PremisesTableView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -135,11 +135,12 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DatabaseModel.cs" />
+    <Compile Include="GUI\Model\Global\Serialization.cs" />
     <Compile Include="GUI\PremisesDialog.xaml.cs">
       <DependentUpon>PremisesDialog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GUI\TableView.xaml.cs">
-      <DependentUpon>TableView.xaml</DependentUpon>
+    <Compile Include="GUI\PremisesTableView.xaml.cs">
+      <DependentUpon>PremisesTableView.xaml</DependentUpon>
     </Compile>
     <Compile Include="GUI\TagsDialog.xaml.cs">
       <DependentUpon>TagsDialog.xaml</DependentUpon>
@@ -190,7 +191,18 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="GUI\food.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GUI\art.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GUI\medicall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GUI\photo1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

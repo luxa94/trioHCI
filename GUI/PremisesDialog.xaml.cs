@@ -18,6 +18,7 @@ using System.IO;
 using System.Xml.Linq;
 using HCI.Model.Global;
 using Type = HCI.Model.Type;
+using HCI.GUI.Model.Global;
 
 namespace HCI.GUI
 {
@@ -29,7 +30,7 @@ namespace HCI.GUI
     {
         Point startPoint = new Point();
         private Premises premises;
-        private ObservableCollection<Model.Type> Types;
+        private ObservableCollection<Type> Types;
         public ObservableCollection<Tag> AllTags { get; set; }
         public ObservableCollection<Tag> SelectedTags { get; set; }
 
@@ -100,6 +101,7 @@ namespace HCI.GUI
 //                ctx.SaveChanges();
                 ctx.AddPremises(premises);
             }
+           // Serialization.serialize();
             Close();
         }
         private void btnAddNewType_Click(object sender, RoutedEventArgs e)
