@@ -82,6 +82,9 @@ namespace HCI.GUI
                 Selected.IsReservingAvailable = false;
                 Selected.IsSmokingAlowed = false;
                 Selected.Capacity = 0;
+                Selected.Price = "";
+                Selected.AlcoholServing = "";
+                Selected.PathImage = "photo1.png";
                 Selected.OpeningDate = new DateTime();
                 Selected.Tags = new ObservableCollection<Tag>();
             }
