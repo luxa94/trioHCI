@@ -192,19 +192,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="GUI\food.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="GUI\art.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="GUI\medicall.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="GUI\photo1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="GUI\backround.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
