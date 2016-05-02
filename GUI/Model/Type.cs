@@ -27,7 +27,7 @@ namespace HCI.Model
 
         public Type()
         {
-            pathImage = "food.png";
+            pathImage = "photo1.png";
         }
         
 
