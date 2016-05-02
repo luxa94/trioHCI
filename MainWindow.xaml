@@ -5,14 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HCI"
         mc:Ignorable="d"
-        Title="Main Window" Height="350" Width="525" Background="LightCyan">
+        Title="HCI project" Height="350" Width="525" Background="LightCyan">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="150"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <Label Content="* map *" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+        <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+            <Image Source="GUI/map.png" Stretch="UniformToFill"/>
+        </Label>
 
         <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Vertical" Background="LightGray">
             <Button Name="btnViewAllPremises" Content="View all premises" Click="btnViewAllPremises_Click"/>
@@ -22,7 +24,7 @@
             <Button Name="btnAddBusiness" Content="Add new premises" HorizontalAlignment="Right" Width="150" Click="btnAddBusiness_Click"></Button>
             <Button Name="btnAddType" Content="Add new type" Click="btnAddType_Click" ></Button>
             <Button Name="btnAddTag" Content="Add new tag" Click="btnAddTag_Click"></Button>
-            
+
 
         </StackPanel>
     </Grid>
