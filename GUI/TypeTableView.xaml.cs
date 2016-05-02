@@ -3,6 +3,7 @@ using HCI.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Microsoft.Win32;
+using Type = HCI.Model.Type;
 
 namespace HCI.GUI
 {
@@ -39,7 +41,6 @@ namespace HCI.GUI
             tbName.DataContext = Selected;
             tbDescription.DataContext = Selected;
             imgIcon.DataContext = Selected;
-            imgIcon.Source = new BitmapImage(new Uri(Selected.PathImage, UriKind.Relative));
         }
 
         private void setSelected()
@@ -51,7 +52,6 @@ namespace HCI.GUI
                 Selected.Name = Types[dgrMain.SelectedIndex].Name;
                 Selected.Description = Types[dgrMain.SelectedIndex].Description;
                 Selected.PathImage = Types[dgrMain.SelectedIndex].PathImage;
-                imgIcon.Source = new BitmapImage(new Uri( Selected.PathImage, UriKind.RelativeOrAbsolute));
             }
             else
             {
@@ -87,7 +87,14 @@ namespace HCI.GUI
         {
             if (dgrMain.SelectedIndex != -1)
             {
-                Types.Remove(Types[dgrMain.SelectedIndex]);
+                using (var ctx = new DatabaseModel())
+                {
+                    ctx.Entry(Types[dgrMain.SelectedIndex]).State = EntityState.Deleted;
+                    ctx.SaveChanges();
+                    Types = new ObservableCollection<Type>(ctx.Types);
+                    dgrMain.ItemsSource = Types;
+                }
+                dgrMain.SelectedIndex = -1;
                 setSelected();
                 enableFields(false);
             }
@@ -104,7 +111,15 @@ namespace HCI.GUI
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             int sIndex = dgrMain.SelectedIndex;
-            Types[dgrMain.SelectedIndex] = Selected;
+            Types[dgrMain.SelectedIndex].Id = Selected.Id;
+            Types[dgrMain.SelectedIndex].Name = Selected.Name;
+            Types[dgrMain.SelectedIndex].Description = Selected.Description;
+            Types[dgrMain.SelectedIndex].PathImage = Selected.PathImage;
+            using (var ctx = new DatabaseModel())
+            {
+                ctx.Entry(Types[dgrMain.SelectedIndex]).State = EntityState.Modified;
+                ctx.SaveChanges();
+            }
             dgrMain.SelectedIndex = sIndex;
         }
 
@@ -116,7 +131,6 @@ namespace HCI.GUI
             if (chooseImage.ShowDialog() == true)
             {
                 Selected.PathImage = chooseImage.FileName;
-                imgIcon.Source = new BitmapImage(new Uri(Selected.PathImage, UriKind.RelativeOrAbsolute));
             }
         }
     }

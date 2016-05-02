@@ -107,6 +107,7 @@ namespace HCI.Model
             set
             {
                 pathImage = value;
+                OnPropertyChanged("PathImage");
             }
         }
     }
