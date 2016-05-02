@@ -49,7 +49,7 @@ namespace HCI.GUI
         {
             
             OpenFileDialog chooseImage = new OpenFileDialog();
-            chooseImage.Filter = "Image files (*.png; *.jpeg; *.ico)| *.png; *.jpeg; *.ico|All files(*.*)|*.*";
+            chooseImage.Filter = "Image files (*.png; *.jpg; *.jpeg; *.ico)| *.png; *.jpeg; *.jpg; *.ico|All files(*.*)|*.*";
 
             if (chooseImage.ShowDialog() == true)
             {

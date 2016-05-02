@@ -19,6 +19,7 @@ using System.Xml.Linq;
 using HCI.Model.Global;
 using Type = HCI.Model.Type;
 using HCI.GUI.Model.Global;
+using Microsoft.Win32;
 
 namespace HCI.GUI
 {
@@ -66,7 +67,7 @@ namespace HCI.GUI
 
             tbCapacity.DataContext = premises;
             dpOpeningDate.DataContext = premises;
-
+            
             cbType.DataContext = premises;
             SelectedTags = new ObservableCollection<Tag>();
 
@@ -80,6 +81,9 @@ namespace HCI.GUI
                 
             }
             lvSelected.ItemsSource = SelectedTags;
+
+            imgIcon.DataContext = premises;
+            imgIcon.Source = new BitmapImage(new Uri(premises.PathImage, UriKind.Relative));
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -95,10 +99,6 @@ namespace HCI.GUI
       
             using (var ctx = new DatabaseModel())
             {
-//                premises.Type.Premises.Add(premises);
-//                ctx.Premises.AddOrUpdate(premises);
-//                ctx.Types.Attach(premises.Type);
-//                ctx.SaveChanges();
                 ctx.AddPremises(premises);
             }
            // Serialization.serialize();
@@ -190,6 +190,18 @@ namespace HCI.GUI
                 AllTags.Remove(student);
                 AllTags.Add(student);
                 Console.WriteLine(SelectedTags.ToString());
+            }
+        }
+
+        private void button_Click_1(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog chooseImage = new OpenFileDialog();
+            chooseImage.Filter = "Image files (*.png; *.jpg; *.jpeg; *.ico)| *.png; *.jpeg; *.jpg; *.ico|All files(*.*)|*.*";
+
+            if (chooseImage.ShowDialog() == true)
+            {
+                premises.PathImage = chooseImage.FileName;
+                imgIcon.Source = new BitmapImage(new Uri(premises.PathImage, UriKind.RelativeOrAbsolute));
             }
         }
     }

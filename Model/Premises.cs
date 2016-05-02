@@ -47,7 +47,8 @@ namespace HCI.Model
         private Boolean isReservingAvailable;
         public int capacity;
         public DateTime openingDate;
-        
+        private String pathImage;
+
         [Key]
         [DataMember]
         public string Id
@@ -104,7 +105,7 @@ namespace HCI.Model
                 if (value != alcoholServing)
                 {
                     alcoholServing = value;
-                    OnPropertyChanged("AlcoholServing2");
+                    OnPropertyChanged("AlcoholServing");
                 }
             }
         }
@@ -199,10 +200,29 @@ namespace HCI.Model
             }
         }
 
+        public string PathImage
+        {
+            get
+            {
+                return pathImage;
+            }
+
+            set
+            {
+                if (value != pathImage)
+                {
+                    pathImage = value;
+                    OnPropertyChanged("PathImage");
+                }
+            }
+        }
+
         public Premises()
         {
             Tags = new ObservableCollection<Tag>();
             openingDate = DateTime.Now;
+            Type = new Type();
+            pathImage = "photo1.png";
         }
 
         public Premises(String id, String name, String description, String alcoholServing, String price,
