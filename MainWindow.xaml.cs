@@ -1,6 +1,7 @@
 ﻿using HCI.GUI;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,15 +22,16 @@ namespace HCI
     /// </summary>
     public partial class MainWindow : Window
     {
-
+        public ObservableCollection<HCI.Model.Type> Types { get; set; }
         public MainWindow()
         {
             InitializeComponent();
 
             using (var ctx = new DatabaseModel())
             {
-
+                Types = new ObservableCollection<HCI.Model.Type>(ctx.Types);
             }
+            trvPremesses.DataContext = Types;
         }
 
         private void btnAddBusiness_Click(object sender, RoutedEventArgs e)

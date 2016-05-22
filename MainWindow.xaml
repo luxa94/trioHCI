@@ -3,9 +3,19 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:HCI"
+        xmlns:local="clr-namespace:HCI.Model"
         mc:Ignorable="d"
         Title="HCI project" Height="350" Width="525" Background="LightCyan">
+    <Window.Resources>
+        <BitmapImage x:Key="FolderOpen" UriSource="/HCI;component/foldero.png"/>
+        <BitmapImage x:Key="FolderClosed" UriSource="/HCI;component/folder.png"/>
+        <Style x:Key="SmallIcon" TargetType="Image">
+            <Setter Property="MaxWidth" Value="16"/>
+            <Setter Property="MaxHeight" Value="16"/>
+            <Setter Property="Margin" Value="1"/>
+        </Style>
+
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -25,7 +35,24 @@
             <Button Name="btnAddType" Content="Add new type" Click="btnAddType_Click" ></Button>
             <Button Name="btnAddTag" Content="Add new tag" Click="btnAddTag_Click"></Button>
 
+            <TreeView x:Name="trvPremesses" ItemsSource="{Binding Types}" HorizontalAlignment="Left" Height="182" Width="150">
+                <TreeView.Resources>
+                    <HierarchicalDataTemplate DataType="{x:Type local:Type}" ItemsSource="{Binding Members}">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/HCI;component/folder.png" Margin="0,0,5,0" />
+                            <TextBlock Text="{Binding Name}" />
+                        </StackPanel>
+                    </HierarchicalDataTemplate>
+                    <DataTemplate DataType="{x:Type local:Premises}">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/HCI;component/folder.png" Margin="0,0,5,0" />
+                            <TextBlock Text="{Binding Name}" />
+                            <TextBlock Text=" (" Foreground="Green" />
+                        </StackPanel>
+                    </DataTemplate>
+                </TreeView.Resources>
 
+            </TreeView>
         </StackPanel>
     </Grid>
 </Window>

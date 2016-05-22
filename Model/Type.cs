@@ -8,6 +8,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Windows.Controls;
 using System.Runtime.Serialization;
+using System.Collections.ObjectModel;
 
 namespace HCI.Model
 {
@@ -36,6 +37,7 @@ namespace HCI.Model
         public Type()
         {
             pathImage = "photo1.png";
+            this.Members = new ObservableCollection<Model.Premises>();
         }
 
 
@@ -43,6 +45,7 @@ namespace HCI.Model
         private String name;
         private String description;
         private String pathImage;
+        //private ObservableCollection<Premises> Premises;
        
         [DataMember]
         [Key]
@@ -110,5 +113,11 @@ namespace HCI.Model
                 OnPropertyChanged("PathImage");
             }
         }
+        public ObservableCollection<Premises> Members
+        {
+            get;
+            set;
+        }
+
     }
 }
