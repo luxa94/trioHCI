@@ -23,6 +23,7 @@ namespace HCI
     public partial class MainWindow : Window
     {
         public ObservableCollection<HCI.Model.Type> Types { get; set; }
+        public ObservableCollection<HCI.Model.Premises> Premises { get; set; }
         public MainWindow()
         {
             InitializeComponent();
@@ -30,8 +31,10 @@ namespace HCI
             using (var ctx = new DatabaseModel())
             {
                 Types = new ObservableCollection<HCI.Model.Type>(ctx.Types);
+                Premises = new ObservableCollection<Model.Premises>(ctx.Premises);
             }
-            trvPremesses.DataContext = Types;
+            this.DataContext = this;
+           
         }
 
         private void btnAddBusiness_Click(object sender, RoutedEventArgs e)
