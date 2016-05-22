@@ -101,7 +101,9 @@ namespace HCI.GUI
             {
                 ctx.AddPremises(premises);
             }
-           // Serialization.serialize();
+            // Serialization.serialize
+            premises.PathImage = premises.Type.PathImage.ToString();
+            
             Close();
         }
         private void btnAddNewType_Click(object sender, RoutedEventArgs e)

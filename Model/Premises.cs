@@ -210,7 +210,8 @@ namespace HCI.Model
             Tags = new ObservableCollection<Tag>();
             openingDate = DateTime.Now;
             Type = new Type();
-            pathImage = "photo1.png";
+
+            pathImage = "photo1";
         }
 
         public Premises(String id, String name, String description, String alcoholServing, String price,
@@ -226,6 +227,7 @@ namespace HCI.Model
             this.isReservingAvailable = isReservingAvailable;
             this.capacity = capacity;
             this.openingDate = openingDate;
+            
         }
 
         public Premises Clone()
