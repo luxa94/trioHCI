@@ -35,7 +35,7 @@
             <Button Name="btnAddType" Content="Add new type" Click="btnAddType_Click" ></Button>
             <Button Name="btnAddTag" Content="Add new tag" Click="btnAddTag_Click"></Button>
 
-            <TreeView x:Name="trvPremesses" ItemsSource="{Binding Types}" HorizontalAlignment="Left" Height="182" Width="150">
+            <TreeView x:Name="trvPremesses" ItemsSource="{Binding AllTypes}" HorizontalAlignment="Left" Height="182" Width="150">
                 <TreeView.Resources>
                     <HierarchicalDataTemplate DataType="{x:Type local:Type}" ItemsSource="{Binding Members}">
                         <StackPanel Orientation="Horizontal">
@@ -47,7 +47,6 @@
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/HCI;component/folder.png" Margin="0,0,5,0" />
                             <TextBlock Text="{Binding Name}" />
-                            <TextBlock Text=" (" Foreground="Green" />
                         </StackPanel>
                     </DataTemplate>
                 </TreeView.Resources>
