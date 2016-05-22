@@ -1,4 +1,5 @@
 ﻿using HCI.GUI;
+using HCI.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -22,17 +23,29 @@ namespace HCI
     /// </summary>
     public partial class MainWindow : Window
     {
-        public ObservableCollection<HCI.Model.Type> Types { get; set; }
-        public ObservableCollection<HCI.Model.Premises> Premises { get; set; }
+        public ObservableCollection<HCI.Model.Type> AllTypes { get; set; }
+        public ObservableCollection<HCI.Model.Premises> AllPremises { get; set; }
         public MainWindow()
         {
             InitializeComponent();
 
             using (var ctx = new DatabaseModel())
             {
-                Types = new ObservableCollection<HCI.Model.Type>(ctx.Types);
-                Premises = new ObservableCollection<Model.Premises>(ctx.Premises);
+                AllTypes = new ObservableCollection<HCI.Model.Type>(ctx.Types);
+                AllPremises = new ObservableCollection<Model.Premises>(ctx.Premises);
             }
+            foreach (Premises p in AllPremises)
+            {
+                foreach(Model.Type t in AllTypes)
+                {
+                    if (p.Type == t)
+                    {
+                        t.Members.Add(p);
+                        break;
+                    }
+                }
+            }
+
             this.DataContext = this;
            
         }
