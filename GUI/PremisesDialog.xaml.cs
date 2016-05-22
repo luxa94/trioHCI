@@ -102,8 +102,16 @@ namespace HCI.GUI
                 ctx.AddPremises(premises);
             }
             // Serialization.serialize
-            premises.PathImage = premises.Type.PathImage.ToString();
+            if (premises.PathImage == "photo1.png")
+            {
+                premises.PathImage = premises.Type.PathImage.ToString();
+            }
+            else
+            {
+                premises.PathImage = premises.PathImage.ToString();
+            }
             
+
             Close();
         }
         private void btnAddNewType_Click(object sender, RoutedEventArgs e)

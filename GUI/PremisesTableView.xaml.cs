@@ -117,7 +117,15 @@ namespace HCI.GUI
                 setSelected();
                 Console.WriteLine("******* id selektovanog: " + Selected.Id);
                 Console.WriteLine("******* tip selektovanog: " + Selected.Type);
-                Selected.PathImage = Selected.Type.PathImage.ToString();
+                if (Selected.PathImage == "photo1.png")
+                {
+                    Console.WriteLine("uso");
+                    Selected.PathImage = Selected.Type.PathImage.ToString();
+                }
+                else {
+                    Selected.PathImage = Selected.PathImage.ToString();
+                }
+
                 Console.WriteLine("Slika selektovanog: " + Selected.PathImage);
 
                 using (var ctx = new DatabaseModel())

@@ -211,7 +211,7 @@ namespace HCI.Model
             openingDate = DateTime.Now;
             Type = new Type();
 
-            pathImage = "photo1";
+            pathImage = "photo1.png";
         }
 
         public Premises(String id, String name, String description, String alcoholServing, String price,
