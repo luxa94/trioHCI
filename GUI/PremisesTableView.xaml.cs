@@ -117,7 +117,9 @@ namespace HCI.GUI
                 setSelected();
                 Console.WriteLine("******* id selektovanog: " + Selected.Id);
                 Console.WriteLine("******* tip selektovanog: " + Selected.Type);
-            
+                Selected.PathImage = Selected.Type.PathImage.ToString();
+                Console.WriteLine("Slika selektovanog: " + Selected.PathImage);
+
                 using (var ctx = new DatabaseModel())
                 {
                     AllTags = new ObservableCollection<Tag>(ctx.Tags);
@@ -126,11 +128,12 @@ namespace HCI.GUI
                     {
                         AllTags.Remove(tag);
                     }
-                
+
                     lvAllTags.ItemsSource = AllTags;
                     lvSelected.ItemsSource = SelectedTags;
-    //                cbType.ItemsSource = new ObservableCollection<HCI.Model.Type>(ctx.Types);
+                    //                cbType.ItemsSource = new ObservableCollection<HCI.Model.Type>(ctx.Types);
                 }
+               
                 enableFields(true);
             }
         }

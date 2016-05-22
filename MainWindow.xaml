@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         Title="HCI project" Height="350" Width="525" Background="LightCyan">
     <Window.Resources>
-        <BitmapImage x:Key="FolderOpen" UriSource="/HCI;component/foldero.png"/>
-        <BitmapImage x:Key="FolderClosed" UriSource="/HCI;component/folder.png"/>
+        <BitmapImage x:Key="FolderOpen" UriSource="GUI/foldero.png"/>
+        <BitmapImage x:Key="FolderClosed" UriSource="GUI/folder.png"/>
         <Style x:Key="SmallIcon" TargetType="Image">
             <Setter Property="MaxWidth" Value="16"/>
             <Setter Property="MaxHeight" Value="16"/>
