@@ -34,17 +34,7 @@ namespace HCI
                 AllTypes = new ObservableCollection<HCI.Model.Type>(ctx.Types);
                 AllPremises = new ObservableCollection<Model.Premises>(ctx.Premises);
             }
-            foreach (Premises p in AllPremises)
-            {
-                foreach(Model.Type t in AllTypes)
-                {
-                    if (p.Type == t)
-                    {
-                        t.Members.Add(p);
-                        break;
-                    }
-                }
-            }
+            
 
             this.DataContext = this;
            
