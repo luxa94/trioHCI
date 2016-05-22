@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HCI.Model"
         mc:Ignorable="d"
-        Title="HCI project" Height="350" Width="525" Background="LightCyan">
+        Title="HCI project" Height="500" Width="700" Background="LightCyan">
     <Window.Resources>
         <BitmapImage x:Key="FolderOpen" UriSource="GUI/foldero.png"/>
         <BitmapImage x:Key="FolderClosed" UriSource="GUI/folder.png"/>
@@ -34,17 +34,24 @@
                CredentialsProvider="H722jn6IElqQRAOrV2ol~_02ZFvzGp3mLoly7_45hkg~Akq82lA4OB8yV0KsS1YL-oxHVaghI_pLKzzXQR3un7imqI9yF-swJ9X5LYbGh1wn"
                Mode="Road" >
         </m:Map>
-        
-        <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Vertical" Background="LightGray">
-            <Button Name="btnViewAllPremises" Content="View all premises" Click="btnViewAllPremises_Click"/>
-            <Button x:Name="btnViewAllTypes" Content="View all types" Click="btnViewAllTypes_Click"/>
-            <Button x:Name="btnViewAllTags" Content="View all tags" Click="btnViewAllTags_Click"/>
-            <Separator></Separator>
-            <Button Name="btnAddBusiness" Content="Add new premises" HorizontalAlignment="Right" Width="150" Click="btnAddBusiness_Click"></Button>
-            <Button Name="btnAddType" Content="Add new type" Click="btnAddType_Click" ></Button>
-            <Button Name="btnAddTag" Content="Add new tag" Click="btnAddTag_Click"></Button>
 
-            <TreeView x:Name="trvPremesses" ItemsSource="{Binding AllTypes}" HorizontalAlignment="Left" Height="182" Width="150">
+        <Grid Grid.Column="1" Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            
+            <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Vertical" Background="LightGray">
+                <Button Name="btnViewAllPremises" Content="View all premises" Click="btnViewAllPremises_Click"/>
+                <Button x:Name="btnViewAllTypes" Content="View all types" Click="btnViewAllTypes_Click"/>
+                <Button x:Name="btnViewAllTags" Content="View all tags" Click="btnViewAllTags_Click"/>
+                <Separator></Separator>
+                <Button Name="btnAddBusiness" Content="Add new premises" HorizontalAlignment="Right" Width="150" Click="btnAddBusiness_Click"></Button>
+                <Button Name="btnAddType" Content="Add new type" Click="btnAddType_Click" ></Button>
+                <Button Name="btnAddTag" Content="Add new tag" Click="btnAddTag_Click"></Button>
+            </StackPanel>
+
+            <TreeView  Grid.Column="0" Grid.Row="1" x:Name="trvPremesses" ItemsSource="{Binding AllTypes}" HorizontalAlignment="Left" Width="150">
                 <TreeView.Resources>
                     <HierarchicalDataTemplate DataType="{x:Type local:Type}" ItemsSource="{Binding Members}">
                         <StackPanel Orientation="Horizontal">
@@ -59,10 +66,7 @@
                         </StackPanel>
                     </DataTemplate>
                 </TreeView.Resources>
-
-
-
             </TreeView>
-        </StackPanel>
+        </Grid>
     </Grid>
 </Window>
