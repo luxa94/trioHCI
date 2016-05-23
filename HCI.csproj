@@ -138,6 +138,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DatabaseModel.cs" />
+    <Compile Include="DraggablePushpin.cs" />
     <Compile Include="GUI\Model\Global\Serialization.cs" />
     <Compile Include="GUI\PremisesDialog.xaml.cs">
       <DependentUpon>PremisesDialog.xaml</DependentUpon>

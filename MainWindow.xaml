@@ -32,13 +32,14 @@
                Center="45.25, 19.85"
                ZoomLevel="10"
                CredentialsProvider="H722jn6IElqQRAOrV2ol~_02ZFvzGp3mLoly7_45hkg~Akq82lA4OB8yV0KsS1YL-oxHVaghI_pLKzzXQR3un7imqI9yF-swJ9X5LYbGh1wn"
-               Mode="Road" >
+               Mode="Road" AllowDrop="True" Drop="map_Drop">
         </m:Map>
 
         <Grid Grid.Column="1" Grid.Row="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
             
             <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Vertical" Background="LightGray">
@@ -51,22 +52,17 @@
                 <Button Name="btnAddTag" Content="Add new tag" Click="btnAddTag_Click"></Button>
             </StackPanel>
 
-            <TreeView  Grid.Column="0" Grid.Row="1" x:Name="trvPremesses" ItemsSource="{Binding AllTypes}" HorizontalAlignment="Left" Width="150">
-                <TreeView.Resources>
-                    <HierarchicalDataTemplate DataType="{x:Type local:Type}" ItemsSource="{Binding Members}">
-                        <StackPanel Orientation="Horizontal">
-                            <Image x:Name="imgIcon" Source="{Binding PathImage}" Style="{StaticResource ResourceKey=SmallIcon}" />
-                            <TextBlock Text="{Binding Name}" />
-                        </StackPanel>
-                    </HierarchicalDataTemplate>
-                    <DataTemplate DataType="{x:Type local:Premises}">
-                        <StackPanel Orientation="Horizontal">
+            <ListView ItemsSource="{Binding AllPremises}" Name="listView" Grid.Column="0" Grid.Row="1" PreviewMouseLeftButtonDown="treeview_PreviewMouseLeftButtonDown" MouseMove="treeview_MouseMove">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <WrapPanel>
                             <Image x:Name="imgIcon2" Source="{Binding PathImage}" Style="{StaticResource ResourceKey=SmallIcon}" />
                             <TextBlock Text="{Binding Name}" />
-                        </StackPanel>
+                        </WrapPanel>
                     </DataTemplate>
-                </TreeView.Resources>
-            </TreeView>
+                </ListView.ItemTemplate>
+            </ListView>
+
         </Grid>
     </Grid>
 </Window>

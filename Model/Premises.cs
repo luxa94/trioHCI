@@ -36,6 +36,8 @@ namespace HCI.Model
         public int capacity;
         public DateTime openingDate;
         private String pathImage;
+        private double latitude;
+        private double longitude;
 
         [Key]
         [DataMember]
@@ -185,6 +187,26 @@ namespace HCI.Model
                     openingDate = value;
                     OnPropertyChanged("OpeningDate");
                 }
+            }
+        }
+
+        public double Latitude
+        {
+            get { return latitude; }
+            set
+            {
+                latitude = value;
+                OnPropertyChanged("Latitude");
+            }
+        }
+
+        public double Longitude
+        {
+            get { return longitude; }
+            set
+            {
+                longitude = value;
+                OnPropertyChanged("Longitude");
             }
         }
 
