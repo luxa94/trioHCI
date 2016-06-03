@@ -37,28 +37,28 @@
 
         <Grid Grid.Column="0" Grid.Row="0">
             <m:Map Name="myMap"
-               Center="44.49, 20.28"
+               Center="44.81, 20.45"
                ZoomLevel="10"
                CredentialsProvider="H722jn6IElqQRAOrV2ol~_02ZFvzGp3mLoly7_45hkg~Akq82lA4OB8yV0KsS1YL-oxHVaghI_pLKzzXQR3un7imqI9yF-swJ9X5LYbGh1wn"
-               Mode="Road" AllowDrop="True" Drop="map_Drop">
+               Mode="Road" AllowDrop="True" Drop="map_Drop" BorderThickness="1" BorderBrush="Black">
         </m:Map>
         </Grid>
 
         <Grid Grid.Column="0" Grid.Row="1">
             <m:Map Name="myMap1"
-            Center="55.45, 37.37"
+            Center="55.75, 37.58"
             ZoomLevel="10"
             CredentialsProvider="H722jn6IElqQRAOrV2ol~_02ZFvzGp3mLoly7_45hkg~Akq82lA4OB8yV0KsS1YL-oxHVaghI_pLKzzXQR3un7imqI9yF-swJ9X5LYbGh1wn"
-            Mode="Road" AllowDrop="True" Drop="map_Drop">
+            Mode="Road" AllowDrop="True" Drop="map_Drop" BorderThickness="1" BorderBrush="Black">
             </m:Map>
         </Grid>
 
         <Grid Grid.Column="1" Grid.Row="1">
             <m:Map Name="myMap2"
-            Center="51.6, 17.2"
+            Center="51.10, 17.03"
             ZoomLevel="10"
             CredentialsProvider="H722jn6IElqQRAOrV2ol~_02ZFvzGp3mLoly7_45hkg~Akq82lA4OB8yV0KsS1YL-oxHVaghI_pLKzzXQR3un7imqI9yF-swJ9X5LYbGh1wn"
-            Mode="Road" AllowDrop="True" Drop="map_Drop">
+            Mode="Road" AllowDrop="True" Drop="map_Drop" BorderThickness="1" BorderBrush="Black">
             </m:Map>
         </Grid>
 
@@ -67,7 +67,7 @@
             Center="45.25, 19.85"
             ZoomLevel="10"
             CredentialsProvider="H722jn6IElqQRAOrV2ol~_02ZFvzGp3mLoly7_45hkg~Akq82lA4OB8yV0KsS1YL-oxHVaghI_pLKzzXQR3un7imqI9yF-swJ9X5LYbGh1wn"
-            Mode="Road" AllowDrop="True" Drop="map_Drop">
+            Mode="Road" AllowDrop="True" Drop="map_Drop" BorderThickness="1" BorderBrush="Black">
             </m:Map>
         </Grid>
 
