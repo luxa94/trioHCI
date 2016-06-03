@@ -18,24 +18,61 @@
 
     </Window.Resources>
     <Grid>
-        
-        
+
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="150"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-   <!--     <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <!--     <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
             <Image Source="GUI/map.png" Stretch="UniformToFill"/>
         </Label> -->
-        <m:Map Name="myMap"
-               Center="45.25, 19.85"
+
+        <Grid Grid.Column="0" Grid.Row="0">
+            <m:Map Name="myMap"
+               Center="44.49, 20.28"
                ZoomLevel="10"
                CredentialsProvider="H722jn6IElqQRAOrV2ol~_02ZFvzGp3mLoly7_45hkg~Akq82lA4OB8yV0KsS1YL-oxHVaghI_pLKzzXQR3un7imqI9yF-swJ9X5LYbGh1wn"
                Mode="Road" AllowDrop="True" Drop="map_Drop">
         </m:Map>
+        </Grid>
+
+        <Grid Grid.Column="0" Grid.Row="1">
+            <m:Map Name="myMap1"
+            Center="55.45, 37.37"
+            ZoomLevel="10"
+            CredentialsProvider="H722jn6IElqQRAOrV2ol~_02ZFvzGp3mLoly7_45hkg~Akq82lA4OB8yV0KsS1YL-oxHVaghI_pLKzzXQR3un7imqI9yF-swJ9X5LYbGh1wn"
+            Mode="Road" AllowDrop="True" Drop="map_Drop">
+            </m:Map>
+        </Grid>
+
+        <Grid Grid.Column="1" Grid.Row="1">
+            <m:Map Name="myMap2"
+            Center="51.6, 17.2"
+            ZoomLevel="10"
+            CredentialsProvider="H722jn6IElqQRAOrV2ol~_02ZFvzGp3mLoly7_45hkg~Akq82lA4OB8yV0KsS1YL-oxHVaghI_pLKzzXQR3un7imqI9yF-swJ9X5LYbGh1wn"
+            Mode="Road" AllowDrop="True" Drop="map_Drop">
+            </m:Map>
+        </Grid>
 
         <Grid Grid.Column="1" Grid.Row="0">
+            <m:Map Name="myMap3"
+            Center="45.25, 19.85"
+            ZoomLevel="10"
+            CredentialsProvider="H722jn6IElqQRAOrV2ol~_02ZFvzGp3mLoly7_45hkg~Akq82lA4OB8yV0KsS1YL-oxHVaghI_pLKzzXQR3un7imqI9yF-swJ9X5LYbGh1wn"
+            Mode="Road" AllowDrop="True" Drop="map_Drop">
+            </m:Map>
+        </Grid>
+
+
+        <Grid Grid.Column="2" Grid.Row="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
