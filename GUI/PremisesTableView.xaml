@@ -47,7 +47,7 @@
                 <Label ToolTip="Gets and sets description for an premises." Grid.Column="0" Grid.Row="2">Description:</Label>
                 <Label ToolTip="Gets and sets possibility of alcohol serving for an premises. Select appropriate one." Grid.Column="0" Grid.Row="3">Serving alcohol:</Label>
                 <Label ToolTip="Gets and sets price rang for an premises. Select appropriate one." Grid.Column="0" Grid.Row="4">Price:</Label>
-                <Label ToolTip="Gets and sets accessibility for disabled persons for an premises. Check if available." Grid.Column="0" Grid.Row="5">Is handicapable:</Label>
+                <Label ToolTip="Gets and sets accessibility for disabled persons for an premises. Check if available." Grid.Column="0" Grid.Row="5" Height="25" VerticalAlignment="Top">Is handicapable:</Label>
                 <Label ToolTip="Gets and sets possibility of smoking for an premises. Check if alowed." Grid.Column="0" Grid.Row="6">Smoking alowed:</Label>
                 <Label ToolTip="Gets and sets possibility of reserving for an premises. Check if avaiable." Grid.Column="0" Grid.Row="7">Reserving available:</Label>
                 <Label ToolTip="Gets and sets capacity for an premises." Grid.Column="0" Grid.Row="8">Capacity:</Label>
@@ -126,7 +126,7 @@
                 <StackPanel Grid.Row="0" Grid.Column="2">
                     <Label Content="Image:" HorizontalAlignment="Center" />
                     <Image x:Name="imgIcon" Source="{Binding PathImage}" HorizontalAlignment="Center" MaxHeight="150" MaxWidth="150" />
-                    <Button x:Name="button" Content="Browse" ToolTip="Brows picture from the file system" Height="29" Width="93" Click="button_Click_1"
+                    <Button x:Name="button" Content="Browse" ToolTip="Browse picture from the file system" Height="29" Width="93" Click="button_Click_1"
                     HorizontalAlignment="Center" Margin="0,10,0,0" />
                 </StackPanel>
 
