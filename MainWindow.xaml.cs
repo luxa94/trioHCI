@@ -44,6 +44,11 @@ namespace HCI
 
         }
 
+        private void HelloWorld_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            MessageBox.Show("Hello world!");
+        }
+
         private void btnAddBusiness_Click(object sender, RoutedEventArgs e)
         {
             Window w = new PremisesDialog();

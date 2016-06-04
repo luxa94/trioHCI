@@ -137,6 +137,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Commands\CustomCommands.cs" />
+    <Compile Include="Commands\RoutedCommands.cs" />
     <Compile Include="DatabaseModel.cs" />
     <Compile Include="DraggablePushpin.cs" />
     <Compile Include="GUI\Model\Global\Serialization.cs" />
@@ -204,6 +206,7 @@
   <ItemGroup>
     <Resource Include="GUI\folder.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
