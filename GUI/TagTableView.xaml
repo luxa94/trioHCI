@@ -17,7 +17,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="dgrMain" ItemsSource="{Binding Path=Tags}" IsReadOnly="True" SelectionChanged="dgrMain_SelectionChanged"/>
+        <DataGrid x:Name="dgrMain" ToolTip="Select item to modify/delete" ItemsSource="{Binding Path=Tags}" IsReadOnly="True" SelectionChanged="dgrMain_SelectionChanged"/>
         <Grid Grid.Column="0" Grid.Row="1" DataContext="{Binding ElementName=dgrMain,Path=SelectedItem}" Height="271" VerticalAlignment="Top">
             <Grid.RowDefinitions>
                 <RowDefinition Height="25"/>
@@ -39,9 +39,9 @@
             <TextBox Name="tbDescription" Grid.Column="1" Grid.Row="2" Text="{Binding Path=Description}" IsEnabled="False"></TextBox>
         </Grid>
         <StackPanel Grid.Column="0" Grid.Row="2" Orientation="Horizontal" FlowDirection="RightToLeft" Background="LightGray">
-            <Button x:Name="btnDelete" Content="Delete" Click="buttonDelete_Click" Margin="10" Padding="20,5" IsEnabled="False"/>
-            <Button x:Name="btnCancel" Content="Cancel" Click="btnCancel_Click" Margin="10" Padding="20,5" IsEnabled="False"/>
-            <Button x:Name="btnSave" Content="Save" IsDefault="True" Click="btnSave_Click" Margin="10" Padding="20,5" IsEnabled="False"/>
+            <Button x:Name="btnDelete" Content="Delete" ToolTip="Delete selected item" Click="buttonDelete_Click" Margin="10" Padding="20,5" IsEnabled="False"/>
+            <Button x:Name="btnCancel" Content="Cancel" ToolTip="Cancel changes" Click="btnCancel_Click" Margin="10" Padding="20,5" IsEnabled="False"/>
+            <Button x:Name="btnSave" Content="Save" ToolTip="Save changes" IsDefault="True" Click="btnSave_Click" Margin="10" Padding="20,5" IsEnabled="False"/>
         </StackPanel>
     </Grid>
 </Window>
