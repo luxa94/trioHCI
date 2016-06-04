@@ -48,6 +48,6 @@
             <Button x:Name="btnSave" Content="Save" ToolTip="Save changes" IsDefault="True" Click="btnSave_Click" Margin="10" Padding="20,5" IsEnabled="False"/>
         </StackPanel>
         <Image x:Name="imgIcon" Grid.Column="2"  Source="{Binding PathImage}" HorizontalAlignment="Left" Height="42" Margin="28.333,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="42"/>
-        <Button x:Name="btnBrowse" ToolTip="Browse picture from file system" Content="Browse" Grid.Column="2" HorizontalAlignment="Left" Height="26" Margin="10,67,0,0" Grid.Row="1" VerticalAlignment="Top" Width="73" Click="button_Click" IsEnabled="False"/>
+        <Button x:Name="btnBrowse" ToolTip="Browse picture from the file system" Content="Browse" Grid.Column="2" HorizontalAlignment="Left" Height="26" Margin="10,67,0,0" Grid.Row="1" VerticalAlignment="Top" Width="73" Click="button_Click" IsEnabled="False"/>
     </Grid>
 </Window>
