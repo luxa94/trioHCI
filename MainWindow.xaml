@@ -11,6 +11,30 @@
     <Window.CommandBindings>
         <CommandBinding Command="cmd:RoutedCommands.HelloWorld" Executed="HelloWorld_Executed"></CommandBinding>
     </Window.CommandBindings>
+    <Window.InputBindings>
+        <KeyBinding Gesture="Ctrl+P"
+              Modifiers="Control" 
+              Command="cmd:CustomCommands.testKomanda" />
+        <KeyBinding Gesture="Ctrl+T"
+              Modifiers="Control" 
+              Command="cmd:CustomCommands.testKomanda2" />
+        <KeyBinding Gesture="Ctrl+G"
+              Modifiers="Control" 
+              Command="cmd:CustomCommands.testKomanda3" />
+
+        <KeyBinding Gesture="Ctrl+V,P"
+              Modifiers="Control" 
+              Command="cmd:CustomCommands.editPCom" />
+        <KeyBinding Gesture="Ctrl+V,T"
+              Modifiers="Control" 
+              Command="cmd:CustomCommands.editTypeCom" />
+        <KeyBinding Gesture="Ctrl+V,G"
+              Modifiers="Control" 
+              Command="cmd:CustomCommands.editTagCom" />
+        <KeyBinding Key="F1"
+              Modifiers="Alt" 
+              Command="cmd:CustomCommands.helpCom" />
+    </Window.InputBindings>
     <Window.Resources>
         <BitmapImage x:Key="FolderOpen" UriSource="GUI/foldero.png"/>
         <BitmapImage x:Key="FolderClosed" UriSource="GUI/folder.png"/>
@@ -21,9 +45,7 @@
         </Style>
     </Window.Resources>
 
-
     <Grid>
-
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -43,14 +65,24 @@
         </Label> -->
 
         <Menu Grid.ColumnSpan="3" Grid.Row="0">
-            <MenuItem Header="_file" x:Name="menuItem_file">
-                <MenuItem Header="test" x:Name="test" Command="cmd:RoutedCommands.HelloWorld"></MenuItem>
+            <MenuItem Header="_File" x:Name="menuItem_file">
+                <MenuItem Header="test" x:Name="test" Command="cmd:CustomCommands.testKomanda" InputGestureText="Ctrl+B"></MenuItem>
                 <MenuItem Header="close" x:Name="menuItem_close"></MenuItem>
             </MenuItem>
-            <MenuItem Header="_add" x:Name="menuItem_add"/>
-            <MenuItem Header="_edit" x:Name="menuItem_edit"/>
-            <MenuItem Header="_view" x:Name="menuItem_view"/>
-            <MenuItem Header="_help" x:Name="menuItem_help"/>
+            <MenuItem Header="_Add" x:Name="menuItem_add">
+                <MenuItem Header="Add premises" Command="cmd:CustomCommands.testKomanda" InputGestureText="Ctrl+P"></MenuItem>
+                <MenuItem Header="Add type" Command="cmd:CustomCommands.testKomanda2" InputGestureText="Ctrl+T"></MenuItem>
+                <MenuItem Header="Add tag" Command="cmd:CustomCommands.testKomanda3" InputGestureText="Ctrl+G"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="_View" x:Name="menuItem_edit">
+                <MenuItem Header="View and modify premises" Command="cmd:CustomCommands.editPCom" InputGestureText="Ctrl+V+P"></MenuItem>
+                <MenuItem Header="View and modify type" Command="cmd:CustomCommands.editTypeCom" InputGestureText="Ctrl+V+T"></MenuItem>
+                <MenuItem Header="View and modify tag" Command="cmd:CustomCommands.editTagCom" InputGestureText="Ctrl+V+G"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="_Help" x:Name="menuItem_help">
+                <MenuItem Header="Help" Command="cmd:CustomCommands.helpCom" InputGestureText="F1"></MenuItem>
+                <MenuItem Header="About" Command="cmd:CustomCommands.aboutCom"></MenuItem>
+            </MenuItem>
         </Menu>
 
         <Grid Grid.Column="0" Grid.Row="1">
