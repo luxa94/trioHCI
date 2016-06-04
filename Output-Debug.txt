@@ -1,0 +1,77 @@
+﻿'HCI.vshost.exe' (CLR v4.0.30319: HCI.vshost.exe): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_32\mscorlib\v4.0_4.0.0.0__b77a5c561934e089\mscorlib.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'HCI.vshost.exe' (CLR v4.0.30319: HCI.vshost.exe): Loaded 'C:\Windows\assembly\GAC_MSIL\Microsoft.VisualStudio.HostingProcess.Utilities\14.0.0.0__b03f5f7f11d50a3a\Microsoft.VisualStudio.HostingProcess.Utilities.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'HCI.vshost.exe' (CLR v4.0.30319: HCI.vshost.exe): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Windows.Forms\v4.0_4.0.0.0__b77a5c561934e089\System.Windows.Forms.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'HCI.vshost.exe' (CLR v4.0.30319: HCI.vshost.exe): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System\v4.0_4.0.0.0__b77a5c561934e089\System.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'HCI.vshost.exe' (CLR v4.0.30319: HCI.vshost.exe): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Drawing\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Drawing.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'HCI.vshost.exe' (CLR v4.0.30319: HCI.vshost.exe): Loaded 'C:\Windows\assembly\GAC_MSIL\Microsoft.VisualStudio.HostingProcess.Utilities.Sync\14.0.0.0__b03f5f7f11d50a3a\Microsoft.VisualStudio.HostingProcess.Utilities.Sync.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'HCI.vshost.exe' (CLR v4.0.30319: HCI.vshost.exe): Loaded 'C:\Windows\assembly\GAC_MSIL\Microsoft.VisualStudio.Debugger.Runtime\14.0.0.0__b03f5f7f11d50a3a\Microsoft.VisualStudio.Debugger.Runtime.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'HCI.vshost.exe' (CLR v4.0.30319: HCI.vshost.exe): Loaded 'C:\Users\Nina\Desktop\HCI\trioHCI\bin\Debug\HCI.vshost.exe'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'HCI.vshost.exe' (CLR v4.0.30319: HCI.vshost.exe): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.ComponentModel.DataAnnotations\v4.0_4.0.0.0__31bf3856ad364e35\System.ComponentModel.DataAnnotations.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'HCI.vshost.exe' (CLR v4.0.30319: HCI.vshost.exe): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Core\v4.0_4.0.0.0__b77a5c561934e089\System.Core.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'HCI.vshost.exe' (CLR v4.0.30319: HCI.vshost.exe): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_32\System.Data\v4.0_4.0.0.0__b77a5c561934e089\System.Data.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'HCI.vshost.exe' (CLR v4.0.30319: HCI.vshost.exe): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Runtime.Serialization\v4.0_4.0.0.0__b77a5c561934e089\System.Runtime.Serialization.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'HCI.vshost.exe' (CLR v4.0.30319: HCI.vshost.exe): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Security\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Security.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'HCI.vshost.exe' (CLR v4.0.30319: HCI.vshost.exe): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'HCI.vshost.exe' (CLR v4.0.30319: HCI.vshost.exe): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_MSIL\Microsoft.CSharp\v4.0_4.0.0.0__b03f5f7f11d50a3a\Microsoft.CSharp.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'HCI.vshost.exe' (CLR v4.0.30319: HCI.vshost.exe): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml.Linq\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.Linq.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'HCI.vshost.exe' (CLR v4.0.30319: HCI.vshost.exe): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Data.DataSetExtensions\v4.0_4.0.0.0__b77a5c561934e089\System.Data.DataSetExtensions.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'HCI.vshost.exe' (CLR v4.0.30319: HCI.vshost.exe): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Net.Http\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Net.Http.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'HCI.vshost.exe' (CLR v4.0.30319: HCI.vshost.exe): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xaml\v4.0_4.0.0.0__b77a5c561934e089\System.Xaml.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'HCI.vshost.exe' (CLR v4.0.30319: HCI.vshost.exe): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_MSIL\WindowsBase\v4.0_4.0.0.0__31bf3856ad364e35\WindowsBase.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'HCI.vshost.exe' (CLR v4.0.30319: HCI.vshost.exe): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_32\PresentationCore\v4.0_4.0.0.0__31bf3856ad364e35\PresentationCore.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'HCI.vshost.exe' (CLR v4.0.30319: HCI.vshost.exe): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_MSIL\PresentationFramework\v4.0_4.0.0.0__31bf3856ad364e35\PresentationFramework.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+The thread 0xc9c has exited with code 0 (0x0).
+The thread 0xad4 has exited with code 0 (0x0).
+'HCI.vshost.exe' (CLR v4.0.30319: HCI.vshost.exe): Loaded 'C:\Users\Nina\Desktop\HCI\trioHCI\bin\Debug\HCI.exe'. Symbols loaded.
+Step into: Stepping over non-user code 'HCI.App..ctor'
+'HCI.vshost.exe' (CLR v4.0.30319: HCI.vshost.exe): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Configuration\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Configuration.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+Step into: Stepping over non-user code 'HCI.App.InitializeComponent'
+'HCI.vshost.exe' (CLR v4.0.30319: HCI.vshost.exe): Loaded 'C:\Users\Nina\Desktop\HCI\trioHCI\bin\Debug\EntityFramework.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'HCI.vshost.exe' (CLR v4.0.30319: HCI.vshost.exe): Loaded 'C:\Users\Nina\Desktop\HCI\trioHCI\bin\Debug\Microsoft.Maps.MapControl.WPF.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'HCI.vshost.exe' (CLR v4.0.30319: HCI.vshost.exe): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Windows.Input.Manipulations\v4.0_4.0.0.0__b77a5c561934e089\System.Windows.Input.Manipulations.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'HCI.vshost.exe' (CLR v4.0.30319: HCI.vshost.exe): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_MSIL\PresentationFramework.Aero2\v4.0_4.0.0.0__31bf3856ad364e35\PresentationFramework.Aero2.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'HCI.vshost.exe' (CLR v4.0.30319: HCI.vshost.exe): Loaded 'C:\Users\Nina\Desktop\HCI\trioHCI\bin\Debug\MySql.Data.Entity.EF6.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'HCI.vshost.exe' (CLR v4.0.30319: HCI.vshost.exe): Loaded 'C:\Users\Nina\Desktop\HCI\trioHCI\bin\Debug\EntityFramework.SqlServer.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'HCI.vshost.exe' (CLR v4.0.30319: HCI.vshost.exe): Loaded 'Anonymously Hosted DynamicMethods Assembly'. 
+'HCI.vshost.exe' (CLR v4.0.30319: HCI.vshost.exe): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Numerics\v4.0_4.0.0.0__b77a5c561934e089\System.Numerics.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'HCI.vshost.exe' (CLR v4.0.30319: HCI.vshost.exe): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_32\System.Data.OracleClient\v4.0_4.0.0.0__b77a5c561934e089\System.Data.OracleClient.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'HCI.vshost.exe' (CLR v4.0.30319: HCI.vshost.exe): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_MSIL\MySql.Data\v4.0_6.9.8.0__c5687fc88969c44d\MySql.Data.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'HCI.vshost.exe' (CLR v4.0.30319: HCI.vshost.exe): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_32\System.Transactions\v4.0_4.0.0.0__b77a5c561934e089\System.Transactions.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'HCI.vshost.exe' (CLR v4.0.30319: HCI.vshost.exe): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_32\System.EnterpriseServices\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.EnterpriseServices.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'HCI.vshost.exe' (CLR v4.0.30319: HCI.vshost.exe): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_32\System.EnterpriseServices\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.EnterpriseServices.Wrapper.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'HCI.vshost.exe' (CLR v4.0.30319: HCI.vshost.exe): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Management\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Management.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+The thread 0x528 has exited with code 0 (0x0).
+The thread 0x2a50 has exited with code 0 (0x0).
+'HCI.vshost.exe' (CLR v4.0.30319: HCI.vshost.exe): Loaded 'EntityFrameworkDynamicProxies-HCI'. 
+'HCI.vshost.exe' (CLR v4.0.30319: HCI.vshost.exe): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_MSIL\PresentationFramework-SystemXmlLinq\v4.0_4.0.0.0__b77a5c561934e089\PresentationFramework-SystemXmlLinq.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'HCI.vshost.exe' (CLR v4.0.30319: HCI.vshost.exe): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_MSIL\PresentationFramework-SystemXml\v4.0_4.0.0.0__b77a5c561934e089\PresentationFramework-SystemXml.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'HCI.vshost.exe' (CLR v4.0.30319: HCI.vshost.exe): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_MSIL\SMDiagnostics\v4.0_4.0.0.0__b77a5c561934e089\SMDiagnostics.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'HCI.vshost.exe' (CLR v4.0.30319: HCI.vshost.exe): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.ServiceModel.Internals\v4.0_4.0.0.0__31bf3856ad364e35\System.ServiceModel.Internals.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'HCI.vshost.exe' (CLR v4.0.30319: HCI.vshost.exe): Loaded 'C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\COMMONEXTENSIONS\MICROSOFT\CLIENTDIAGNOSTICS\XAMLDIAGNOSTICS\x86\WpfXamlDiagnosticsTap.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'HCI.vshost.exe' (CLR v4.0.30319: HCI.vshost.exe): Loaded 'C:\Windows\assembly\GAC\Microsoft.VisualStudio.OLE.Interop\7.1.40304.0__b03f5f7f11d50a3a\Microsoft.VisualStudio.OLE.Interop.dll'. Module was built without symbols.
+'HCI.vshost.exe' (CLR v4.0.30319: HCI.vshost.exe): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_MSIL\UIAutomationTypes\v4.0_4.0.0.0__31bf3856ad364e35\UIAutomationTypes.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'HCI.vshost.exe' (CLR v4.0.30319: HCI.vshost.exe): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_MSIL\PresentationFramework-SystemCore\v4.0_4.0.0.0__b77a5c561934e089\PresentationFramework-SystemCore.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+System.Windows.Data Error: 40 : BindingExpression path error: 'AlAllTagslTypes' property not found on 'object' ''PremisesTableView' (Name='')'. BindingExpression:Path=AlAllTagslTypes; DataItem='PremisesTableView' (Name=''); target element is 'ListView' (Name='lvSelected'); target property is 'ItemsSource' (type 'IEnumerable')
+'HCI.vshost.exe' (CLR v4.0.30319: HCI.vshost.exe): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_MSIL\UIAutomationProvider\v4.0_4.0.0.0__31bf3856ad364e35\UIAutomationProvider.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+***** indeks selektovanog: 0
+******* id selektovanog: aaa
+******* tip selektovanog: HCI.Model.Type
+Slika selektovanog: C:\Users\Nina\Desktop\HCI\Icons\hospital.png
+The thread 0x2b94 has exited with code 0 (0x0).
+The thread 0x102c has exited with code 0 (0x0).
+The thread 0x1a74 has exited with code 0 (0x0).
+The thread 0x1b3c has exited with code 0 (0x0).
+The thread 0x22ec has exited with code 0 (0x0).
+The thread 0x1ab8 has exited with code 0 (0x0).
+System.Collections.ObjectModel.ObservableCollection`1[HCI.Model.Tag]
+System.Collections.ObjectModel.ObservableCollection`1[HCI.Model.Tag]
+The thread 0x8d8 has exited with code 0 (0x0).
+The thread 0x2550 has exited with code 0 (0x0).
+The thread 0x174 has exited with code 0 (0x0).
+The thread 0x254 has exited with code 0 (0x0).
+The thread 0x15cc has exited with code 0 (0x0).
+The thread 0x28f8 has exited with code 0 (0x0).
+The thread 0x157c has exited with code 0 (0x0).
+The thread 0x1684 has exited with code 0 (0x0).
+The thread 0x2bb0 has exited with code 0 (0x0).
+The program '[6256] HCI.vshost.exe' has exited with code 0 (0x0).

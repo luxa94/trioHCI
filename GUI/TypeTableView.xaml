@@ -19,7 +19,7 @@
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="dgrMain" Grid.ColumnSpan="3" ItemsSource="{Binding Path=Types}" IsReadOnly="True" SelectionChanged="dgrMain_SelectionChanged"/>
+        <DataGrid x:Name="dgrMain" ToolTip="Select item to modify/delete" Grid.ColumnSpan="3" ItemsSource="{Binding Path=Types}" IsReadOnly="True" SelectionChanged="dgrMain_SelectionChanged"/>
         <Grid Grid.ColumnSpan="2" Grid.Row="1" DataContext="{Binding ElementName=dgrMain,Path=SelectedItem}" Height="271" VerticalAlignment="Top">
             <Grid.RowDefinitions>
                 <RowDefinition Height="25"/>
@@ -33,9 +33,9 @@
 
 
             </Grid.ColumnDefinitions>
-            <Label Grid.Column="0" Grid.Row="0">Id:</Label>
-            <Label Grid.Column="0" Grid.Row="1">Name:</Label>
-            <Label Grid.Column="0" Grid.Row="2">Description:</Label>
+            <Label ToolTip="Gets and sets id for an type. It is unique for every type with no possibility of modifying." Grid.Column="0" Grid.Row="0">Id:</Label>
+            <Label ToolTip="Gets and sets name for an type." Grid.Column="0" Grid.Row="1">Name:</Label>
+            <Label ToolTip="Gets and sets description for an type." Grid.Column="0" Grid.Row="2">Description:</Label>
 
 
             <TextBox Name="tbId" Grid.Column="1" Grid.Row="0" Text="{Binding Path=Id}" IsEnabled="False"/>
@@ -43,11 +43,11 @@
             <TextBox Name="tbDescription" Grid.Column="1" Grid.Row="2" Text="{Binding Path=Description}" IsEnabled="False"></TextBox>
         </Grid>
         <StackPanel Grid.ColumnSpan="3" Grid.Row="2" Orientation="Horizontal" FlowDirection="RightToLeft" Background="LightGray">
-            <Button x:Name="btnDelete" Content="Delete" Click="buttonDelete_Click" Margin="10" Padding="20,5" IsEnabled="False"/>
-            <Button x:Name="btnCancel" Content="Cancel" Click="btnCancel_Click" Margin="10" Padding="20,5" IsEnabled="False"/>
-            <Button x:Name="btnSave" Content="Save" IsDefault="True" Click="btnSave_Click" Margin="10" Padding="20,5" IsEnabled="False"/>
+            <Button x:Name="btnDelete" Content="Delete" ToolTip="Delete selected item" Click="buttonDelete_Click" Margin="10" Padding="20,5" IsEnabled="False"/>
+            <Button x:Name="btnCancel" Content="Cancel" ToolTip="Cancel changes" Click="btnCancel_Click" Margin="10" Padding="20,5" IsEnabled="False"/>
+            <Button x:Name="btnSave" Content="Save" ToolTip="Save changes" IsDefault="True" Click="btnSave_Click" Margin="10" Padding="20,5" IsEnabled="False"/>
         </StackPanel>
         <Image x:Name="imgIcon" Grid.Column="2"  Source="{Binding PathImage}" HorizontalAlignment="Left" Height="42" Margin="28.333,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="42"/>
-        <Button x:Name="btnBrowse" Content="Browse" Grid.Column="2" HorizontalAlignment="Left" Height="26" Margin="10,67,0,0" Grid.Row="1" VerticalAlignment="Top" Width="73" Click="button_Click" IsEnabled="False"/>
+        <Button x:Name="btnBrowse" ToolTip="Browse picture from the file system" Content="Browse" Grid.Column="2" HorizontalAlignment="Left" Height="26" Margin="10,67,0,0" Grid.Row="1" VerticalAlignment="Top" Width="73" Click="button_Click" IsEnabled="False"/>
     </Grid>
 </Window>

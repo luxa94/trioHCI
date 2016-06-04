@@ -85,7 +85,7 @@
             </MenuItem>
         </Menu>
 
-        <Grid Grid.Column="0" Grid.Row="1">
+        <Grid Grid.Column="0" Grid.Row="1" ToolTip="Drop selected item">
             <m:Map Name="myMap"
                Center="44.81, 20.45"
                ZoomLevel="10"
@@ -95,7 +95,7 @@
             </m:Map>
         </Grid>
 
-        <Grid Grid.Column="0" Grid.Row="2">
+        <Grid Grid.Column="0" Grid.Row="2" ToolTip="Drop selected item">
             <m:Map Name="myMap1"
             Center="55.75, 37.58"
             ZoomLevel="10"
@@ -104,7 +104,7 @@
             </m:Map>
         </Grid>
 
-        <Grid Grid.Column="1" Grid.Row="2">
+        <Grid Grid.Column="1" Grid.Row="2" ToolTip="Drop selected item">
             <m:Map Name="myMap2"
             Center="51.10, 17.03"
             ZoomLevel="10"
@@ -113,7 +113,7 @@
             </m:Map>
         </Grid>
 
-        <Grid Grid.Column="1" Grid.Row="1">
+        <Grid Grid.Column="1" Grid.Row="1" ToolTip="Drop selected item">
             <m:Map Name="myMap3"
             Center="45.25, 19.85"
             ZoomLevel="10"
@@ -131,16 +131,16 @@
             </Grid.RowDefinitions>
 
             <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Vertical" Background="LightGray">
-                <Button Name="btnViewAllPremises" Content="View all premises" Click="btnViewAllPremises_Click"/>
-                <Button x:Name="btnViewAllTypes" Content="View all types" Click="btnViewAllTypes_Click"/>
-                <Button x:Name="btnViewAllTags" Content="View all tags" Click="btnViewAllTags_Click"/>
+                <Button Name="btnViewAllPremises" ToolTip="Display all premises or select one to modify" Content="View all premises" Click="btnViewAllPremises_Click"/>
+                <Button x:Name="btnViewAllTypes" ToolTip="Display all types or select one to modify" Content="View all types" Click="btnViewAllTypes_Click"/>
+                <Button x:Name="btnViewAllTags" ToolTip="Display all tags or select one to modify" Content="View all tags" Click="btnViewAllTags_Click"/>
                 <Separator></Separator>
-                <Button Name="btnAddBusiness" Content="Add new premises" HorizontalAlignment="Right" Width="150" Click="btnAddBusiness_Click"></Button>
-                <Button Name="btnAddType" Content="Add new type" Click="btnAddType_Click" ></Button>
-                <Button Name="btnAddTag" Content="Add new tag" Click="btnAddTag_Click"></Button>
+                <Button Name="btnAddBusiness" ToolTip="Add new premises" Content="Add new premises" HorizontalAlignment="Right" Width="150" Click="btnAddBusiness_Click"></Button>
+                <Button Name="btnAddType" ToolTip="Add new type" Content="Add new type" Click="btnAddType_Click" ></Button>
+                <Button Name="btnAddTag" ToolTip="Add new tag" Content="Add new tag" Click="btnAddTag_Click"></Button>
             </StackPanel>
 
-            <ListView ItemsSource="{Binding AllPremises}" Name="listView"  Grid.Row="1" Grid.Column="0" PreviewMouseLeftButtonDown="treeview_PreviewMouseLeftButtonDown" MouseMove="treeview_MouseMove"  >
+            <ListView ItemsSource="{Binding AllPremises}" ToolTip="Select item and drag it on the map" Name="listView"  Grid.Row="1" Grid.Column="0" PreviewMouseLeftButtonDown="treeview_PreviewMouseLeftButtonDown" MouseMove="treeview_MouseMove"  >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <WrapPanel>
