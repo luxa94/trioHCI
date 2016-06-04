@@ -80,7 +80,8 @@
                           VerticalAlignment="Center" Margin="0,0,2,0" IsEditable="False" />
                 
                 <TextBox Name="tbCapa" Grid.Column="1" Grid.Row="8" Text="{Binding Path=Capacity}" IsEnabled="False" />
-                <TextBox Name="tbOpen" Grid.Column="1" Grid.Row="9" Text="{Binding Path=OpeningDate, StringFormat=dd-MM-yyyy}" IsEnabled="False" />
+                <DatePicker Name="dpOpeningDate" Grid.Column="1" Grid.Row="9" SelectedDate="{Binding Path=OpeningDate}" />
+         <!--       <TextBox Name="tbOpen" Grid.Column="1" Grid.Row="9" Text="{Binding Path=OpeningDate, StringFormat=dd-MM-yyyy}" IsEnabled="False" /> -->
             </Grid>
             
             <Grid Grid.Row="0" Grid.Column="1">

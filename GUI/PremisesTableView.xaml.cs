@@ -45,7 +45,7 @@ namespace HCI.GUI
             tbDesc.DataContext = Selected;
             cbHandicaple.DataContext = Selected;
             tbName.DataContext = Selected;
-            tbOpen.DataContext = Selected;
+            dpOpeningDate.DataContext = Selected;
             cbPrice.ItemsSource = Globals.PriceCategories;
             cbReservations.DataContext = Selected;
             cbSmoking.DataContext = Selected;
@@ -97,7 +97,7 @@ namespace HCI.GUI
             cbSmoking.IsEnabled = e;
             cbReservations.IsEnabled = e;
             tbCapa.IsEnabled = e;
-            tbOpen.IsEnabled = e;
+            dpOpeningDate.IsEnabled = e;
             cbType.IsEnabled = e;
             btnCancel.IsEnabled = e;
             btnDelete.IsEnabled = e;
