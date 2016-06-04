@@ -45,15 +45,19 @@
                 <Label ToolTip="Gets and sets id for an premises. It is unique for every premises with no possibility of modifying." Grid.Column="0" Grid.Row="0">Id:</Label>
                 <Label ToolTip="Gets and sets name for an premises." Grid.Column="0" Grid.Row="1">Name:</Label>
                 <Label ToolTip="Gets and sets description for an premises." Grid.Column="0" Grid.Row="2">Description:</Label>
-                <Label ToolTip="Gets and sets possibility of alcohol serving for an premises. Select appropriate one." Grid.Column="0" Grid.Row="3">Serving alcohol:</Label>
-                <Label ToolTip="Gets and sets price rang for an premises. Select appropriate one." Grid.Column="0" Grid.Row="4">Price:</Label>
-                <Label ToolTip="Gets and sets accessibility for disabled persons for an premises. Check if available." Grid.Column="0" Grid.Row="5" Height="25" VerticalAlignment="Top">Is handicapable:</Label>
-                <Label ToolTip="Gets and sets possibility of smoking for an premises. Check if alowed." Grid.Column="0" Grid.Row="6">Smoking alowed:</Label>
-                <Label ToolTip="Gets and sets possibility of reserving for an premises. Check if avaiable." Grid.Column="0" Grid.Row="7">Reserving available:</Label>
+                <CheckBox ToolTip="Gets and sets accessibility for disabled persons for an premises. Check if available." Name="cbHandicaple" Grid.Row="3" Grid.Column="1" Content="Accessible for persons with disabilities"
+                      VerticalAlignment="Center" IsChecked="{Binding Path=IsHandicapable}" />
+                <CheckBox ToolTip="Gets and sets possibility of smoking for an premises. Check if alowed." Name="cbSmoking" Grid.Row="4" Grid.Column="1" Content="Smoking allowed"
+                      VerticalAlignment="Center" IsChecked="{Binding Path=IsSmokingAlowed}" />
+                <CheckBox ToolTip="Gets and sets possibility of smoking for an premises. Check if alowed." Name="cbReservations" Grid.Row="5" Grid.Column="1" Content="Possible reservations"
+                      VerticalAlignment="Center" IsChecked="{Binding Path=IsReservingAvailable}" />
+                <Label ToolTip="Gets and sets possibility of alcohol serving for an premises. Select appropriate one." Grid.Column="0" Grid.Row="6">Serving alcohol:</Label>
+                <Label ToolTip="Gets and sets price rang for an premises. Select appropriate one." Grid.Column="0" Grid.Row="7">Price:</Label>
                 <Label ToolTip="Gets and sets capacity for an premises." Grid.Column="0" Grid.Row="8">Capacity:</Label>
                 <Label ToolTip="Gets and sets opening date for an premises. Format to enter: dd-MM-yyyy." Grid.Column="0" Grid.Row="9">Opening date:</Label>
-
                 <Label ToolTip="Gets and sets type for an premises. Select appropriate one." Grid.Column="0" Grid.Row="10" Content="Type:" />
+               
+                
                 <Grid Grid.Column="1" Grid.Row="10">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
@@ -69,17 +73,12 @@
                 <TextBox Name="tbId" Grid.Column="1" Grid.Row="0" Text="{Binding Path=Id}" IsEnabled="False" />
                 <TextBox Name="tbName" Grid.Column="1" Grid.Row="1" Text="{Binding Path=Name}" IsEnabled="False" />
                 <TextBox Name="tbDesc" Grid.Column="1" Grid.Row="2" Text="{Binding Path=Description}" IsEnabled="False" />
-                <ComboBox Name="cbAlcohol" Grid.Column="1" Grid.Row="3"
+                <ComboBox Name="cbAlcohol" Grid.Column="1" Grid.Row="6"
                           SelectedItem="{Binding Selected.AlcoholServing}" VerticalAlignment="Center" Margin="0,0,2,0"
-                          IsEnabled="False" />
-                <ComboBox Name="cbPrice" Grid.Column="1" Grid.Row="4" SelectedItem="{Binding Selected.Price}"
+                          IsEnabled="False" /> 
+                <ComboBox Name="cbPrice" Grid.Column="1" Grid.Row="7" SelectedItem="{Binding Selected.Price}"
                           VerticalAlignment="Center" Margin="0,0,2,0" IsEditable="False" />
-                <CheckBox Name="tbHand" Grid.Column="1" Grid.Row="5" IsChecked="{Binding Path=IsHandicapable}"
-                          IsEnabled="False" />
-                <CheckBox Name="tbSmok" Grid.Column="1" Grid.Row="6" IsChecked="{Binding Path=IsSmokingAlowed}"
-                          IsEnabled="False" />
-                <CheckBox Name="tbReser" Grid.Column="1" Grid.Row="7" IsChecked="{Binding Path=IsReservingAvailable}"
-                          IsEnabled="False" />
+                
                 <TextBox Name="tbCapa" Grid.Column="1" Grid.Row="8" Text="{Binding Path=Capacity}" IsEnabled="False" />
                 <TextBox Name="tbOpen" Grid.Column="1" Grid.Row="9" Text="{Binding Path=OpeningDate, StringFormat=dd-MM-yyyy}" IsEnabled="False" />
             </Grid>
