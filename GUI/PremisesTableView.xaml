@@ -16,7 +16,21 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <DataGrid Grid.Row="0" Grid.Column="0" ToolTip="Select item to modify/delete" x:Name="dgrMain" ItemsSource="{Binding Path=Premises}" IsReadOnly="True"
-                  SelectionChanged="dgrMain_SelectionChanged" />
+                  SelectionChanged="dgrMain_SelectionChanged" AutoGenerateColumns="False" IsSynchronizedWithCurrentItem="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Description" Binding="{Binding Description}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Alcohol serving" Binding="{Binding AlcoholServing}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Price" Binding="{Binding Price}"></DataGridTextColumn>
+                <DataGridCheckBoxColumn Header="Handicapable" Binding="{Binding IsHandicapable}"></DataGridCheckBoxColumn>
+                <DataGridCheckBoxColumn Header="Smoking alowed" Binding="{Binding IsSmokingAlowed}"></DataGridCheckBoxColumn>
+                <DataGridCheckBoxColumn Header="Reserving available" Binding="{Binding IsReservingAvailable}"></DataGridCheckBoxColumn>
+                <DataGridTextColumn Header="Capacity" Binding="{Binding Capacity}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Opening date" Binding="{Binding OpeningDate}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Image path" Binding="{Binding PathImage}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
 
         <Grid Grid.Row="1" Grid.Column="0">
             <Grid.ColumnDefinitions>
