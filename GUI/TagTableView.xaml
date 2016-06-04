@@ -29,9 +29,9 @@
                 <ColumnDefinition MaxWidth="150"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Label Grid.Column="0" Grid.Row="0">Id:</Label>
-            <Label Grid.Column="0" Grid.Row="1">Color:</Label>
-            <Label Grid.Column="0" Grid.Row="2">Description:</Label>
+            <Label ToolTip="Gets and sets id for an tag. It is unique for every tag with no possibility of modifying." Grid.Column="0" Grid.Row="0">Id:</Label>
+            <Label ToolTip="Gets and sets color for an tag. Select appropriate one." Grid.Column="0" Grid.Row="1">Color:</Label>
+            <Label ToolTip="Gets and sets description for an tag." Grid.Column="0" Grid.Row="2">Description:</Label>
 
 
             <TextBox Name="tbId" Grid.Column="1" Grid.Row="0" Text="{Binding Path=Id}" IsEnabled="False"></TextBox>

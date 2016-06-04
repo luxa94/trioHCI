@@ -33,9 +33,9 @@
 
 
             </Grid.ColumnDefinitions>
-            <Label Grid.Column="0" Grid.Row="0">Id:</Label>
-            <Label Grid.Column="0" Grid.Row="1">Name:</Label>
-            <Label Grid.Column="0" Grid.Row="2">Description:</Label>
+            <Label ToolTip="Gets and sets id for an type. It is unique for every type with no possibility of modifying." Grid.Column="0" Grid.Row="0">Id:</Label>
+            <Label ToolTip="Gets and sets name for an type." Grid.Column="0" Grid.Row="1">Name:</Label>
+            <Label ToolTip="Gets and sets description for an type." Grid.Column="0" Grid.Row="2">Description:</Label>
 
 
             <TextBox Name="tbId" Grid.Column="1" Grid.Row="0" Text="{Binding Path=Id}" IsEnabled="False"/>
