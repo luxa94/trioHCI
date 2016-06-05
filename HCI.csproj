@@ -142,7 +142,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Commands\CustomCommands.cs" />
-    <Compile Include="Commands\RoutedCommands.cs" />
     <Compile Include="DatabaseModel.cs" />
     <Compile Include="DraggablePushpin.cs" />
     <Compile Include="GUI\Model\Global\Serialization.cs" />

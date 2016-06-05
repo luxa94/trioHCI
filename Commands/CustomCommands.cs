@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using System.Diagnostics;
 
 namespace HCI.Commands
 {
@@ -130,7 +131,7 @@ namespace HCI.Commands
 
         public void Execute(object parameter)
         {
-            MessageBox.Show("Help");
+            Process.Start("C:\\Users\\Nina\\Desktop\\HCI\\trioHCI\\bin\\Debug\\Helper\\Helper.chm");
         }
     }
     public class AboutCommand : ICommand //da hocem da radimo i sa precicama, trebalo bi da nasledom RoutedUICommand, recimo
@@ -144,7 +145,7 @@ namespace HCI.Commands
 
         public void Execute(object parameter)
         {
-            MessageBox.Show("About");
+            Process.Start("C:\\Users\\Nina\\Desktop\\HCI\\trioHCI\\bin\\Debug\\About\\Helper.chm");
         }
     }
 }
