@@ -19,7 +19,14 @@
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="dgrMain" ToolTip="Select item to modify/delete" Grid.ColumnSpan="3" ItemsSource="{Binding Path=Types}" IsReadOnly="True" SelectionChanged="dgrMain_SelectionChanged"/>
+        <DataGrid x:Name="dgrMain" ToolTip="Select item to modify/delete" Grid.ColumnSpan="3" ItemsSource="{Binding Path=Types}" IsReadOnly="True" SelectionChanged="dgrMain_SelectionChanged" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Description" Binding="{Binding Description}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Image path" Binding="{Binding PathImage}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
         <Grid Grid.ColumnSpan="2" Grid.Row="1" DataContext="{Binding ElementName=dgrMain,Path=SelectedItem}" Height="271" VerticalAlignment="Top">
             <Grid.RowDefinitions>
                 <RowDefinition Height="25"/>

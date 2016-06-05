@@ -13,7 +13,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
+            
         </Grid.RowDefinitions>
         <DataGrid Grid.Row="0" Grid.Column="0" ToolTip="Select item to modify/delete" x:Name="dgrMain" ItemsSource="{Binding Path=Premises}" IsReadOnly="True"
                   SelectionChanged="dgrMain_SelectionChanged" AutoGenerateColumns="False" IsSynchronizedWithCurrentItem="True">
@@ -31,129 +31,229 @@
                 <DataGridTextColumn Header="Image path" Binding="{Binding PathImage}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
-
         <Grid Grid.Row="1" Grid.Column="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
+            <TabControl>
+                <TabItem Header="Modify">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
 
-            <Grid Grid.Row="0" Grid.Column="0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition MaxWidth="150" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="25" />
-                    <RowDefinition Height="25" />
-                    <RowDefinition Height="25" />
-                    <RowDefinition Height="25" />
-                    <RowDefinition Height="25" />
-                    <RowDefinition Height="25" />
-                    <RowDefinition Height="25" />
-                    <RowDefinition Height="25" />
-                    <RowDefinition Height="25" />
-                    <RowDefinition Height="25" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
-                <Label ToolTip="Gets and sets id for an premises. It is unique for every premises with no possibility of modifying." Grid.Column="0" Grid.Row="0">Id:</Label>
-                <Label ToolTip="Gets and sets name for an premises." Grid.Column="0" Grid.Row="1">Name:</Label>
-                <Label ToolTip="Gets and sets description for an premises." Grid.Column="0" Grid.Row="2">Description:</Label>
-                <CheckBox ToolTip="Gets and sets accessibility for disabled persons for an premises. Check if available." Name="cbHandicaple" Grid.Row="3" Grid.Column="1" Content="Accessible for persons with disabilities"
+                        <Grid Grid.Row="0" Grid.Column="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition MaxWidth="150" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="25" />
+                                <RowDefinition Height="25" />
+                                <RowDefinition Height="25" />
+                                <RowDefinition Height="25" />
+                                <RowDefinition Height="25" />
+                                <RowDefinition Height="25" />
+                                <RowDefinition Height="25" />
+                                <RowDefinition Height="25" />
+                                <RowDefinition Height="25" />
+                                <RowDefinition Height="25" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Label ToolTip="Gets and sets id for an premises. It is unique for every premises with no possibility of modifying." Grid.Column="0" Grid.Row="0">Id:</Label>
+                            <Label ToolTip="Gets and sets name for an premises." Grid.Column="0" Grid.Row="1">Name:</Label>
+                            <Label ToolTip="Gets and sets description for an premises." Grid.Column="0" Grid.Row="2">Description:</Label>
+                            <CheckBox ToolTip="Gets and sets accessibility for disabled persons for an premises. Check if available." Name="cbHandicaple" Grid.Row="3" Grid.Column="1" Content="Accessible for persons with disabilities"
                       VerticalAlignment="Center" IsChecked="{Binding Path=IsHandicapable}" />
-                <CheckBox ToolTip="Gets and sets possibility of smoking for an premises. Check if alowed." Name="cbSmoking" Grid.Row="4" Grid.Column="1" Content="Smoking allowed"
+                            <CheckBox ToolTip="Gets and sets possibility of smoking for an premises. Check if alowed." Name="cbSmoking" Grid.Row="4" Grid.Column="1" Content="Smoking allowed"
                       VerticalAlignment="Center" IsChecked="{Binding Path=IsSmokingAlowed}" />
-                <CheckBox ToolTip="Gets and sets possibility of smoking for an premises. Check if alowed." Name="cbReservations" Grid.Row="5" Grid.Column="1" Content="Possible reservations"
+                            <CheckBox ToolTip="Gets and sets possibility of smoking for an premises. Check if alowed." Name="cbReservations" Grid.Row="5" Grid.Column="1" Content="Possible reservations"
                       VerticalAlignment="Center" IsChecked="{Binding Path=IsReservingAvailable}" />
-                <Label ToolTip="Gets and sets possibility of alcohol serving for an premises. Select appropriate one." Grid.Column="0" Grid.Row="6">Serving alcohol:</Label>
-                <Label ToolTip="Gets and sets price rang for an premises. Select appropriate one." Grid.Column="0" Grid.Row="7">Price:</Label>
-                <Label ToolTip="Gets and sets capacity for an premises." Grid.Column="0" Grid.Row="8">Capacity:</Label>
-                <Label ToolTip="Gets and sets opening date for an premises. Format to enter: dd-MM-yyyy." Grid.Column="0" Grid.Row="9">Opening date:</Label>
-                <Label ToolTip="Gets and sets type for an premises. Select appropriate one." Grid.Column="0" Grid.Row="10" Content="Type:" />
-               
-                
-                <Grid Grid.Column="1" Grid.Row="10">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="Auto" />
-                    </Grid.ColumnDefinitions>
-                    <ComboBox Name="cbType" SelectedItem="{Binding Path=Type, Mode=TwoWay}" VerticalAlignment="Center" Margin="0,2,2,2"
+                            <Label ToolTip="Gets and sets possibility of alcohol serving for an premises. Select appropriate one." Grid.Column="0" Grid.Row="6">Serving alcohol:</Label>
+                            <Label ToolTip="Gets and sets price rang for an premises. Select appropriate one." Grid.Column="0" Grid.Row="7">Price:</Label>
+                            <Label ToolTip="Gets and sets capacity for an premises." Grid.Column="0" Grid.Row="8">Capacity:</Label>
+                            <Label ToolTip="Gets and sets opening date for an premises. Format to enter: dd-MM-yyyy." Grid.Column="0" Grid.Row="9">Opening date:</Label>
+                            <Label ToolTip="Gets and sets type for an premises. Select appropriate one." Grid.Column="0" Grid.Row="10" Content="Type:" />
+
+
+                            <Grid Grid.Column="1" Grid.Row="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <ComboBox Name="cbType" SelectedItem="{Binding Path=Type, Mode=TwoWay}" VerticalAlignment="Center" Margin="0,2,2,2"
                               DisplayMemberPath="Name" SelectedValuePath="Id" IsEnabled="False" />
-                    <Button Name="btnAddNewType" ToolTip="Add new type" Grid.Column="1" Grid.Row="0" Content="New type" Margin="2"
+                                <Button Name="btnAddNewType" ToolTip="Add new type" Grid.Column="1" Grid.Row="0" Content="New type" Margin="2"
                             Padding="20,0" Click="btnAddNewType_Click" IsEnabled="False" />
-                </Grid>
+                            </Grid>
 
 
-                <TextBox Name="tbId" Grid.Column="1" Grid.Row="0" Text="{Binding Path=Id}" IsEnabled="False" />
-                <TextBox Name="tbName" Grid.Column="1" Grid.Row="1" Text="{Binding Path=Name}" IsEnabled="False" />
-                <TextBox Name="tbDesc" Grid.Column="1" Grid.Row="2" Text="{Binding Path=Description}" IsEnabled="False" />
-                <ComboBox Name="cbAlcohol" Grid.Column="1" Grid.Row="6"
+                            <TextBox Name="tbId" Grid.Column="1" Grid.Row="0" Text="{Binding Path=Id}" IsEnabled="False" />
+                            <TextBox Name="tbName" Grid.Column="1" Grid.Row="1" Text="{Binding Path=Name}" IsEnabled="False" />
+                            <TextBox Name="tbDesc" Grid.Column="1" Grid.Row="2" Text="{Binding Path=Description}" IsEnabled="False" />
+                            <ComboBox Name="cbAlcohol" Grid.Column="1" Grid.Row="6"
                           SelectedItem="{Binding Selected.AlcoholServing}" VerticalAlignment="Center" Margin="0,0,2,0"
-                          IsEnabled="False" /> 
-                <ComboBox Name="cbPrice" Grid.Column="1" Grid.Row="7" SelectedItem="{Binding Selected.Price}"
+                          IsEnabled="False" />
+                            <ComboBox Name="cbPrice" Grid.Column="1" Grid.Row="7" SelectedItem="{Binding Selected.Price}"
                           VerticalAlignment="Center" Margin="0,0,2,0" IsEditable="False" />
-                
-                <TextBox Name="tbCapa" Grid.Column="1" Grid.Row="8" Text="{Binding Path=Capacity}" IsEnabled="False" />
-                <DatePicker Name="dpOpeningDate" Grid.Column="1" Grid.Row="9" SelectedDate="{Binding Path=OpeningDate}" />
-         <!--       <TextBox Name="tbOpen" Grid.Column="1" Grid.Row="9" Text="{Binding Path=OpeningDate, StringFormat=dd-MM-yyyy}" IsEnabled="False" /> -->
-            </Grid>
-            
-            <Grid Grid.Row="0" Grid.Column="1">
-                
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="150"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <GroupBox Grid.Column="0" Grid.Row="0" Header="All Tags" BorderBrush="Black">
-                    <ListView Name="lvAllTags" ToolTip="Drag and drop to the other board" ItemsSource="{Binding AllTags}"
+
+                            <TextBox Name="tbCapa" Grid.Column="1" Grid.Row="8" Text="{Binding Path=Capacity}" IsEnabled="False" />
+                            <DatePicker Name="dpOpeningDate" Grid.Column="1" Grid.Row="9" SelectedDate="{Binding Path=OpeningDate}" />
+                            <!--       <TextBox Name="tbOpen" Grid.Column="1" Grid.Row="9" Text="{Binding Path=OpeningDate, StringFormat=dd-MM-yyyy}" IsEnabled="False" /> -->
+                        </Grid>
+
+                        <Grid Grid.Row="0" Grid.Column="1">
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="150"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <GroupBox Grid.Column="0" Grid.Row="0" Header="All Tags" BorderBrush="Black">
+                                <ListView Name="lvAllTags" ToolTip="Drag and drop to the other board" ItemsSource="{Binding AllTags}"
                               PreviewMouseLeftButtonDown="ListView_PreviewMouseLeftButtonDown"
                               MouseMove="ListView_MouseMove" AllowDrop="True" DragEnter="ListView_DragEnter"
                               Drop="AllList_Drop">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <WrapPanel>
-                                    <Canvas Height="25" Width="25" Background="{Binding Color}" />
-                                    <TextBlock Text="{Binding Id}" />
-                                </WrapPanel>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                </GroupBox>
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <WrapPanel>
+                                                <Canvas Height="25" Width="25" Background="{Binding Color}" />
+                                                <TextBlock Text="{Binding Id}" />
+                                            </WrapPanel>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </GroupBox>
 
-                <GroupBox Grid.Column="1" Grid.Row="0" Header="Selected Tags" BorderBrush="Black">
-                    <ListView Name="lvSelected" ToolTip="Drag and drop to the other board" ItemsSource="{Binding AlAllTagslTypes}"
+                            <GroupBox Grid.Column="1" Grid.Row="0" Header="Selected Tags" BorderBrush="Black">
+                                <ListView Name="lvSelected" ToolTip="Drag and drop to the other board" ItemsSource="{Binding AlAllTagslTypes}"
                               PreviewMouseLeftButtonDown="ListView_PreviewMouseLeftButtonDown"
                               MouseMove="ListView_MouseMove" AllowDrop="True" DragEnter="ListView_DragEnter"
                               Drop="ListView_Drop">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <WrapPanel>
-                                    <Canvas Height="25" Width="25" Background="{Binding Color}" />
-                                    <TextBlock Text="{Binding Id}" />
-                                </WrapPanel>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                </GroupBox>
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <WrapPanel>
+                                                <Canvas Height="25" Width="25" Background="{Binding Color}" />
+                                                <TextBlock Text="{Binding Id}" />
+                                            </WrapPanel>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </GroupBox>
 
-                <StackPanel Grid.Row="0" Grid.Column="2">
-                    <Label Content="Image:" HorizontalAlignment="Center" />
-                    <Image x:Name="imgIcon" Source="{Binding PathImage}" HorizontalAlignment="Center" MaxHeight="150" MaxWidth="150" />
-                    <Button x:Name="button" Content="Browse" ToolTip="Browse picture from the file system" Height="29" Width="93" Click="button_Click_1"
+                            <StackPanel Grid.Row="0" Grid.Column="2">
+                                <Label Content="Image:" HorizontalAlignment="Center" />
+                                <Image x:Name="imgIcon" Source="{Binding PathImage}" HorizontalAlignment="Center" MaxHeight="150" MaxWidth="150" />
+                                <Button x:Name="button" Content="Browse" ToolTip="Browse picture from the file system" Height="29" Width="93" Click="button_Click_1"
                     HorizontalAlignment="Center" Margin="0,10,0,0" />
-                </StackPanel>
-
-            </Grid>
-                
-            
-        </Grid>
-
-        <StackPanel Grid.Column="0" Grid.Row="2" Orientation="Horizontal" FlowDirection="RightToLeft"
+                            </StackPanel>
+                        </Grid>
+                        <Grid Grid.Row="1" Grid.ColumnSpan="2">
+                            <StackPanel Grid.Column="0" Grid.Row="2" Orientation="Horizontal" FlowDirection="RightToLeft"
                     Background="LightGray">
-            <Button Name="btnDelete" Content="Delete" ToolTip="Delete selected item" Click="btnDelete_Click" Margin="10" Padding="20,5" />
-            <Button Name="btnCancel" Content="Cancel" ToolTip="Cancel changes" Click="btnCancel_Click" Margin="10" Padding="20,5" />
-            <Button Name="btnSave" Content="Save" ToolTip="Save changes" IsDefault="True" Click="btnSave_Click" Margin="10" Padding="20,5" />
-        </StackPanel>
+                                <Button Name="btnDelete" Content="Delete" ToolTip="Delete selected item" Click="btnDelete_Click" Margin="10" Padding="20,5" />
+                                <Button Name="btnCancel" Content="Cancel" ToolTip="Cancel changes" Click="btnCancel_Click" Margin="10" Padding="20,5" />
+                                <Button Name="btnSave" Content="Save" ToolTip="Save changes" IsDefault="True" Click="btnSave_Click" Margin="10" Padding="20,5" />
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+
+                </TabItem>
+                <TabItem Header="Filter" >
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Row="0" Grid.Column="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition MaxWidth="150" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="25" />
+                                <RowDefinition Height="25" />
+                                <RowDefinition Height="25" />
+                                <RowDefinition Height="25" />
+                                <RowDefinition Height="25" />
+                                <RowDefinition Height="25" />
+                                <RowDefinition Height="25" />
+                                <RowDefinition Height="25" />
+                                <RowDefinition Height="25" />
+                                <RowDefinition Height="25" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Label ToolTip="Gets and sets id for an premises. It is unique for every premises with no possibility of modifying." Grid.Column="0" Grid.Row="0">Id:</Label>
+                            <Label ToolTip="Gets and sets name for an premises." Grid.Column="0" Grid.Row="1">Name:</Label>
+                            <Label ToolTip="Gets and sets description for an premises." Grid.Column="0" Grid.Row="2">Description:</Label>
+                            <CheckBox ToolTip="Gets and sets accessibility for disabled persons for an premises. Check if available." Name="cbHandicaple2" Grid.Row="3" Grid.Column="1" Content="Accessible for persons with disabilities"
+                      VerticalAlignment="Center" IsChecked="{Binding Path=IsHandicapable}" />
+                            <CheckBox ToolTip="Gets and sets possibility of smoking for an premises. Check if alowed." Name="cbSmoking2" Grid.Row="4" Grid.Column="1" Content="Smoking allowed"
+                      VerticalAlignment="Center" IsChecked="{Binding Path=IsSmokingAlowed}" />
+                            <CheckBox ToolTip="Gets and sets possibility of smoking for an premises. Check if alowed." Name="cbReservations2" Grid.Row="5" Grid.Column="1" Content="Possible reservations"
+                      VerticalAlignment="Center" IsChecked="{Binding Path=IsReservingAvailable}" />
+                            <Label ToolTip="Gets and sets possibility of alcohol serving for an premises. Select appropriate one." Grid.Column="0" Grid.Row="6">Serving alcohol:</Label>
+                            <Label ToolTip="Gets and sets price rang for an premises. Select appropriate one." Grid.Column="0" Grid.Row="7">Price:</Label>
+                            <Label ToolTip="Gets and sets capacity for an premises." Grid.Column="0" Grid.Row="8">Capacity:</Label>
+                            <Label ToolTip="Gets and sets opening date for an premises. Format to enter: dd-MM-yyyy." Grid.Column="0" Grid.Row="9">Opening date:</Label>
+                            <Label ToolTip="Gets and sets type for an premises. Select appropriate one." Grid.Column="0" Grid.Row="10" Content="Type:" />
+
+                            <Grid Grid.Column="1" Grid.Row="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <ComboBox Name="cbType2" SelectedItem="{Binding Path=Type, Mode=TwoWay}" VerticalAlignment="Center" Margin="0,2,2,2"
+                              DisplayMemberPath="Name" SelectedValuePath="Id"/>
+                            </Grid>
+
+                            <TextBox Name="tbId2" Grid.Column="1" Grid.Row="0" Text="{Binding Path=Id}"/>
+                            <TextBox Name="tbName2" Grid.Column="1" Grid.Row="1" Text="{Binding Path=Name}" />
+                            <TextBox Name="tbDesc2" Grid.Column="1" Grid.Row="2" Text="{Binding Path=Description}" />
+                            <ComboBox Name="cbAlcohol2" Grid.Column="1" Grid.Row="6"
+                          SelectedItem="{Binding Selected.AlcoholServing}" VerticalAlignment="Center" Margin="0,0,2,0"/>
+                            <ComboBox Name="cbPrice2" Grid.Column="1" Grid.Row="7" SelectedItem="{Binding Selected.Price}"
+                          VerticalAlignment="Center" Margin="0,0,2,0"/>
+
+                            <TextBox Name="tbCapa2" Grid.Column="1" Grid.Row="8" Text="{Binding Path=Capacity}" />
+                            <DatePicker Name="dpOpeningDate2" Grid.Column="1" Grid.Row="9" SelectedDate="{Binding Path=OpeningDate}" />
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="1">
+                            <GroupBox Grid.Column="0" Grid.Row="0" Header="All Tags" BorderBrush="Black">
+                                <ListView Name="lvAllTags2" ToolTip="Select tags for filtering" ItemsSource="{Binding AllTags}"
+                              PreviewMouseLeftButtonDown="ListView_PreviewMouseLeftButtonDown"
+                              MouseMove="ListView_MouseMove" AllowDrop="True" DragEnter="ListView_DragEnter"
+                              Drop="AllList_Drop">
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <WrapPanel>
+                                                <Canvas Height="25" Width="25" Background="{Binding Color}" />
+                                                <TextBlock Text="{Binding Id}" />
+                                            </WrapPanel>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </GroupBox>
+                        </Grid>
+                        <Grid Grid.Row="1" Grid.ColumnSpan="2">
+                            <StackPanel Grid.Column="0" Grid.Row="2" Orientation="Horizontal" FlowDirection="RightToLeft"
+                    Background="LightGray">
+                                <Button Name="btnFilter" Content="Filter" ToolTip="Filter premises by set filters." Click="btnFilter_Click" Margin="10" Padding="20,5" />
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Search" />
+            </TabControl>
+        </Grid>
+        
     </Grid>
 </Window>
