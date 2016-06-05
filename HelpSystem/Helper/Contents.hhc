@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<!-- Sitemap 1.0 -->
+</HEAD><BODY>
+<OBJECT type="text/site properties">
+	<param name="FrameName" value="right">
+	<param name="Window Styles" value="0x800025">
+</OBJECT>
+<UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Osnovna pomoc">
+		<param name="Local" value="Pomoc.htm">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Application Main Window">
+			<param name="Local" value="Main Window.HTML">
+			</OBJECT>
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Premises">
+		<param name="Local" value="Premises.HTML">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Add new premises">
+			<param name="Local" value="Add new premises.HTML">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Modify premises">
+			<param name="Local" value="Modify premises.HTML">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Delete premises">
+			<param name="Local" value="Delete premsies.HTML">
+			</OBJECT>
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Type">
+		<param name="Local" value="Type.HTML">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Add new type">
+			<param name="Local" value="Add new type.HTML">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Izmena tipa">
+			<param name="Local" value="izmenaTipa.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Brisanje tipa">
+			<param name="Local" value="brisanjeTipa.htm">
+			</OBJECT>
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Prikaz tagova">
+		<param name="Local" value="prikazTagova.htm">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Add new tag">
+			<param name="Local" value="Add new tag.HTML">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Izmena taga">
+			<param name="Local" value="izmenaTaga.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Brisanje taga">
+			<param name="Local" value="brisanjeTaga.htm">
+			</OBJECT>
+	</UL>
+</UL>
+</BODY></HTML>

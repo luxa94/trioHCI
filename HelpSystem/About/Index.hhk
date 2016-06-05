@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Precision Helper 2.0.1">
+<!-- Sitemap 1.0 -->
+</HEAD>
+<BODY>
+    <OBJECT type="text/site properties">
+      <param name="FrameName" value="right">
+    </OBJECT>
+    <UL>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="AddResurs">
+          <param name="Local" value="dodajResurs.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="AddTip">
+          <param name="Local" value="dodavanjeTipa.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="AddTag">
+          <param name="Local" value="dodavanjeTaga.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="ChangeResurs">
+          <param name="Local" value="izmenaResursa.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="ChangeTip">
+          <param name="Local" value="izmenaTipa.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="ChangeTag">
+          <param name="Local" value="izmenaTaga.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="DeleteResurs">
+          <param name="Local" value="brisanjeResursa.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="DeleteTip">
+          <param name="Local" value="brisanjeTipa.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="DeleteTag">
+          <param name="Local" value="brisanjeTaga.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Help">
+          <param name="Local" value="Pomoc.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Homepage">
+          <param name="Local" value="Osnovna strana pomoci.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="ResursWindow">
+          <param name="Local" value="prikazResursa.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="TipWindow">
+          <param name="Local" value="prikazTipova.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="TagWindow">
+          <param name="Local" value="prikazTagova.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Widget">
+          <param name="Local" value="widget.htm">
+        </OBJECT>
+    </UL>
+</BODY>
+</HTML>
