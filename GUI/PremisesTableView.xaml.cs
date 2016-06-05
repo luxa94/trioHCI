@@ -138,6 +138,7 @@ namespace HCI.GUI
                     }
 
                     lvAllTags.ItemsSource = AllTags;
+                    lvAllTags2.ItemsSource = AllTags;
                     lvSelected.ItemsSource = SelectedTags;
                     //                cbType.ItemsSource = new ObservableCollection<HCI.Model.Type>(ctx.Types);
                 }
@@ -285,6 +286,11 @@ namespace HCI.GUI
                 AllTags.Add(student);
                 Console.WriteLine(SelectedTags.ToString());
             }
+        }
+
+        private void btnFilter_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
