@@ -131,7 +131,7 @@ namespace HCI.Commands
 
         public void Execute(object parameter)
         {
-            Process.Start("C:\\Users\\Nina\\Desktop\\HCI\\trioHCI\\bin\\Debug\\Helper\\Helper.chm");
+            Process.Start("..\\..\\HelpSystem\\Helper\\Helper.chm");
         }
     }
     public class AboutCommand : ICommand //da hocem da radimo i sa precicama, trebalo bi da nasledom RoutedUICommand, recimo
@@ -145,7 +145,7 @@ namespace HCI.Commands
 
         public void Execute(object parameter)
         {
-            Process.Start("C:\\Users\\Nina\\Desktop\\HCI\\trioHCI\\bin\\Debug\\About\\Helper.chm");
+            Process.Start("..\\..\\HelpSystem\\About\\Helper.chm");
         }
     }
 }
