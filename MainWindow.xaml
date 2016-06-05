@@ -95,10 +95,12 @@
 
             <ListView ItemsSource="{Binding AllPremises}" ToolTip="Select item and drag it on the map" Name="listView"  Grid.Row="1" Grid.Column="0" PreviewMouseLeftButtonDown="treeview_PreviewMouseLeftButtonDown" MouseMove="treeview_MouseMove"  >
                 <ListView.ItemTemplate>
+
                     <DataTemplate>
                         <WrapPanel>
                             <Image x:Name="imgIcon2" Source="{Binding PathImage}" Style="{StaticResource ResourceKey=SmallIcon}" />
                             <TextBlock Text="{Binding Name}" />
+                            
                         </WrapPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
