@@ -34,12 +34,30 @@ namespace HCI.GUI
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
+            var closeable = true;
             using (var ctx = new DatabaseModel())
             {
-                ctx.Tags.Add(tag);
-                ctx.SaveChanges();
+                var tt = new List<Tag>(ctx.Tags.Where(t => t.Id == tag.Id));
+                if (string.IsNullOrEmpty(tag.Id))
+                {
+                    closeable = false;
+                    MessageBox.Show("Id must be set!");
+                }
+                else if (tt.Count > 0)
+                {
+                    closeable = false;
+                    MessageBox.Show("Id already exists!");
+                }
+                else
+                {
+                    ctx.Tags.Add(tag);
+                    ctx.SaveChanges();
+                }
             }
-            Close();
+            if (closeable)
+            {
+                Close();
+            }
         }
 
         private void ColorPicker_SelectedColorChanged(object sender, EventArgs e)
