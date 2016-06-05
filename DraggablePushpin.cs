@@ -16,8 +16,9 @@ namespace HCI
         Location _center;
         private Premises _p;
 
-        public DraggablePushpin(Map map, Location center, Premises p)
+        public DraggablePushpin(Map map, Location center, Premises p) : base()
         {
+            this.Location = center;
             _map = map;
             _center = center;
             _p = p;

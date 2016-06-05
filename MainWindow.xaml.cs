@@ -118,19 +118,23 @@ namespace HCI
 
         private void map_Drop(object sender, DragEventArgs e)
         {
+            var m = sender as Map;
             if (e.Data.GetDataPresent("premises"))
             {
                 Premises p = e.Data.GetData("premises") as Premises;
                 Point mousePosition = e.GetPosition(this);
-                Location pinLocation = myMap.ViewportPointToLocation(mousePosition);
+                Point point = m.TransformToAncestor(this).Transform(new Point(0, 0));
+                mousePosition.X -= point.X;
+                mousePosition.Y -= point.Y;
+                Location pinLocation = m.ViewportPointToLocation(mousePosition);
                 p.Latitude = pinLocation.Latitude;
                 p.Longitude = pinLocation.Longitude;
 
 
-                DraggablePushpin pin = new DraggablePushpin(myMap, pinLocation, p);
+                DraggablePushpin pin = new DraggablePushpin(m, pinLocation, p);
 
 //                pin.Template = PushpinTemplateFactory.getTemplate(lokal);
-                myMap.Children.Add(pin);
+                m.Children.Add(pin);
             }
         }
 
