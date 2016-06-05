@@ -210,12 +210,16 @@
     <Resource Include="GUI\folder.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\filtriranje\DataGridFilterLibrary\DataGridFilterLibrary.csproj">
+    <ProjectReference Include="DataGridFilterLibrary\DataGridFilterLibrary.csproj">
       <Project>{512fd53f-9ad1-46a1-a961-9fabdfad50c5}</Project>
       <Name>DataGridFilterLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
