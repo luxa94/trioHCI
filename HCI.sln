@@ -9,6 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HCI", "HCI.csproj", "{4AC9F
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{48B46A0B-FA00-40F7-95E9-A05F9C1E7438}"
+	ProjectSection(SolutionItems) = preProject
+		Lib\WPFToolkit.dll = Lib\WPFToolkit.dll
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataGridFilterLibrary", "DataGridFilterLibrary\DataGridFilterLibrary.csproj", "{512FD53F-9AD1-46A1-A961-9FABDFAD50C5}"
 EndProject
