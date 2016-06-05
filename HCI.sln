@@ -4,6 +4,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HCI", "HCI.csproj", "{4AC9FD8A-6142-422A-BE20-65A1B1A04B75}"
+	ProjectSection(ProjectDependencies) = postProject
+		{512FD53F-9AD1-46A1-A961-9FABDFAD50C5} = {512FD53F-9AD1-46A1-A961-9FABDFAD50C5}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataGridFilterLibrary", "..\filtriranje\DataGridFilterLibrary\DataGridFilterLibrary.csproj", "{512FD53F-9AD1-46A1-A961-9FABDFAD50C5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{48B46A0B-FA00-40F7-95E9-A05F9C1E7438}"
+	ProjectSection(SolutionItems) = preProject
+		..\filtriranje\Lib\WPFToolkit.dll = ..\filtriranje\Lib\WPFToolkit.dll
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +25,10 @@ Global
 		{4AC9FD8A-6142-422A-BE20-65A1B1A04B75}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4AC9FD8A-6142-422A-BE20-65A1B1A04B75}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4AC9FD8A-6142-422A-BE20-65A1B1A04B75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{512FD53F-9AD1-46A1-A961-9FABDFAD50C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{512FD53F-9AD1-46A1-A961-9FABDFAD50C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{512FD53F-9AD1-46A1-A961-9FABDFAD50C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{512FD53F-9AD1-46A1-A961-9FABDFAD50C5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

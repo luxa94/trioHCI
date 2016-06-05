@@ -8,9 +8,6 @@
         xmlns:local="clr-namespace:HCI.Model"
         mc:Ignorable="d"
         Title="HCI project" Height="500" Width="700" Background="LightCyan">
-    <Window.CommandBindings>
-        <CommandBinding Command="cmd:RoutedCommands.HelloWorld" Executed="HelloWorld_Executed"></CommandBinding>
-    </Window.CommandBindings>
     <Window.InputBindings>
         <KeyBinding Gesture="Ctrl+P"
               Modifiers="Control" 

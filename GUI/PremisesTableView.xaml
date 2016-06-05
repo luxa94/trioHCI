@@ -6,6 +6,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HCI.GUI"
         mc:Ignorable="d"
+        xmlns:wpftoolkit="http://schemas.microsoft.com/wpf/2008/toolkit"
+        xmlns:filter="clr-namespace:DataGridFilterLibrary;assembly=DataGridFilterLibrary"
         Title="Premises table view" Height="633" Width="800" Background="LightCyan">
 
     <Grid>
@@ -15,22 +17,26 @@
             <RowDefinition Height="Auto" />
             
         </Grid.RowDefinitions>
-        <DataGrid Grid.Row="0" Grid.Column="0" ToolTip="Select item to modify/delete" x:Name="dgrMain" ItemsSource="{Binding Path=Premises}" IsReadOnly="True"
-                  SelectionChanged="dgrMain_SelectionChanged" AutoGenerateColumns="False" IsSynchronizedWithCurrentItem="True">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Binding="{Binding Id}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Name" Binding="{Binding Name}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Description" Binding="{Binding Description}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Alcohol serving" Binding="{Binding AlcoholServing}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Price" Binding="{Binding Price}"></DataGridTextColumn>
-                <DataGridCheckBoxColumn Header="Handicapable" Binding="{Binding IsHandicapable}"></DataGridCheckBoxColumn>
-                <DataGridCheckBoxColumn Header="Smoking alowed" Binding="{Binding IsSmokingAlowed}"></DataGridCheckBoxColumn>
-                <DataGridCheckBoxColumn Header="Reserving available" Binding="{Binding IsReservingAvailable}"></DataGridCheckBoxColumn>
-                <DataGridTextColumn Header="Capacity" Binding="{Binding Capacity}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Opening date" Binding="{Binding OpeningDate}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Image path" Binding="{Binding PathImage}"></DataGridTextColumn>
-            </DataGrid.Columns>
-        </DataGrid>
+        <wpftoolkit:DataGrid
+            Grid.Row="0" Grid.Column="0" ToolTip="Select item to modify/delete" x:Name="dgrMain" 
+            ItemsSource="{Binding Path=Premises}" IsReadOnly="True" SelectionChanged="dgrMain_SelectionChanged" 
+            AutoGenerateColumns="False" IsSynchronizedWithCurrentItem="True"
+            ColumnHeaderStyle="{StaticResource {ComponentResourceKey TypeInTargetAssembly={x:Type filter:DataGridHeaderFilterControl}, 
+           ResourceId=DataGridHeaderFilterControlStyle}}">
+            <wpftoolkit:DataGrid.Columns>
+                <wpftoolkit:DataGridTextColumn Header="Id" Binding="{Binding Id}"></wpftoolkit:DataGridTextColumn>
+                <wpftoolkit:DataGridTextColumn Header="Name" Binding="{Binding Name}"></wpftoolkit:DataGridTextColumn>
+                <wpftoolkit:DataGridTextColumn Header="Description" Binding="{Binding Description}"></wpftoolkit:DataGridTextColumn>
+                <wpftoolkit:DataGridTextColumn Header="Alcohol serving" Binding="{Binding AlcoholServing}"></wpftoolkit:DataGridTextColumn>
+                <wpftoolkit:DataGridTextColumn Header="Price" Binding="{Binding Price}"></wpftoolkit:DataGridTextColumn>
+                <wpftoolkit:DataGridCheckBoxColumn Header="Handicapable" Binding="{Binding IsHandicapable}"></wpftoolkit:DataGridCheckBoxColumn>
+                <wpftoolkit:DataGridCheckBoxColumn Header="Smoking alowed" Binding="{Binding IsSmokingAlowed}"></wpftoolkit:DataGridCheckBoxColumn>
+                <wpftoolkit:DataGridCheckBoxColumn Header="Reserving available" Binding="{Binding IsReservingAvailable}"></wpftoolkit:DataGridCheckBoxColumn>
+                <wpftoolkit:DataGridTextColumn Header="Capacity" Binding="{Binding Capacity}"></wpftoolkit:DataGridTextColumn>
+                <wpftoolkit:DataGridTextColumn Header="Opening date" Binding="{Binding OpeningDate}"></wpftoolkit:DataGridTextColumn>
+                <wpftoolkit:DataGridTextColumn Header="Image path" Binding="{Binding PathImage}"></wpftoolkit:DataGridTextColumn>
+            </wpftoolkit:DataGrid.Columns>
+        </wpftoolkit:DataGrid>
         <Grid Grid.Row="1" Grid.Column="0">
             <TabControl>
                 <TabItem Header="Modify">
