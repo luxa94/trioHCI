@@ -6,6 +6,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HCI.GUI"
         mc:Ignorable="d"
+        xmlns:wpftoolkit="http://schemas.microsoft.com/wpf/2008/toolkit"
+        xmlns:filter="clr-namespace:DataGridFilterLibrary;assembly=DataGridFilterLibrary"
         Title="Tag table view" Height="285" Width="301" Background="LightCyan">
     <Grid>
         <Grid.RowDefinitions>
@@ -17,19 +19,24 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="dgrMain" ToolTip="Select item to modify/delete" ItemsSource="{Binding Path=Tags}" IsReadOnly="True" SelectionChanged="dgrMain_SelectionChanged" AutoGenerateColumns="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Binding="{Binding Id}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Color">
-                    <DataGridTextColumn.ElementStyle>
+        <wpftoolkit:DataGrid x:Name="dgrMain" ToolTip="Select item to modify/delete" 
+                             ItemsSource="{Binding Path=Tags}" IsReadOnly="True" SelectionChanged="dgrMain_SelectionChanged" 
+                             AutoGenerateColumns="False"
+                             ColumnHeaderStyle="{StaticResource {ComponentResourceKey TypeInTargetAssembly={x:Type filter:DataGridHeaderFilterControl}, 
+           ResourceId=DataGridHeaderFilterControlStyle}}">
+            <wpftoolkit:DataGrid.Columns>
+                <wpftoolkit:DataGridTextColumn Header="Id" Binding="{Binding Id}"></wpftoolkit:DataGridTextColumn>
+                <wpftoolkit:DataGridTextColumn Header="Color" filter:DataGridColumnExtensions.DoNotGenerateFilterControl="True" Binding="{Binding Color}" >
+                    <wpftoolkit:DataGridTextColumn.ElementStyle>
                         <Style TargetType="{x:Type TextBlock}">
                             <Setter Property="TextBlock.Background" Value="{Binding Color}" />
-                        </Style>
-                    </DataGridTextColumn.ElementStyle>
-                </DataGridTextColumn>
-                <DataGridTextColumn Header="Description" Binding="{Binding Description}"></DataGridTextColumn>
-            </DataGrid.Columns>
-        </DataGrid>
+                            <Setter Property="TextBlock.FontSize" Value="1"></Setter>
+                         </Style>
+                    </wpftoolkit:DataGridTextColumn.ElementStyle>
+                </wpftoolkit:DataGridTextColumn>
+                <wpftoolkit:DataGridTextColumn Header="Description" Binding="{Binding Description}"></wpftoolkit:DataGridTextColumn>
+            </wpftoolkit:DataGrid.Columns>
+        </wpftoolkit:DataGrid>
         <Grid Grid.Column="0" Grid.Row="1" DataContext="{Binding ElementName=dgrMain,Path=SelectedItem}" Height="271" VerticalAlignment="Top">
             <Grid.RowDefinitions>
                 <RowDefinition Height="25"/>

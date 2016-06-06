@@ -6,6 +6,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HCI.GUI"
         mc:Ignorable="d"
+         xmlns:wpftoolkit="http://schemas.microsoft.com/wpf/2008/toolkit"
+        xmlns:filter="clr-namespace:DataGridFilterLibrary;assembly=DataGridFilterLibrary"
         Title="Type table view" Height="400" Width="292" Background="LightCyan">
     <Grid Margin="0,0,2,0">
         <Grid.RowDefinitions>
@@ -19,14 +21,22 @@
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="dgrMain" ToolTip="Select item to modify/delete" Grid.ColumnSpan="3" ItemsSource="{Binding Path=Types}" IsReadOnly="True" SelectionChanged="dgrMain_SelectionChanged" AutoGenerateColumns="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Binding="{Binding Id}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Name" Binding="{Binding Name}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Description" Binding="{Binding Description}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Image path" Binding="{Binding PathImage}"></DataGridTextColumn>
-            </DataGrid.Columns>
-        </DataGrid>
+        <wpftoolkit:DataGrid x:Name="dgrMain" 
+                             ToolTip="Select item to modify/delete" 
+                             Grid.ColumnSpan="3" 
+                             ItemsSource="{Binding Path=Types}" 
+                             IsReadOnly="True" 
+                             SelectionChanged="dgrMain_SelectionChanged" 
+                             AutoGenerateColumns="False"
+                             ColumnHeaderStyle="{StaticResource {ComponentResourceKey TypeInTargetAssembly={x:Type filter:DataGridHeaderFilterControl}, 
+           ResourceId=DataGridHeaderFilterControlStyle}}">
+            <wpftoolkit:DataGrid.Columns>
+                <wpftoolkit:DataGridTextColumn Header="Id" Binding="{Binding Id}"></wpftoolkit:DataGridTextColumn>
+                <wpftoolkit:DataGridTextColumn Header="Name" Binding="{Binding Name}"></wpftoolkit:DataGridTextColumn>
+                <wpftoolkit:DataGridTextColumn Header="Description" Binding="{Binding Description}"></wpftoolkit:DataGridTextColumn>
+                <wpftoolkit:DataGridTextColumn Header="Image path" Binding="{Binding PathImage}"></wpftoolkit:DataGridTextColumn>
+            </wpftoolkit:DataGrid.Columns>
+        </wpftoolkit:DataGrid>
         <Grid Grid.ColumnSpan="2" Grid.Row="1" DataContext="{Binding ElementName=dgrMain,Path=SelectedItem}" Height="271" VerticalAlignment="Top">
             <Grid.RowDefinitions>
                 <RowDefinition Height="25"/>

@@ -58,6 +58,7 @@ namespace HCI.GUI
                 cbType.ItemsSource = Types;
             }
             enableFields(false);
+            dgrMain.UnselectAllCells();
             this.DataContext = this;
         }
 

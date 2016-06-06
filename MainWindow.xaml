@@ -77,7 +77,7 @@
                 <MenuItem Header="View and modify tag" Command="cmd:CustomCommands.editTagCom" InputGestureText="Ctrl+V+G"></MenuItem>
             </MenuItem>
             <MenuItem Header="_Help" x:Name="menuItem_help">
-                <MenuItem Header="Help" Command="cmd:CustomCommands.helpCom" InputGestureText="F1"></MenuItem>
+                <MenuItem Header="Help" Command="cmd:CustomCommands.helpCom" InputGestureText="Alt+F1"></MenuItem>
                 <MenuItem Header="About" Command="cmd:CustomCommands.aboutCom"></MenuItem>
             </MenuItem>
         </Menu>
