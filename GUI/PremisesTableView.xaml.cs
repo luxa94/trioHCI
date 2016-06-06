@@ -62,6 +62,19 @@ namespace HCI.GUI
             this.DataContext = this;
         }
 
+        public PremisesTableView(Premises premises) : this()
+        {
+            for (var i = 0; i < Premises.Count; i++)
+            {
+                if (Premises[i].Id == premises.Id)
+                {
+                    dgrMain.SelectedItem = Premises[i];
+                    break;
+                }
+            }
+            setSelected();
+        }
+
         private void setSelected()
         {
             if (dgrMain.SelectedIndex != -1)

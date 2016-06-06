@@ -9,6 +9,7 @@ using System.Windows.Input;
 using HCI.Model;
 using Microsoft.Maps.MapControl.WPF;
 using HCI.Model.Global;
+using HCI.GUI;
 
 namespace HCI
 {
@@ -69,7 +70,8 @@ namespace HCI
 
         private void Context_Edit(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("EDIT");
+            Window w = new PremisesTableView(_p);
+            w.ShowDialog();
         }
 
         private void Context_Delete(object sender, RoutedEventArgs e)

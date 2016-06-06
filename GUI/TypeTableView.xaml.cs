@@ -145,6 +145,7 @@ namespace HCI.GUI
                 ctx.SaveChanges();
             }
             dgrMain.SelectedIndex = sIndex;
+            Globals.UpdatePremises();
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
