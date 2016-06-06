@@ -183,7 +183,7 @@ namespace HCI
         private void InteractivTutorial_Click(object sender, RoutedEventArgs e)
         {
             Tutorial = true;
-            MessageBox.Show("Welcome to Interactiv Tutorial for adding new tag. Folow next steps.");
+            MessageBox.Show("Welcome to interactive tutorial for adding new tag. Folow next steps.");
             EnableAll(false);
             btnAddTag.Background = Brushes.LightCoral;
             MessageBox.Show("Click on button \"Add new tag.\".");
