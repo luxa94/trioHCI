@@ -27,8 +27,8 @@ namespace HCI
             var imgSlidza = new FrameworkElementFactory(typeof(Image));
             var rectangle = new FrameworkElementFactory(typeof(Rectangle));
 
-            rectangle.SetValue(Rectangle.WidthProperty, 50.0);
-            rectangle.SetValue(Rectangle.HeightProperty, 50.0);
+            rectangle.SetValue(Rectangle.MaxWidthProperty, 50.0);
+            rectangle.SetValue(Rectangle.MaxHeightProperty, 50.0);
 
             BitmapImage bitmap = new BitmapImage(new Uri(string.IsNullOrEmpty(p.PathImage) || p.PathImage == "photo1.png" ? p.Type.PathImage : p.PathImage, UriKind.RelativeOrAbsolute));
             rectangle.SetValue(Rectangle.FillProperty, new ImageBrush(bitmap));
