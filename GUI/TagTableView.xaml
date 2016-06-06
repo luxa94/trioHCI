@@ -12,7 +12,7 @@
         Title="Tag table view" Height="285" Width="301" Background="LightCyan">
     <Window.InputBindings>
         <KeyBinding Key="F1"
-              Command="cmd:CustomCommands.helpCom" />
+              Command="cmd:CustomCommands.tagTableHelpCommand" />
     </Window.InputBindings>
     <Grid>
         <Grid.RowDefinitions>

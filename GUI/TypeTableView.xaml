@@ -12,7 +12,7 @@
         Title="Type table view" Height="400" Width="292" Background="LightCyan">
     <Window.InputBindings>
         <KeyBinding Key="F1"
-              Command="cmd:CustomCommands.helpCom" />
+              Command="cmd:CustomCommands.typeTableHelpCommand" />
     </Window.InputBindings>
     <Grid Margin="0,0,2,0">
         <Grid.RowDefinitions>
