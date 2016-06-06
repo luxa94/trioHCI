@@ -119,6 +119,7 @@ namespace HCI.GUI
                 else
                 {
                     ctx.AddPremises(premises);
+                    Globals.UpdatePremises();
                 }
                 
             }

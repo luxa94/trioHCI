@@ -106,6 +106,7 @@ namespace HCI.GUI
                         ctx.SaveChanges();
                         Types = new ObservableCollection<Type>(ctx.Types);
                         dgrMain.ItemsSource = Types;
+                        Globals.UpdatePremises();
                     }
                 }
                 dgrMain.SelectedIndex = -1;

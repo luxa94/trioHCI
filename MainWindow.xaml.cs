@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using HCI.Model.Global;
 using Microsoft.Maps.MapControl.WPF;
 
 namespace HCI
@@ -41,8 +42,9 @@ namespace HCI
             using (var ctx = new DatabaseModel())
             {
                 AllTypes = new ObservableCollection<HCI.Model.Type>(ctx.Types);
-                AllPremises = new ObservableCollection<Model.Premises>(ctx.Premises);
             }
+            Globals.UpdatePremises();
+            AllPremises = Globals.AllPremises;
 
             foreach (var p in AllPremises)
             {
