@@ -270,6 +270,11 @@ namespace HCI
         {
             Globals.updateForFilter(filterTextBox.Text);
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            filterTextBox.Text = "";
+        }
     }
 }
 
