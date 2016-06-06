@@ -10,6 +10,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 using HCI.Model;
 using HCI.Model.Global;
@@ -36,13 +37,36 @@ namespace HCI.GUI
         }
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
-        {    
+        {
+            var closeable = true;
             using (var ctx = new DatabaseModel())
             {
-                ctx.Types.Add(type);
-                ctx.SaveChanges();
+                var t = new List<HCI.Model.Type>(ctx.Types.Where(tt => tt.Id == type.Id));
+                if (string.IsNullOrEmpty(type.Id))
+                {
+                    closeable = false;
+                    MessageBox.Show("Id mus be set!");
+                }
+                else if (t.Count > 0)
+                {
+                    closeable = false;
+                    MessageBox.Show("Id already exists!");
+                }
+                else if (string.IsNullOrEmpty(type.PathImage) || type.PathImage == "photo1.png")
+                {
+                    closeable = false;
+                    MessageBox.Show("Image must be set!");
+                }
+                else
+                {
+                    ctx.Types.Add(type);
+                    ctx.SaveChanges();
+                }
             }
-            Close();
+            if (closeable)
+            {
+                Close();
+            }
         }
 
         private void btnBrowse_Click_1(object sender, RoutedEventArgs e)

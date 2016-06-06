@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using HCI.Model;
 using Microsoft.Maps.MapControl.WPF;
@@ -16,8 +18,16 @@ namespace HCI
         Location _center;
         private Premises _p;
 
+        public Map Map
+        {
+            get { return _map; }
+            set { _map = value; }
+        }
+       
+
         public DraggablePushpin(Map map, Location center, Premises p)
         {
+            this.Location = center;
             _map = map;
             _center = center;
             _p = p;
@@ -25,71 +35,46 @@ namespace HCI
 
         protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
         {
-            if (_map != null)
-            {
-                _center = _map.Center;
 
-                _map.ViewChangeOnFrame += _map_ViewChangeOnFrame;
-                _map.MouseUp += ParentMap_MouseLeftButtonUp;
-                _map.MouseMove += ParentMap_MouseMove;
-                _map.TouchMove += _map_TouchMove;
-            }
-
+            DataObject dragData = new DataObject("premises", _p);
+            DragDrop.DoDragDrop(this, dragData, DragDropEffects.Move);
             // Enable Dragging
             this.isDragging = true;
-
-            base.OnMouseLeftButtonDown(e);
+            e.Handled = true;
         }
-
-        void _map_TouchMove(object sender, TouchEventArgs e)
-        {
-            var map = sender as Microsoft.Maps.MapControl.WPF.Map;
-            // Check if the user is currently dragging the Pushpin
-            if (this.isDragging)
-            {
-                // If so, the Move the Pushpin to where the Mouse is.
-                var mouseMapPosition = e.GetTouchPoint(map);
-                var mouseGeocode = map.ViewportPointToLocation(mouseMapPosition.Position);
-                this.Location = mouseGeocode;
-            }
-        }
-
-        void _map_ViewChangeOnFrame(object sender, MapEventArgs e)
-        {
-            if (isDragging)
-            {
-                _map.Center = _center;
-            }
-        }
-
-        #region "Mouse Event Handler Methods"
 
         void ParentMap_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            // Left Mouse Button released, stop dragging the Pushpin
-            if (_map != null)
-            {
-                _map.ViewChangeOnFrame -= _map_ViewChangeOnFrame;
-                _map.MouseUp -= ParentMap_MouseLeftButtonUp;
-                _map.MouseMove -= ParentMap_MouseMove;
-                _map.TouchMove -= _map_TouchMove;
-            }
-
             this.isDragging = false;
         }
-
-        void ParentMap_MouseMove(object sender, MouseEventArgs e)
+        protected override void OnMouseRightButtonUp(MouseButtonEventArgs e)
         {
-            var map = sender as Microsoft.Maps.MapControl.WPF.Map;
-            // Check if the user is currently dragging the Pushpin
-            if (this.isDragging)
-            {
-                // If so, the Move the Pushpin to where the Mouse is.
-                var mouseMapPosition = e.GetPosition(map);
-                var mouseGeocode = map.ViewportPointToLocation(mouseMapPosition);
-                this.Location = mouseGeocode;
-            }
+            ContextMenu menu = new ContextMenu();
+            MenuItem editItem = new MenuItem();
+            MenuItem izbrisiLokal = new MenuItem();
+            editItem.Header = "Edit";
+            izbrisiLokal.Header = "Delete";
+
+            menu.Items.Add(editItem);
+            menu.Items.Add(izbrisiLokal);
+
+            editItem.Click += Context_Edit;
+            izbrisiLokal.Click += Context_Delete;
+
+            menu.PlacementTarget = this;
+            menu.IsOpen = true;
+
         }
-        #endregion
+
+        private void Context_Edit(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("EDIT");
+        }
+
+        private void Context_Delete(object sender, RoutedEventArgs e)
+        {
+
+            MessageBox.Show("DELETE");
+        }
     }
 }

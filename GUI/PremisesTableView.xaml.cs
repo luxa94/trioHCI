@@ -68,7 +68,7 @@ namespace HCI.GUI
             {
                 Selected.Copy(Premises[dgrMain.SelectedIndex]);
             }
-           
+
             else
             {
                 //deep copy
@@ -85,7 +85,7 @@ namespace HCI.GUI
                 Selected.OpeningDate = new DateTime();
                 Selected.Tags = new ObservableCollection<Tag>();
             }
-   
+
         }
 
         private void enableFields(bool e)
@@ -139,11 +139,11 @@ namespace HCI.GUI
                     }
 
                     lvAllTags.ItemsSource = AllTags;
-                    lvAllTags2.ItemsSource = AllTags;
+                   // lvAllTags2.ItemsSource = AllTags;
                     lvSelected.ItemsSource = SelectedTags;
                     //                cbType.ItemsSource = new ObservableCollection<HCI.Model.Type>(ctx.Types);
                 }
-               
+
                 enableFields(true);
             }
         }
@@ -151,24 +151,30 @@ namespace HCI.GUI
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             //mali hack jer se izgubi selektovani jedino ovde
+            if (Selected.Type == null || string.IsNullOrEmpty(Selected.Type.Id))
+            {
+                MessageBox.Show("Type must be set!");
+                return;
+            }
             int sIndex = dgrMain.SelectedIndex;
             Selected.Tags = SelectedTags;
-            
+
             Premises[dgrMain.SelectedIndex].Copy(Selected);
-            
+
             using (var ctx = new DatabaseModel())
             {
                 ctx.UpdatePremises(Premises[dgrMain.SelectedIndex]);
             }
             dgrMain.SelectedIndex = sIndex;
+            Globals.UpdatePremises();
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
             if (dgrMain.SelectedIndex != -1)
             {
-//                Premises.Remove(Premises[dgrMain.SelectedIndex]);
-               
+                //                Premises.Remove(Premises[dgrMain.SelectedIndex]);
+
                 using (var ctx = new DatabaseModel())
                 {
                     ctx.Entry(Premises[dgrMain.SelectedIndex]).State = EntityState.Deleted;
@@ -183,8 +189,9 @@ namespace HCI.GUI
                 dgrMain.SelectedIndex = -1;
                 setSelected();
                 enableFields(false);
+                Globals.UpdatePremises();
             }
-            else{
+            else {
                 MessageBox.Show("You have to select one premise from table!");
             }
         }

@@ -96,10 +96,32 @@ namespace HCI.GUI
             Console.WriteLine("saved");
             Console.WriteLine("******* datum sacuvanog: " + premises.OpeningDate);
             premises.Tags = new ObservableCollection<Tag>(SelectedTags);
-      
+            var closeable = true;
             using (var ctx = new DatabaseModel())
             {
-                ctx.AddPremises(premises);
+
+                var p = new List<Premises>(ctx.Premises.Where(t => t.Id == premises.Id));
+                if (string.IsNullOrEmpty(premises.Id))
+                {
+                    closeable = false;
+                    MessageBox.Show("Premises id must be set!");
+                }
+                else if (p.Count > 0)
+                {
+                    closeable = false;
+                    MessageBox.Show("Premises id already exists!");
+                }
+                else if (premises.Type == null || string.IsNullOrEmpty(premises.Type.Id))
+                {
+                    closeable = false;
+                    MessageBox.Show("Type must be chosen!");
+                }
+                else
+                {
+                    ctx.AddPremises(premises);
+                    Globals.UpdatePremises();
+                }
+                
             }
             // Serialization.serialize
             if (premises.PathImage == "photo1.png")
@@ -110,9 +132,11 @@ namespace HCI.GUI
             {
                 premises.PathImage = premises.PathImage.ToString();
             }
-            
 
-            Close();
+            if (closeable)
+            {
+                Close();
+            }
         }
         private void btnAddNewType_Click(object sender, RoutedEventArgs e)
         {

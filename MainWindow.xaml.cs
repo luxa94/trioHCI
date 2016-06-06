@@ -3,6 +3,7 @@ using HCI.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using HCI.Model.Global;
 using Microsoft.Maps.MapControl.WPF;
 
 namespace HCI
@@ -24,8 +26,10 @@ namespace HCI
     /// </summary>
     public partial class MainWindow : Window
     {
+        public bool Tutorial = false;
         public ObservableCollection<HCI.Model.Type> AllTypes { get; set; }
         public ObservableCollection<HCI.Model.Premises> AllPremises { get; set; }
+        private Dictionary<Premises, DraggablePushpin> pushpins;
 
         private Point startPoint;
 
@@ -33,12 +37,26 @@ namespace HCI
         {
             InitializeComponent();
 
+            pushpins = new Dictionary<Premises, DraggablePushpin>();
+
             using (var ctx = new DatabaseModel())
             {
                 AllTypes = new ObservableCollection<HCI.Model.Type>(ctx.Types);
-                AllPremises = new ObservableCollection<Model.Premises>(ctx.Premises);
             }
+            Globals.UpdatePremises();
+            AllPremises = Globals.AllPremises;
 
+            foreach (var p in AllPremises)
+            {
+                if (p.MapNumber != 0)
+                {
+                    Map m = intToMap(p.MapNumber);
+                    Location l = new Location(p.Latitude, p.Longitude);
+                    var pin = new DraggablePushpin(m, l, p);
+                    pushpins.Add(p, pin);
+                    m.Children.Add(pin);
+                }
+            }
 
             this.DataContext = this;
 
@@ -61,10 +79,22 @@ namespace HCI
             w.ShowDialog();
         }
 
+
         private void btnAddTag_Click(object sender, RoutedEventArgs e)
         {
-            Window w = new TagsDialog();
-            w.ShowDialog();
+            if (!Tutorial)
+            {
+                Window w = new TagsDialog();
+                w.ShowDialog();
+            }
+            else
+            {
+                Window w = new TagsDialog(true);
+                w.ShowDialog();
+                EnableAll(true);
+                btnAddTag.ClearValue(Button.BackgroundProperty);
+            }
+            
         }
 
         private void btnViewAllPremises_Click(object sender, RoutedEventArgs e)
@@ -118,20 +148,43 @@ namespace HCI
 
         private void map_Drop(object sender, DragEventArgs e)
         {
+            var m = sender as Map;
             if (e.Data.GetDataPresent("premises"))
             {
                 Premises p = e.Data.GetData("premises") as Premises;
                 Point mousePosition = e.GetPosition(this);
-                Location pinLocation = myMap.ViewportPointToLocation(mousePosition);
+                Point point = m.TransformToAncestor(this).Transform(new Point(0, 0));
+                mousePosition.X -= point.X;
+                mousePosition.Y -= point.Y;
+                Location pinLocation = m.ViewportPointToLocation(mousePosition);
                 p.Latitude = pinLocation.Latitude;
                 p.Longitude = pinLocation.Longitude;
+                p.MapNumber = mapToInt(m);
 
+                DraggablePushpin pin = null;
 
-                DraggablePushpin pin = new DraggablePushpin(myMap, pinLocation, p);
+                if (pushpins.ContainsKey(p))
+                {
+                    pin = pushpins[p];
+                    pin.Map.Children.Remove(pin);
+                    pin.Map = m;
+                }
+                else
+                {
+                    pin = new DraggablePushpin(m, pinLocation, p);
+                    pushpins.Add(p, pin);
+                }
+                pin.Location = pinLocation;
 
-//                pin.Template = PushpinTemplateFactory.getTemplate(lokal);
-                myMap.Children.Add(pin);
+                using (var ctx = new DatabaseModel())
+                {
+                    ctx.Entry(p).State = EntityState.Modified;
+                    ctx.SaveChanges();
+                }
+                
+                m.Children.Add(pin);
             }
+            e.Handled = true;
         }
 
         private static T FindAncestor<T>(DependencyObject current) where T : DependencyObject
@@ -147,6 +200,72 @@ namespace HCI
             while (current != null);
             return null;
         }
+        
+        private int mapToInt(Map map)
+        {
+            if (map == myMap1)
+            {
+                return 1;
+            }
+            else if (map == myMap2)
+            {
+                return 2;
+            }
+            else if (map == myMap3)
+            {
+                return 3;
+            }
+            else
+            {
+                return 4;
+            }
+        }
 
+        private Map intToMap(int i)
+        {
+            switch (i)
+            {
+                case 1:
+                    return myMap1;
+                case 2:
+                    return myMap2;
+                case 3:
+                    return myMap3;
+                case 4:
+                    return myMap;
+            }
+            return null;
+        }
+
+        private void EnableAll(bool b) {
+
+                btnViewAllPremises.IsEnabled = b;
+                btnViewAllTypes.IsEnabled = b;
+                btnViewAllTags.IsEnabled = b;
+                btnAddBusiness.IsEnabled = b;
+                btnAddType.IsEnabled = b;
+                listView.IsEnabled = b;
+                myMap.IsEnabled = b;
+                myMap1.IsEnabled = b;
+                myMap2.IsEnabled = b;
+                myMap3.IsEnabled = b;
+                meniMeni.IsEnabled = b;
+            // sve je enableovano sem btnAddTag posto on uvek mora biti dostupan
+        }
+        private void InteractivTutorial_Click(object sender, RoutedEventArgs e)
+        {
+            Tutorial = true;
+            MessageBox.Show("Welcome to interactive tutorial for adding new tag. Folow next steps.");
+            EnableAll(false);
+            btnAddTag.Background = Brushes.LightCoral;
+            MessageBox.Show("Click on button \"Add new tag.\".");
+   
+        }
+
+        private void menuItem_close_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }
+

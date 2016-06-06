@@ -12,6 +12,7 @@ namespace HCI.Commands
 {
     public static class CustomCommands
     {
+        // EXIT KOMANDA
         public static readonly ICommand testKomanda = new OpenPremisesCommand();
         public static readonly ICommand testKomanda2 = new OpenTypeCommand();
         public static readonly ICommand testKomanda3 = new OpenTagCommand();
@@ -22,8 +23,25 @@ namespace HCI.Commands
 
         public static readonly ICommand helpCom = new HelpCommand();
         public static readonly ICommand aboutCom = new AboutCommand();
+        public static readonly ICommand tutorialCom = new TutorialCommand();
+        public static readonly ICommand exitCom = new ExitCommand();
+
     }
 
+    public class ExitCommand : ICommand //da hocem da radimo i sa precicama, trebalo bi da nasledom RoutedUICommand, recimo
+    {
+        public bool CanExecute(object parameter)
+        {
+            return true;
+        }
+
+        public event EventHandler CanExecuteChanged;
+
+        public void Execute(object parameter)
+        {
+            //
+        }
+    }
 
     public class OpenPremisesCommand : ICommand //da hocem da radimo i sa precicama, trebalo bi da nasledom RoutedUICommand, recimo
     {
@@ -146,6 +164,22 @@ namespace HCI.Commands
         public void Execute(object parameter)
         {
             Process.Start("..\\..\\HelpSystem\\About\\Helper.chm");
+        }
+    }
+
+    public class TutorialCommand : ICommand //da hocem da radimo i sa precicama, trebalo bi da nasledom RoutedUICommand, recimo
+    {
+        public bool CanExecute(object parameter)
+        {
+            return true;
+        }
+
+        public event EventHandler CanExecuteChanged;
+
+        public void Execute(object parameter)
+        {
+            //InteractivTutorial_Click();
+
         }
     }
 

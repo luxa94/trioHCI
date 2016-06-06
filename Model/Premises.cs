@@ -38,6 +38,7 @@ namespace HCI.Model
         private String pathImage;
         private double latitude;
         private double longitude;
+        private int mapNumber;
 
         [Key]
         [DataMember]
@@ -171,6 +172,21 @@ namespace HCI.Model
                 {
                     capacity = value;
                     OnPropertyChanged("Capacity");
+                }
+            }
+        }
+
+        [DataMember]
+        public int MapNumber
+        {
+            get { return mapNumber; }
+
+            set
+            {
+                if (value != mapNumber)
+                {
+                    mapNumber = value;
+                    OnPropertyChanged("MapNumber");
                 }
             }
         }

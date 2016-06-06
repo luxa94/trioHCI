@@ -30,8 +30,7 @@
                 <wpftoolkit:DataGridTextColumn Header="Name" Binding="{Binding Name}"></wpftoolkit:DataGridTextColumn>
                 <wpftoolkit:DataGridTextColumn Header="Description" Binding="{Binding Description}"></wpftoolkit:DataGridTextColumn>
                 <wpftoolkit:DataGridTextColumn
-                    Header="Alcohol serving" 
-                    filter:DataGridComboBoxExtensions.IsTextFilter="True"     
+                    Header="Alcohol serving"     
                     Binding="{Binding AlcoholServing}"
                     />
                 <wpftoolkit:DataGridTextColumn Header="Price" Binding="{Binding Price}"></wpftoolkit:DataGridTextColumn>

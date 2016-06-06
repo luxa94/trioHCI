@@ -26,7 +26,6 @@ namespace HCI
 
         }
 
-
         public void AddPremises(Premises p)
         { 
             Premises.Add(p);
