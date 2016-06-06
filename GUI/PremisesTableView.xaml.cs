@@ -165,6 +165,7 @@ namespace HCI.GUI
                 ctx.UpdatePremises(Premises[dgrMain.SelectedIndex]);
             }
             dgrMain.SelectedIndex = sIndex;
+            Globals.UpdatePremises();
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
@@ -187,6 +188,7 @@ namespace HCI.GUI
                 dgrMain.SelectedIndex = -1;
                 setSelected();
                 enableFields(false);
+                Globals.UpdatePremises();
             }
             else {
                 MessageBox.Show("You have to select one premise from table!");
