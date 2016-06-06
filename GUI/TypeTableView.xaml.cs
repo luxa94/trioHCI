@@ -93,20 +93,27 @@ namespace HCI.GUI
                     {
                         var result =
                             MessageBox.Show("There are premises connected to that type.\nDelete the premises as well?",
-                                "Delete connected premises?", MessageBoxButton.YesNo);
+                                "Worning", MessageBoxButton.YesNo);
                         deletable = result == MessageBoxResult.Yes;
                     }
                     if (deletable)
                     {
-                        ctx.Entry(Types[dgrMain.SelectedIndex]).State = EntityState.Deleted;
-                        foreach (var p in ctx.Premises.Include(p => p.Type).Where(p => p.Type.Id == Selected.Id))
+                        var result2 =
+                           MessageBox.Show("You are trying to delete selected type. Are you sure?",
+                               "Worning", MessageBoxButton.YesNo);
+
+                        if (result2 == MessageBoxResult.Yes)
                         {
-                            ctx.Entry(p).State = EntityState.Deleted;
+                            ctx.Entry(Types[dgrMain.SelectedIndex]).State = EntityState.Deleted;
+                            foreach (var p in ctx.Premises.Include(p => p.Type).Where(p => p.Type.Id == Selected.Id))
+                            {
+                                ctx.Entry(p).State = EntityState.Deleted;
+                            }
+                            ctx.SaveChanges();
+                            Types = new ObservableCollection<Type>(ctx.Types);
+                            dgrMain.ItemsSource = Types;
+                            Globals.UpdatePremises();
                         }
-                        ctx.SaveChanges();
-                        Types = new ObservableCollection<Type>(ctx.Types);
-                        dgrMain.ItemsSource = Types;
-                        Globals.UpdatePremises();
                     }
                 }
                 dgrMain.SelectedIndex = -1;
@@ -115,7 +122,7 @@ namespace HCI.GUI
             }
             else
             {
-                MessageBox.Show("You have to select one premise from table!");
+                MessageBox.Show("You have to select one type from table!");
             }
         }
 

@@ -70,7 +70,7 @@ namespace HCI.GUI
                     if (string.IsNullOrEmpty(tag.Id))
                     {
                         closeable = false;
-                 //       MessageBox.Show("Id must be set!");
+                        MessageBox.Show("Id must be set!");
                     }
                     else if (tt.Count > 0)
                     {

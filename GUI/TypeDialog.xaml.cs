@@ -52,6 +52,11 @@ namespace HCI.GUI
                     closeable = false;
                     MessageBox.Show("Id already exists!");
                 }
+                else if (string.IsNullOrEmpty(type.Name))
+                {
+                    closeable = false;
+                    MessageBox.Show("Id mus be set!");
+                }
                 else if (string.IsNullOrEmpty(type.PathImage) || type.PathImage == "photo1.png")
                 {
                     closeable = false;

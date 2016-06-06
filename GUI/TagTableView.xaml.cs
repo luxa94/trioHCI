@@ -92,16 +92,24 @@ namespace HCI.GUI
             {
                 using (var ctx = new DatabaseModel())
                 {
-                    ctx.Entry(Tags[dgrMain.SelectedIndex]).State = EntityState.Deleted;
-                    ctx.SaveChanges();
-                    Tags = new ObservableCollection<Tag>(ctx.Tags);
-                    dgrMain.ItemsSource = Tags;
+                    var result =
+                            MessageBox.Show("You are trying to delete selected tag. Are you sure?",
+                                "Worning", MessageBoxButton.YesNo);
+                    if (result == MessageBoxResult.Yes)
+                    {
+
+                        ctx.Entry(Tags[dgrMain.SelectedIndex]).State = EntityState.Deleted;
+                        ctx.SaveChanges();
+                        Tags = new ObservableCollection<Tag>(ctx.Tags);
+                        dgrMain.ItemsSource = Tags;
+                    }
+                    setSelected();
+                    dgrMain.SelectedIndex = -1;
+                    enableFields(false);
                 }
-                setSelected();
-                enableFields(false);
             }
             else {
-                MessageBox.Show("You have to select one premise from table!");
+                MessageBox.Show("You have to select one tag from table!");
             }
         }
 
