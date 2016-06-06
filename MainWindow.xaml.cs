@@ -75,7 +75,7 @@ namespace HCI
                 Window w = new TagsDialog(true);
                 w.ShowDialog();
                 EnableAll(true);
-                btnAddTag.Background = null;
+                btnAddTag.ClearValue(Button.BackgroundProperty);
             }
             
         }
