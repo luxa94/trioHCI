@@ -19,21 +19,36 @@
               Modifiers="Control" 
               Command="cmd:CustomCommands.testKomanda3" />
 
-        <KeyBinding Gesture="Ctrl+V,P"
+        <KeyBinding Gesture="Ctrl+P,V"
               Modifiers="Control" 
               Command="cmd:CustomCommands.editPCom" />
-        <KeyBinding Gesture="Ctrl+V,T"
+        <KeyBinding Gesture="Ctrl+T,V"
               Modifiers="Control" 
               Command="cmd:CustomCommands.editTypeCom" />
-        <KeyBinding Gesture="Ctrl+V,G"
+        <KeyBinding Gesture="Ctrl+G,V"
               Modifiers="Control" 
               Command="cmd:CustomCommands.editTagCom" />
         <KeyBinding Key="F1"
               Modifiers="Alt" 
               Command="cmd:CustomCommands.helpCom" />
-        <KeyBinding Key="T"
-              Modifiers="Ctrl" 
+
+        <KeyBinding Key="F2"
+              Modifiers="Alt" 
               Command="cmd:CustomCommands.tutorialCom" />
+
+        <KeyBinding Key="F3"
+              Modifiers="Alt" 
+              Command="cmd:CustomCommands.aboutCom" />
+        
+        <KeyBinding Key="F4"
+              Modifiers="Alt" 
+              Command="cmd:CustomCommands.exitCom" />
+
+
+        <!--     <KeyBinding Key="T"
+              Modifiers="Ctrl" 
+              Command="cmd:CustomCommands.tutorialCom" /> -->
+        
     </Window.InputBindings>
     <Window.Resources>
         <BitmapImage x:Key="FolderOpen" UriSource="GUI/foldero.png"/>
@@ -59,30 +74,81 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
-
-        <!--     <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
-            <Image Source="GUI/map.png" Stretch="UniformToFill"/>
-        </Label> -->
-
         <Menu Grid.ColumnSpan="3" Grid.Row="0" Name="meniMeni">
             <MenuItem Header="_File" x:Name="menuItem_file">
-                <MenuItem Header="test" x:Name="test" Command="cmd:CustomCommands.testKomanda" InputGestureText="Ctrl+B"></MenuItem>
-                <MenuItem Header="close" x:Name="menuItem_close"></MenuItem>
+         <!--       <MenuItem Header="test" x:Name="test" Command="cmd:CustomCommands.testKomanda" InputGestureText="Ctrl+B"></MenuItem> -->
+                <MenuItem Header="Exit" x:Name="menuItem_close" InputGestureText="Alt+F4">
+                    <MenuItem.Icon>
+                        <Image Source="GUI\delete.png" Width="12" Height="12"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            <!--    <MenuItem Header="close" x:Name="menuItem_close"></MenuItem> -->
             </MenuItem>
             <MenuItem Header="_Add" x:Name="menuItem_add">
-                <MenuItem Header="Add premises" Command="cmd:CustomCommands.testKomanda" InputGestureText="Ctrl+P"></MenuItem>
-                <MenuItem Header="Add type" Command="cmd:CustomCommands.testKomanda2" InputGestureText="Ctrl+T"></MenuItem>
-                <MenuItem Header="Add tag" Command="cmd:CustomCommands.testKomanda3" InputGestureText="Ctrl+G"></MenuItem>
+                
+                <MenuItem Header="Add premises" Command="cmd:CustomCommands.testKomanda" InputGestureText="Ctrl+P">
+                    <MenuItem.Icon>
+                        <Image Source="GUI\add.png" Width="12" Height="12"/>
+                </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Add type" Command="cmd:CustomCommands.testKomanda2" InputGestureText="Ctrl+T">
+                    <MenuItem.Icon>
+                        <Image Source="GUI\add.png" Width="12" Height="12"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                
+                <MenuItem Header="Add tag" Command="cmd:CustomCommands.testKomanda3" InputGestureText="Ctrl+G">
+                    <MenuItem.Icon>
+                        <Image Source="GUI\add.png" Width="12" Height="12"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+               
+                <!--    <MenuItem Header="Add premises" I="GUI\add.png" Command="cmd:CustomCommands.testKomanda" InputGestureText="Ctrl+P"></MenuItem> -->
+             <!--   <MenuItem Header="Add type" Command="cmd:CustomCommands.testKomanda2" InputGestureText="Ctrl+T"></MenuItem> -->
+       <!--         <MenuItem Header="Add tag" Command="cmd:CustomCommands.testKomanda3" InputGestureText="Ctrl+G"></MenuItem> -->
             </MenuItem>
             <MenuItem Header="_View" x:Name="menuItem_edit">
-                <MenuItem Header="View and modify premises" Command="cmd:CustomCommands.editPCom" InputGestureText="Ctrl+V+P"></MenuItem>
-                <MenuItem Header="View and modify type" Command="cmd:CustomCommands.editTypeCom" InputGestureText="Ctrl+V+T"></MenuItem>
-                <MenuItem Header="View and modify tag" Command="cmd:CustomCommands.editTagCom" InputGestureText="Ctrl+V+G"></MenuItem>
+                <MenuItem Header="View and modify premises" Command="cmd:CustomCommands.editPCom" InputGestureText="Ctrl+P+V">
+                    <MenuItem.Icon>
+                        <Image Source="GUI\edit-table.png" Width="12" Height="12"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem Header="View and modify type" Command="cmd:CustomCommands.editTypeCom" InputGestureText="Ctrl+T+V">
+                    <MenuItem.Icon>
+                        <Image Source="GUI\edit-table.png" Width="12" Height="12"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem Header="View and modify tag" Command="cmd:CustomCommands.editTagCom" InputGestureText="Ctrl+G+V">
+                    <MenuItem.Icon>
+                        <Image Source="GUI\edit-table.png" Width="12" Height="12"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <!--       <MenuItem Header="View and modify premises" Command="cmd:CustomCommands.editPCom" InputGestureText="Ctrl+V+P"></MenuItem> -->
+            <!--    <MenuItem Header="View and modify type" Command="cmd:CustomCommands.editTypeCom" InputGestureText="Ctrl+V+T"></MenuItem> -->
+           <!--     <MenuItem Header="View and modify tag" Command="cmd:CustomCommands.editTagCom" InputGestureText="Ctrl+V+G"></MenuItem> -->
             </MenuItem>
             <MenuItem Header="_Help" x:Name="menuItem_help">
-                <MenuItem Name ="it" Header="Interactiv tutorial" Command="cmd:CustomCommands.tutorialCom" Click="InteractivTutorial_Click"></MenuItem>
-                <MenuItem Header="Help" Command="cmd:CustomCommands.helpCom" InputGestureText="F1"></MenuItem>
-                <MenuItem Header="About" Command="cmd:CustomCommands.aboutCom"></MenuItem>
+              <!--  <MenuItem Name ="it" Header="Interactiv tutorial" Command="cmd:CustomCommands.tutorialCom" Click="InteractivTutorial_Click"></MenuItem> -->
+                <MenuItem Name ="it" Header="Interactiv tutorial" Command="cmd:CustomCommands.tutorialCom" Click="InteractivTutorial_Click" InputGestureText="Alt+F2">
+                    <MenuItem.Icon>
+                        <Image Source="GUI\music-player-play.png" Width="12" Height="12"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem Header="Help" Command="cmd:CustomCommands.helpCom" InputGestureText="Alt+F1">
+                    <MenuItem.Icon>
+                        <Image Source="GUI\question-sign.png" Width="12" Height="12"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+       <!--         <MenuItem Header="Help" Command="cmd:CustomCommands.helpCom" InputGestureText="F1"></MenuItem> -->
+      <!--          <MenuItem Header="About" Command="cmd:CustomCommands.aboutCom"></MenuItem> -->
+                <MenuItem Header="About" Command="cmd:CustomCommands.aboutCom" InputGestureText="Alt+F3">
+                    <MenuItem.Icon>
+                        <Image Source="GUI\info.png" Width="12" Height="12"/>
+                    </MenuItem.Icon>
+                </MenuItem>
             </MenuItem>
         </Menu>
 
@@ -128,17 +194,50 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
-                
+
             </Grid.RowDefinitions>
 
             <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Vertical" Background="LightGray">
-                <Button Name="btnViewAllPremises" ToolTip="Display all premises or select one to modify" Content="View all premises" Click="btnViewAllPremises_Click"/>
-                <Button x:Name="btnViewAllTypes" ToolTip="Display all types or select one to modify" Content="View all types" Click="btnViewAllTypes_Click"/>
-                <Button x:Name="btnViewAllTags" ToolTip="Display all tags or select one to modify" Content="View all tags" Click="btnViewAllTags_Click"/>
+
+                <Button Name="btnViewAllPremises"  ToolTip="Display all premises or select one to modify"  Click="btnViewAllPremises_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="GUI\edit-table.png" Height="15" Width="15" HorizontalAlignment="Left"/>
+                        <TextBlock Text="    View all premises" VerticalAlignment="Center" HorizontalAlignment="Right" Width="123" />
+                    </StackPanel>
+                </Button>
+                <Button Name="btnViewAllTypes" ToolTip="Display all types or select one to modify" Click="btnViewAllTypes_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="GUI\edit-table.png" Height="15" Width="15" HorizontalAlignment="Left"/>
+                        <TextBlock Text="       View all types" VerticalAlignment="Center" HorizontalAlignment="Right" Width="122" />
+                    </StackPanel>
+                </Button>
+                <Button Name="btnViewAllTags" ToolTip="Display all tags or select one to modify" Click="btnViewAllTags_Click">
+                    
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="GUI\edit-table.png" Height="15" Width="15" HorizontalAlignment="Left"/>
+                        <TextBlock Text="        View all tags" VerticalAlignment="Center" HorizontalAlignment="Right" Width="122" />
+                    </StackPanel>
+                </Button>
+         
                 <Separator></Separator>
-                <Button Name="btnAddBusiness" ToolTip="Add new premises" Content="Add new premises" HorizontalAlignment="Right" Width="150" Click="btnAddBusiness_Click"></Button>
-                <Button Name="btnAddType" ToolTip="Add new type" Content="Add new type" Click="btnAddType_Click" ></Button>
-                <Button Name="btnAddTag" ToolTip="Add new tag" Content="Add new tag" Click="btnAddTag_Click"></Button>
+                <Button Name="btnAddBusiness" ToolTip="Add new premises" HorizontalAlignment="Right" Width="150" Click="btnAddBusiness_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="GUI\add.png" Height="15" Width="15" HorizontalAlignment="Left"/>
+                        <TextBlock Text="    Add new premises" VerticalAlignment="Center" HorizontalAlignment="Right" Width="123" />
+                    </StackPanel>
+                </Button>
+                <Button Name="btnAddType" ToolTip="Add new type" Click="btnAddType_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="GUI\add.png" Height="15" Width="15" HorizontalAlignment="Left"/>
+                        <TextBlock Text="       Add new type" VerticalAlignment="Center" HorizontalAlignment="Right" Width="123" />
+                    </StackPanel>
+                </Button>
+                <Button  Name="btnAddTag" ToolTip="Add new tag" Click="btnAddTag_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="GUI\add.png" Height="15" Width="15" HorizontalAlignment="Left"/>
+                        <TextBlock Text="        Add new tag" VerticalAlignment="Center" HorizontalAlignment="Right" Width="123" />
+                    </StackPanel>
+                </Button>
             </StackPanel>
 
             <ListView ItemsSource="{Binding AllPremises}" ToolTip="Select item and drag it on the map" Name="listView"  Grid.Row="1" Grid.Column="0" PreviewMouseLeftButtonDown="treeview_PreviewMouseLeftButtonDown" MouseMove="treeview_MouseMove"  >
@@ -148,12 +247,11 @@
                         <WrapPanel>
                             <Image x:Name="imgIcon2" Source="{Binding PathImage}" Style="{StaticResource ResourceKey=SmallIcon}" />
                             <TextBlock Text="{Binding Name}" />
-                            
+
                         </WrapPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-
         </Grid>
     </Grid>
 </Window>
