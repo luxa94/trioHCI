@@ -6,7 +6,14 @@
 </HEAD><BODY>
 <OBJECT type="text/site properties">
 	<param name="FrameName" value="right">
+	<param name="Window Styles" value="0x800025">
 </OBJECT>
 <UL>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Add new type">
+			<param name="Local" value="Add new type.HTML">
+			</OBJECT>
+	</UL>
 </UL>
 </BODY></HTML>

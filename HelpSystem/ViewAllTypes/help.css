@@ -1,0 +1,30 @@
+*{
+	background : rgb(240, 230, 233);
+}
+
+p { 
+	color: black; text-align:justify;
+}
+h2{
+	color : rgb(0, 146, 112);
+}
+
+a{
+	color: rgb(26,157, 111);
+}
+hr{
+	color:rgb(0, 146, 112);
+}
+ol{
+	color: black; text-align:justify;
+}
+ul{
+	color: black; text-align:justify;
+}
+ol li a{	
+	color:rgb(0, 146, 112);
+}
+
+ul li a{
+	color:rgb(0, 146, 112);
+}

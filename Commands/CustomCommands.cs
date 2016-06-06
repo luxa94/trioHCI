@@ -185,7 +185,7 @@ namespace HCI.Commands
 
         public void Execute(object parameter)
         {
-            //InteractivTutorial_Click();
+            Process.Start("..\\..\\HelpSystem\\AddNewPremises\\Helper.chm");
 
         }
     }
@@ -200,7 +200,7 @@ namespace HCI.Commands
 
         public void Execute(object parameter)
         {
-            //InteractivTutorial_Click();
+            Process.Start("..\\..\\HelpSystem\\ViewAllPremises\\Helper.chm");
 
         }
     }
@@ -215,7 +215,7 @@ namespace HCI.Commands
 
         public void Execute(object parameter)
         {
-            //InteractivTutorial_Click();
+            Process.Start("..\\..\\HelpSystem\\AddNewType\\Helper.chm");
 
         }
     }
@@ -230,7 +230,7 @@ namespace HCI.Commands
 
         public void Execute(object parameter)
         {
-            //InteractivTutorial_Click();
+            Process.Start("..\\..\\HelpSystem\\ViewAllTypes\\Helper.chm");
 
         }
     }
@@ -245,7 +245,7 @@ namespace HCI.Commands
 
         public void Execute(object parameter)
         {
-            //InteractivTutorial_Click();
+            Process.Start("..\\..\\HelpSystem\\AddNewTag\\Helper.chm");
 
         }
     }
@@ -260,7 +260,7 @@ namespace HCI.Commands
 
         public void Execute(object parameter)
         {
-            //InteractivTutorial_Click();
+            Process.Start("..\\..\\HelpSystem\\ViewAllTags\\Helper.chm");
 
         }
     }
