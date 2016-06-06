@@ -1,0 +1,41 @@
+
+  
+ <help>
+	<Screen name="Modify">
+		<item element_name="modify.id1">
+			<title>Id</title>
+			<helptext>Enter you name here.</helptext>
+			<moreURL>http://yourcompany.com/project/guide</moreURL>
+			<shortcut>Alt + U</shortcut>
+      <flowindex>1</flowindex>
+		</item>
+		<item element_name="modify.color1">
+			<title>Color</title>
+			<helptext>Enter you password here.</helptext>
+			<moreURL>http://yourcompany.com/project/guide</moreURL>
+			<shortcut>Alt + P</shortcut>
+      <flowindex>2</flowindex>
+		</item>
+		<item element_name="modify.description1">
+			<title>Description</title>
+			<helptext>Authentication will occured based on your Login information.</helptext>
+			<moreURL>http://yourcompany.com/project/guide</moreURL>
+			<shortcut> </shortcut>
+      <flowindex>3</flowindex>
+		</item>
+    <item element_name="modify.save1">
+      <title>Save</title>
+      <helptext>Authentication will occured based on your Login information.</helptext>
+      <moreURL>http://yourcompany.com/project/guide</moreURL>
+      <shortcut> </shortcut>
+      <flowindex>4</flowindex>
+    </item>
+    <item element_name="modify.cancel1">
+      <title>Cancel</title>
+      <helptext>Click here to window for write and send us wishes.</helptext>
+      <moreURL>http://yourcompany.com/project/guide</moreURL>
+      <shortcut></shortcut>
+      <flowindex></flowindex>
+    </item>
+	</Screen>
+</help>
