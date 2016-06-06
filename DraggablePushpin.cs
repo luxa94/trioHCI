@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using HCI.Model;
 using Microsoft.Maps.MapControl.WPF;
@@ -46,6 +47,34 @@ namespace HCI
         {
             this.isDragging = false;
         }
+        protected override void OnMouseRightButtonUp(MouseButtonEventArgs e)
+        {
+            ContextMenu menu = new ContextMenu();
+            MenuItem editItem = new MenuItem();
+            MenuItem izbrisiLokal = new MenuItem();
+            editItem.Header = "Edit";
+            izbrisiLokal.Header = "Delete";
 
+            menu.Items.Add(editItem);
+            menu.Items.Add(izbrisiLokal);
+
+            editItem.Click += Context_Edit;
+            izbrisiLokal.Click += Context_Delete;
+
+            menu.PlacementTarget = this;
+            menu.IsOpen = true;
+
+        }
+
+        private void Context_Edit(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("EDIT");
+        }
+
+        private void Context_Delete(object sender, RoutedEventArgs e)
+        {
+
+            MessageBox.Show("DELETE");
+        }
     }
 }
