@@ -261,6 +261,11 @@ namespace HCI
             MessageBox.Show("Click on button \"Add new tag.\".");
    
         }
+
+        private void menuItem_close_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }
 

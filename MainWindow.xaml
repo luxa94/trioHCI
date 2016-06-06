@@ -66,7 +66,7 @@
         <Menu Grid.ColumnSpan="3" Grid.Row="0" Name="meniMeni">
             <MenuItem Header="_File" x:Name="menuItem_file">
          <!--       <MenuItem Header="test" x:Name="test" Command="cmd:CustomCommands.testKomanda" InputGestureText="Ctrl+B"></MenuItem> -->
-                <MenuItem Header="Exit" x:Name="menuItem_close" InputGestureText="Alt+F4">
+                <MenuItem Header="Exit" x:Name="menuItem_close" Click="menuItem_close_Click" InputGestureText="Alt+F4">
                     <MenuItem.Icon>
                         <Image Source="GUI\delete.png" Width="12" Height="12"/>
                     </MenuItem.Icon>
