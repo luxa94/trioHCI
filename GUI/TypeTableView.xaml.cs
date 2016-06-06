@@ -26,7 +26,7 @@ namespace HCI.GUI
     public partial class TypeTableView : Window
     {
         public ObservableCollection<HCI.Model.Type> Types { get; set; }
-        public HCI.Model.Type Selected { get;  set;}
+        public HCI.Model.Type Selected { get; set; }
 
         public TypeTableView()
         {
@@ -75,7 +75,6 @@ namespace HCI.GUI
 
         private void dgrMain_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-   
             if (dgrMain.SelectedIndex != -1)
             {
                 setSelected();
@@ -89,18 +88,34 @@ namespace HCI.GUI
             {
                 using (var ctx = new DatabaseModel())
                 {
-                    ctx.Entry(Types[dgrMain.SelectedIndex]).State = EntityState.Deleted;
-                    ctx.SaveChanges();
-                    Types = new ObservableCollection<Type>(ctx.Types);
-                    dgrMain.ItemsSource = Types;
+                    var deletable = true;
+                    if (ctx.Premises.Include(p => p.Type).Any(p => p.Type.Id == Selected.Id))
+                    {
+                        var result =
+                            MessageBox.Show("There are premises connected to that type.\nDelete the premises as well?",
+                                "Delete connected premises?", MessageBoxButton.YesNo);
+                        deletable = result == MessageBoxResult.Yes;
+                    }
+                    if (deletable)
+                    {
+                        ctx.Entry(Types[dgrMain.SelectedIndex]).State = EntityState.Deleted;
+                        foreach (var p in ctx.Premises.Include(p => p.Type).Where(p => p.Type.Id == Selected.Id))
+                        {
+                            ctx.Entry(p).State = EntityState.Deleted;
+                        }
+                        ctx.SaveChanges();
+                        Types = new ObservableCollection<Type>(ctx.Types);
+                        dgrMain.ItemsSource = Types;
+                    }
                 }
                 dgrMain.SelectedIndex = -1;
                 setSelected();
                 enableFields(false);
             }
-            else {
+            else
+            {
                 MessageBox.Show("You have to select one premise from table!");
-            } 
+            }
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
@@ -126,7 +141,8 @@ namespace HCI.GUI
         private void button_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog chooseImage = new OpenFileDialog();
-            chooseImage.Filter = "Image files (*.png; *.jpg; *.jpeg; *.ico)| *.png; *.jpeg; *.jpg; *.ico|All files(*.*)|*.*";
+            chooseImage.Filter =
+                "Image files (*.png; *.jpg; *.jpeg; *.ico)| *.png; *.jpeg; *.jpg; *.ico|All files(*.*)|*.*";
 
             if (chooseImage.ShowDialog() == true)
             {
