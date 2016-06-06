@@ -53,8 +53,8 @@ namespace HCI.GUI
             colorPicker.DataContext = tag;
             tbDescription.DataContext = tag;
 
-            EnableAll(false);
             MessageBox.Show("Now enter your tag id. \nClick Enter when you finish for next step.");
+            EnableAll(false);
             tbId.IsEnabled = true;     
 
         }
@@ -108,7 +108,7 @@ namespace HCI.GUI
                 if (e.Key == Key.Enter)
                 {
                     
-                    MessageBox.Show("Now, if you want to save this tag click on button \"Save\".\nIf you do not want to save this tag click button \"Cancel\".");
+                    MessageBox.Show("Now, if you want to save this tag click on button \"Save\".\nIf you do not want to save this tag click button \"Cancel\". \nNOTICE:This is only demonstration and this tag does not exist for real in application.");
                     tbId.IsEnabled = false;
                     colorPicker.IsEnabled = false;
                     tbDescription.IsEnabled = false;
