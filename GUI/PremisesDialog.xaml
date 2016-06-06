@@ -4,9 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HCI.GUI"
+         xmlns:cmd="clr-namespace:HCI.Commands"
         xmlns:System="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="Add new permises" Height="700" Width="700" Background="LightCyan">
+    <Window.InputBindings>
+        <KeyBinding Key="F1"
+              Command="cmd:CustomCommands.helpCom" />
+    </Window.InputBindings>
+   
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />

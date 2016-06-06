@@ -8,7 +8,12 @@
         mc:Ignorable="d"
         xmlns:wpftoolkit="http://schemas.microsoft.com/wpf/2008/toolkit"
         xmlns:filter="clr-namespace:DataGridFilterLibrary;assembly=DataGridFilterLibrary"
+        xmlns:cmd="clr-namespace:HCI.Commands"
         Title="Premises table view" Height="633" Width="800" Background="LightCyan">
+    <Window.InputBindings>
+        <KeyBinding Key="F1"
+              Command="cmd:CustomCommands.helpCom" />
+    </Window.InputBindings>
     <Window.Resources>
         <ObjectDataProvider x:Key="AData"></ObjectDataProvider>
     </Window.Resources>

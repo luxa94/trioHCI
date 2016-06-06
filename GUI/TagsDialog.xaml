@@ -5,14 +5,21 @@
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HCI.GUI"
+        xmlns:cmd="clr-namespace:HCI.Commands"
         mc:Ignorable="d"
         Title="Add new tag" Height="300" Width="500" Background="LightCyan">
+    <Window.InputBindings>
+        <KeyBinding Key="F1"
+              Command="cmd:CustomCommands.helpCom" />
+    </Window.InputBindings>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
-
+        
+       
+        
         <Grid Grid.Column="0" Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition MaxWidth="150"></ColumnDefinition>

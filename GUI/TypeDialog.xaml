@@ -5,7 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HCI.GUI"
         mc:Ignorable="d"
+        xmlns:cmd="clr-namespace:HCI.Commands"
         Title="Add new type" Height="300" Width="500" Background="LightCyan">
+    <Window.InputBindings>
+        <KeyBinding Key="F1"
+              Command="cmd:CustomCommands.helpCom" />
+    </Window.InputBindings>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
