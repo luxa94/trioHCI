@@ -222,6 +222,24 @@
       <Name>DataGridFilterLibrary</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GUI\edit-table.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GUI\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GUI\question-sign.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GUI\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GUI\music-player-play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GUI\info.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>
