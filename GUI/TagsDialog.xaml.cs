@@ -72,6 +72,7 @@ namespace HCI.GUI
                         closeable = false;
                         MessageBox.Show("Id must be set!");
                     }
+
                     else if (tt.Count > 0)
                     {
                         closeable = false;

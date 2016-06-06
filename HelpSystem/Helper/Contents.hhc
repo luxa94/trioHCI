@@ -10,8 +10,8 @@
 </OBJECT>
 <UL>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Osnovna pomoc">
-		<param name="Local" value="Pomoc.htm">
+		<param name="Name" value="Help System">
+		<param name="Local" value="Help.htm">
 		</OBJECT>
 	<UL>
 		<LI> <OBJECT type="text/sitemap">
@@ -21,7 +21,6 @@
 	</UL>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Premises">
-		<param name="Local" value="Premises.HTML">
 		</OBJECT>
 	<UL>
 		<LI> <OBJECT type="text/sitemap">
@@ -29,17 +28,16 @@
 			<param name="Local" value="Add new premises.HTML">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Modify premises">
-			<param name="Local" value="Modify premises.HTML">
+			<param name="Name" value="View/Modify premises">
+			<param name="Local" value="View all premises.HTML">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="Delete premises">
-			<param name="Local" value="Delete premsies.HTML">
+			<param name="Local" value="Delete premises.HTML">
 			</OBJECT>
 	</UL>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Type">
-		<param name="Local" value="Type.HTML">
 		</OBJECT>
 	<UL>
 		<LI> <OBJECT type="text/sitemap">
@@ -47,17 +45,16 @@
 			<param name="Local" value="Add new type.HTML">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Izmena tipa">
-			<param name="Local" value="izmenaTipa.htm">
+			<param name="Name" value="View/Modify type">
+			<param name="Local" value="View all types.HTML">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Brisanje tipa">
-			<param name="Local" value="brisanjeTipa.htm">
+			<param name="Name" value="Delete type">
+			<param name="Local" value="Delete type.HTML">
 			</OBJECT>
 	</UL>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Prikaz tagova">
-		<param name="Local" value="prikazTagova.htm">
+		<param name="Name" value="Tag">
 		</OBJECT>
 	<UL>
 		<LI> <OBJECT type="text/sitemap">
@@ -65,12 +62,12 @@
 			<param name="Local" value="Add new tag.HTML">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Izmena taga">
-			<param name="Local" value="izmenaTaga.htm">
+			<param name="Name" value="View/Modify tag">
+			<param name="Local" value="View all tags.HTML">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Brisanje taga">
-			<param name="Local" value="brisanjeTaga.htm">
+			<param name="Name" value="Delete tag">
+			<param name="Local" value="Delete tag.HTML">
 			</OBJECT>
 	</UL>
 </UL>
