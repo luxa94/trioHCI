@@ -39,7 +39,7 @@ namespace HCI.Commands
 
         public void Execute(object parameter)
         {
-            MainWindow.Close();
+            //
         }
     }
 
