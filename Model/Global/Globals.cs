@@ -36,5 +36,46 @@ namespace HCI.Model.Global
                 }
             }
         }
+
+        public static void updateForFilter(String filter)
+        {
+            using (var ctx = new DatabaseModel())
+            {
+                AllPremises.Clear();
+
+                foreach (var premises in ctx.Premises.Include(p => p.Type))
+                {
+                    bool m = matches(filter, premises);
+                    if (m)
+                    {
+                        AllPremises.Add(premises);
+                    }
+                    if (pushpins.ContainsKey(premises.Id))
+                    {
+                        DraggablePushpin pin = pushpins[premises.Id];
+                        pin.Template = PinTemplateFactory.getTemplate(premises);
+                        pin.Map.Children.Remove(pin);
+                        if (m)
+                        {
+                            pin.Map.Children.Add(pin);
+                        }
+
+                    }
+                }
+            }
+        }
+
+        private static bool matches(string filter, Premises premises)
+        {
+            return (premises.Id?.Contains(filter) ?? false)             ||
+                   (premises.Name?.Contains(filter) ?? false)           || 
+                   (premises.Type.Name?.Contains(filter) ?? false)      || 
+                   (premises.Type.Id?.Contains(filter) ?? false)        ||
+                   (premises.Description?.Contains(filter) ?? false)    || 
+                   (premises.AlcoholServing?.Contains(filter) ?? false) || 
+                   (premises.Price?.Contains(filter) ?? false);
+
+        }
+
     }
 }

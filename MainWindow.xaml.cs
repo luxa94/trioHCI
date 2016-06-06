@@ -265,6 +265,11 @@ namespace HCI
         {
             Close();
         }
+
+        private void filterTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Globals.updateForFilter(filterTextBox.Text);
+        }
     }
 }
 

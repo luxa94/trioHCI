@@ -34,6 +34,7 @@
                 <wpftoolkit:DataGridTextColumn ToolTipService.ToolTip="Id filter" Header="Id" Binding="{Binding Id}"></wpftoolkit:DataGridTextColumn>
                 <wpftoolkit:DataGridTextColumn Header="Name" Binding="{Binding Name}"></wpftoolkit:DataGridTextColumn>
                 <wpftoolkit:DataGridTextColumn Header="Description" Binding="{Binding Description}"></wpftoolkit:DataGridTextColumn>
+                <wpftoolkit:DataGridTextColumn Header="Type" Binding="{Binding Type.Id}"></wpftoolkit:DataGridTextColumn>
                 <wpftoolkit:DataGridTextColumn
                     Header="Alcohol serving"     
                     Binding="{Binding AlcoholServing}"
@@ -45,6 +46,7 @@
                 <wpftoolkit:DataGridTextColumn Header="Capacity" Binding="{Binding Capacity}"></wpftoolkit:DataGridTextColumn>
                 <wpftoolkit:DataGridTextColumn Header="Opening date" Binding="{Binding OpeningDate}"></wpftoolkit:DataGridTextColumn>
                 <wpftoolkit:DataGridTextColumn Header="Image path" Binding="{Binding PathImage}"></wpftoolkit:DataGridTextColumn>
+                
             </wpftoolkit:DataGrid.Columns>
         </wpftoolkit:DataGrid>
         <Grid Grid.Row="1" Grid.Column="0">
