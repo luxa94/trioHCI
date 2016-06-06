@@ -244,7 +244,7 @@
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <TextBox></TextBox>
+                <TextBox Name="filterTextBox" TextChanged="filterTextBox_TextChanged"></TextBox>
                 <Button Grid.Column="1" Content="Clear"></Button>
             </Grid>
         </Grid>
