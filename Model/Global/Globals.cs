@@ -14,6 +14,8 @@ namespace HCI.Model.Global
         public static String[] PriceCategories = { "", "low prices", "medium prices", "high prices", "extremely high pricesd" };
 
         public static ObservableCollection<Premises> AllPremises = new ObservableCollection<Premises>();
+        public static Dictionary<String, DraggablePushpin> pushpins = new Dictionary<String, DraggablePushpin>();
+
 
         public static void UpdatePremises()
         {
@@ -23,6 +25,14 @@ namespace HCI.Model.Global
                 foreach (var premises in ctx.Premises.Include(p => p.Type))
                 {
                     AllPremises.Add(premises);
+                    if (pushpins.ContainsKey(premises.Id))
+                    {
+                        DraggablePushpin pin = pushpins[premises.Id];
+                        pin.Template = PinTemplateFactory.getTemplate(premises);
+                        pin.Map.Children.Remove(pin);
+                        pin.Map.Children.Add(pin);
+
+                    }
                 }
             }
         }

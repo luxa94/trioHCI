@@ -8,6 +8,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using HCI.Model;
 using Microsoft.Maps.MapControl.WPF;
+using HCI.Model.Global;
 
 namespace HCI
 {
@@ -73,8 +74,20 @@ namespace HCI
 
         private void Context_Delete(object sender, RoutedEventArgs e)
         {
-
-            MessageBox.Show("DELETE");
+            var result = MessageBox.Show("You are trying to delete a premises. Please confirm.",
+                                "Delete premises?", MessageBoxButton.YesNo);
+            if (result == MessageBoxResult.Yes)
+            {
+                using (var ctx = new DatabaseModel())
+                {
+                    ctx.Entry(_p).State = System.Data.Entity.EntityState.Deleted;
+                    ctx.SaveChanges();
+                    
+                }
+                _map.Children.Remove(this);
+                Globals.pushpins.Remove(_p.Id);
+                Globals.UpdatePremises();
+            }
         }
     }
 }

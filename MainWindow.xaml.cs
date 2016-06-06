@@ -29,16 +29,12 @@ namespace HCI
         public bool Tutorial = false;
         public ObservableCollection<HCI.Model.Type> AllTypes { get; set; }
         public ObservableCollection<HCI.Model.Premises> AllPremises { get; set; }
-        private Dictionary<Premises, DraggablePushpin> pushpins;
-
+        
         private Point startPoint;
 
         public MainWindow()
         {
             InitializeComponent();
-
-            pushpins = new Dictionary<Premises, DraggablePushpin>();
-
             using (var ctx = new DatabaseModel())
             {
                 AllTypes = new ObservableCollection<HCI.Model.Type>(ctx.Types);
@@ -53,7 +49,8 @@ namespace HCI
                     Map m = intToMap(p.MapNumber);
                     Location l = new Location(p.Latitude, p.Longitude);
                     var pin = new DraggablePushpin(m, l, p);
-                    pushpins.Add(p, pin);
+                    pin.Template = PinTemplateFactory.getTemplate(p);
+                    Globals.pushpins.Add(p.Id, pin);
                     m.Children.Add(pin);
                 }
             }
@@ -163,16 +160,18 @@ namespace HCI
 
                 DraggablePushpin pin = null;
 
-                if (pushpins.ContainsKey(p))
+                if (Globals.pushpins.ContainsKey(p.Id))
                 {
-                    pin = pushpins[p];
+                    pin = Globals.pushpins[p.Id];
                     pin.Map.Children.Remove(pin);
                     pin.Map = m;
                 }
                 else
                 {
                     pin = new DraggablePushpin(m, pinLocation, p);
-                    pushpins.Add(p, pin);
+
+                    pin.Template = PinTemplateFactory.getTemplate(p);
+                    Globals.pushpins.Add(p.Id, pin);
                 }
                 pin.Location = pinLocation;
 
