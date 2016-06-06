@@ -24,6 +24,7 @@ namespace HCI
     /// </summary>
     public partial class MainWindow : Window
     {
+        public bool Tutorial = false;
         public ObservableCollection<HCI.Model.Type> AllTypes { get; set; }
         public ObservableCollection<HCI.Model.Premises> AllPremises { get; set; }
 
@@ -61,10 +62,22 @@ namespace HCI
             w.ShowDialog();
         }
 
+
         private void btnAddTag_Click(object sender, RoutedEventArgs e)
         {
-            Window w = new TagsDialog();
-            w.ShowDialog();
+            if (!Tutorial)
+            {
+                Window w = new TagsDialog();
+                w.ShowDialog();
+            }
+            else
+            {
+                Window w = new TagsDialog(true);
+                w.ShowDialog();
+                EnableAll(true);
+                btnAddTag.Background = null;
+            }
+            
         }
 
         private void btnViewAllPremises_Click(object sender, RoutedEventArgs e)
@@ -152,5 +165,30 @@ namespace HCI
             return null;
         }
 
+        private void EnableAll(bool b) {
+
+                btnViewAllPremises.IsEnabled = b;
+                btnViewAllTypes.IsEnabled = b;
+                btnViewAllTags.IsEnabled = b;
+                btnAddBusiness.IsEnabled = b;
+                btnAddType.IsEnabled = b;
+                listView.IsEnabled = b;
+                myMap.IsEnabled = b;
+                myMap1.IsEnabled = b;
+                myMap2.IsEnabled = b;
+                myMap3.IsEnabled = b;
+                meniMeni.IsEnabled = b;
+            // sve je enableovano sem btnAddTag posto on uvek mora biti dostupan
+        }
+        private void InteractivTutorial_Click(object sender, RoutedEventArgs e)
+        {
+            Tutorial = true;
+            MessageBox.Show("Welcome to Interactiv Tutorial for adding new tag. Folow next steps.");
+            EnableAll(false);
+            btnAddTag.Background = Brushes.LightCoral;
+            MessageBox.Show("Click on button \"Add new tag.\".");
+   
+        }
     }
 }
+

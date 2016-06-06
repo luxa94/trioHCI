@@ -31,6 +31,9 @@
         <KeyBinding Key="F1"
               Modifiers="Alt" 
               Command="cmd:CustomCommands.helpCom" />
+        <KeyBinding Key="T"
+              Modifiers="Ctrl" 
+              Command="cmd:CustomCommands.tutorialCom" />
     </Window.InputBindings>
     <Window.Resources>
         <BitmapImage x:Key="FolderOpen" UriSource="GUI/foldero.png"/>
@@ -61,7 +64,7 @@
             <Image Source="GUI/map.png" Stretch="UniformToFill"/>
         </Label> -->
 
-        <Menu Grid.ColumnSpan="3" Grid.Row="0">
+        <Menu Grid.ColumnSpan="3" Grid.Row="0" Name="meniMeni">
             <MenuItem Header="_File" x:Name="menuItem_file">
                 <MenuItem Header="test" x:Name="test" Command="cmd:CustomCommands.testKomanda" InputGestureText="Ctrl+B"></MenuItem>
                 <MenuItem Header="close" x:Name="menuItem_close"></MenuItem>
@@ -77,6 +80,7 @@
                 <MenuItem Header="View and modify tag" Command="cmd:CustomCommands.editTagCom" InputGestureText="Ctrl+V+G"></MenuItem>
             </MenuItem>
             <MenuItem Header="_Help" x:Name="menuItem_help">
+                <MenuItem Name ="it" Header="Interactiv tutorial" Command="cmd:CustomCommands.tutorialCom" Click="InteractivTutorial_Click"></MenuItem>
                 <MenuItem Header="Help" Command="cmd:CustomCommands.helpCom" InputGestureText="F1"></MenuItem>
                 <MenuItem Header="About" Command="cmd:CustomCommands.aboutCom"></MenuItem>
             </MenuItem>

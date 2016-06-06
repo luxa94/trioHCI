@@ -26,15 +26,15 @@
 
             <!-- row 0 -->
             <Label ToolTip="Sets id for an tag. Once tag is saved there is no more possibility of modifying." Grid.Column="0" Grid.Row="0" Content="Id:"></Label>
-            <TextBox Name="tbId" Grid.Column="1" Grid.Row="0" VerticalContentAlignment="Center" Text="{Binding Path=Id}" Margin="0,2,2,2"></TextBox>
+            <TextBox Name="tbId"  KeyUp="tbId_KeyUp" Grid.Column="1" Grid.Row="0" VerticalContentAlignment="Center" Text="{Binding Path=Id}" Margin="0,2,2,2"></TextBox>
 
             <!-- row 1 -->
             <Label ToolTip="Sets color for an tag. Select appropriate one." Grid.Column="0" Grid.Row="1" Content="Color:"></Label>
-            <xctk:ColorPicker Name="colorPicker" Grid.Column="1" Grid.Row="1" SelectedColorChanged="ColorPicker_SelectedColorChanged"></xctk:ColorPicker>
+            <xctk:ColorPicker Name="colorPicker" KeyUp="tbColor_KeyUp" Grid.Column="1" Grid.Row="1" SelectedColorChanged="ColorPicker_SelectedColorChanged"></xctk:ColorPicker>
 
             <!-- row 2 -->
             <Label ToolTip="Sets description for an tag." Grid.Column="0" Grid.Row="2" Content="Description:"/>
-            <TextBox Name="tbDescription" Grid.Column="1" Grid.Row="2" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Text="{Binding Path=Description}" Margin="0,2,2,2"></TextBox>
+            <TextBox Name="tbDescription" KeyUp="tbDescription_KeyUp" Grid.Column="1" Grid.Row="2" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Text="{Binding Path=Description}" Margin="0,2,2,2"></TextBox>
         </Grid>
 
         <StackPanel Grid.Column="0" Grid.Row="1" Orientation="Horizontal" FlowDirection="RightToLeft" Background="LightGray">

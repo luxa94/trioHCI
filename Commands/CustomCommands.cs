@@ -22,6 +22,7 @@ namespace HCI.Commands
 
         public static readonly ICommand helpCom = new HelpCommand();
         public static readonly ICommand aboutCom = new AboutCommand();
+        public static readonly ICommand tutorialCom = new TutorialCommand();
     }
 
 
@@ -146,6 +147,23 @@ namespace HCI.Commands
         public void Execute(object parameter)
         {
             Process.Start("..\\..\\HelpSystem\\About\\Helper.chm");
+        }
+    }
+
+    public class TutorialCommand : ICommand //da hocem da radimo i sa precicama, trebalo bi da nasledom RoutedUICommand, recimo
+    {
+        public bool CanExecute(object parameter)
+        {
+            return true;
+        }
+
+        public event EventHandler CanExecuteChanged;
+
+        public void Execute(object parameter)
+        {
+            // MessageBox.Show("Welcome to Interactiv Tutorial for adding new tag. Folow next steps.");
+         //   MainWindow.interactiv();
+
         }
     }
 }
