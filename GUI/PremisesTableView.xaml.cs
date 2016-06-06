@@ -177,14 +177,22 @@ namespace HCI.GUI
 
                 using (var ctx = new DatabaseModel())
                 {
-                    ctx.Entry(Premises[dgrMain.SelectedIndex]).State = EntityState.Deleted;
-                    ctx.SaveChanges();
-                    Premises = new ObservableCollection<Premises>(ctx.Premises.Include(p => p.Tags).Include(p => p.Type).ToList());
-                    //                    foreach (Premises p in Premises)
-                    //                    {
-                    //                        p.Type = ctx.Types.Single(t => t.Id == p.TypeId);
-                    //                    }
-                    dgrMain.ItemsSource = Premises;
+                    var result =
+                            MessageBox.Show("You are trying to delete selected premises. Are you sure?",
+                                "Worning", MessageBoxButton.YesNo);
+                    if (result == MessageBoxResult.Yes)
+                    {
+
+
+                        ctx.Entry(Premises[dgrMain.SelectedIndex]).State = EntityState.Deleted;
+                        ctx.SaveChanges();
+                        Premises = new ObservableCollection<Premises>(ctx.Premises.Include(p => p.Tags).Include(p => p.Type).ToList());
+                        //                    foreach (Premises p in Premises)
+                        //                    {
+                        //                        p.Type = ctx.Types.Single(t => t.Id == p.TypeId);
+                        //                    }
+                        dgrMain.ItemsSource = Premises;
+                    }
                 }
                 dgrMain.SelectedIndex = -1;
                 setSelected();

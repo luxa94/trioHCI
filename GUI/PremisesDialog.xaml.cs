@@ -111,6 +111,11 @@ namespace HCI.GUI
                     closeable = false;
                     MessageBox.Show("Premises id already exists!");
                 }
+                else if (string.IsNullOrEmpty(premises.Name))
+                {
+                    closeable = false;
+                    MessageBox.Show("Premises name must be set!");
+                }
                 else if (premises.Type == null || string.IsNullOrEmpty(premises.Type.Id))
                 {
                     closeable = false;
