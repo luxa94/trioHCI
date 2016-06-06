@@ -45,17 +45,17 @@
 
             <!-- row 0 -->
             <Label ToolTip="Sets id for an premises. It is unique for every premises with no possibility of modifying." Grid.Column="0" Grid.Row="0" Content="Id:" />
-            <TextBox Name="tbId" Grid.Column="1" Grid.Row="0" VerticalContentAlignment="Center"
+            <TextBox Name="tbId" MaxLength="150" Grid.Column="1" Grid.Row="0" VerticalContentAlignment="Center"
                      Text="{Binding Path=Id, UpdateSourceTrigger=PropertyChanged}" Margin="0,2,2,2" />
             
             <!-- row 1 -->
             <Label ToolTip="Sets name for an premises." Grid.Column="0" Grid.Row="1" Content="Name:" />
-            <TextBox Name="tbName" Grid.Column="1" Grid.Row="1" VerticalContentAlignment="Center"
+            <TextBox Name="tbName" MaxLength="150" Grid.Column="1" Grid.Row="1" VerticalContentAlignment="Center"
                      Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}" Margin="0,2,2,2" />
 
             <!-- row 2 -->
             <Label ToolTip="Sets description for an premises." Grid.Column="0" Grid.Row="2" Content="Description:" />
-            <TextBox Name="tbDescription" Grid.Column="1" Grid.Row="2" AcceptsReturn="True" TextWrapping="Wrap"
+            <TextBox Name="tbDescription" MaxLength="2150" Grid.Column="1" Grid.Row="2" AcceptsReturn="True" TextWrapping="Wrap"
                      VerticalScrollBarVisibility="Auto" Text="{Binding Path=Description, UpdateSourceTrigger=PropertyChanged}" Margin="0,2,2,2" />
 
             <!-- row 3 -->
@@ -83,7 +83,7 @@
 
             <!-- row 8 -->
             <Label ToolTip="Sets capacity for an premises." Grid.Column="0" Grid.Row="8" Content="Capacity:" />
-            <TextBox Name="tbCapacity" Grid.Column="1" Grid.Row="8" VerticalContentAlignment="Center"
+            <TextBox Name="tbCapacity" MaxLength="150" Grid.Column="1" Grid.Row="8" VerticalContentAlignment="Center"
                      Text="{Binding Path=Capacity,UpdateSourceTrigger=PropertyChanged}" Margin="0,2,2,2" />
 
             <!-- row 9 -->

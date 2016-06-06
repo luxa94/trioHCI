@@ -60,9 +60,9 @@
             <Label ToolTip="Gets and sets description for an type." Grid.Column="0" Grid.Row="2">Description:</Label>
 
 
-            <TextBox Name="tbId" Grid.Column="1" Grid.Row="0" Text="{Binding Path=Id}" IsEnabled="False"/>
-            <TextBox Name="tbName" Grid.Column="1" Grid.Row="1" Text="{Binding Path=Name}" IsEnabled="False"></TextBox>
-            <TextBox Name="tbDescription" Grid.Column="1" Grid.Row="2" Text="{Binding Path=Description}" IsEnabled="False"></TextBox>
+            <TextBox Name="tbId" Grid.Column="1" Grid.Row="0" Text="{Binding Path=Id}" IsEnabled="False" MaxLength="150"/>
+            <TextBox Name="tbName" Grid.Column="1" Grid.Row="1" Text="{Binding Path=Name}" IsEnabled="False" MaxLength="150"></TextBox>
+            <TextBox Name="tbDescription" Grid.Column="1" Grid.Row="2" Text="{Binding Path=Description}" IsEnabled="False" MaxLength="250"></TextBox>
         </Grid>
         <StackPanel Grid.ColumnSpan="3" Grid.Row="2" Orientation="Horizontal" FlowDirection="RightToLeft" Background="LightGray">
             <Button x:Name="btnDelete" Content="Delete" ToolTip="Delete selected item" Click="buttonDelete_Click" Margin="10,10,10,0" Padding="20,5" IsEnabled="False" Height="28" VerticalAlignment="Top"/>

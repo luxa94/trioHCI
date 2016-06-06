@@ -58,9 +58,9 @@
             <Label ToolTip="Gets and sets description for an tag." Grid.Column="0" Grid.Row="2">Description:</Label>
 
 
-            <TextBox Name="tbId" Grid.Column="1" Grid.Row="0" Text="{Binding Path=Id}" IsEnabled="False"></TextBox>
+            <TextBox Name="tbId" MaxLength="150" Grid.Column="1" Grid.Row="0" Text="{Binding Path=Id}" IsEnabled="False"></TextBox>
             <xctk:ColorPicker Name="colorPicker" SelectedColor ="{Binding Color}" Grid.Column="1" Grid.Row="1" SelectedColorChanged="ColorPicker_SelectedColorChanged" IsEnabled="False"></xctk:ColorPicker>
-            <TextBox Name="tbDescription" Grid.Column="1" Grid.Row="2" Text="{Binding Path=Description}" IsEnabled="False"></TextBox>
+            <TextBox Name="tbDescription" MaxLength="250" Grid.Column="1" Grid.Row="2" Text="{Binding Path=Description}" IsEnabled="False"></TextBox>
         </Grid>
         <StackPanel Grid.Column="0" Grid.Row="2" Orientation="Horizontal" FlowDirection="RightToLeft" Background="LightGray">
             <Button x:Name="btnDelete" Content="Delete" ToolTip="Delete selected item" Click="buttonDelete_Click" Margin="10" Padding="20,5" IsEnabled="False"/>

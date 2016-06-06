@@ -106,16 +106,16 @@
                             </Grid>
 
 
-                            <TextBox Name="tbId" Grid.Column="1" Grid.Row="0" Text="{Binding Path=Id}" IsEnabled="False" />
-                            <TextBox Name="tbName" Grid.Column="1" Grid.Row="1" Text="{Binding Path=Name}" IsEnabled="False" />
-                            <TextBox Name="tbDesc" Grid.Column="1" Grid.Row="2" Text="{Binding Path=Description}" IsEnabled="False" />
+                    <TextBox Name="tbId" MaxLength="150" Grid.Column="1" Grid.Row="0" Text="{Binding Path=Id}" IsEnabled="False" />
+                    <TextBox Name="tbName" MaxLength="150" Grid.Column="1" Grid.Row="1" Text="{Binding Path=Name}" IsEnabled="False" />
+                    <TextBox Name="tbDesc" MaxLength="250" Grid.Column="1" Grid.Row="2" Text="{Binding Path=Description}" IsEnabled="False" />
                             <ComboBox Name="cbAlcohol" Grid.Column="1" Grid.Row="6"
                           SelectedItem="{Binding Selected.AlcoholServing}" VerticalAlignment="Center" Margin="0,0,2,0"
                           IsEnabled="False" />
                             <ComboBox Name="cbPrice" Grid.Column="1" Grid.Row="7" SelectedItem="{Binding Selected.Price}"
                           VerticalAlignment="Center" Margin="0,0,2,0" IsEditable="False" />
 
-                            <TextBox Name="tbCapa" Grid.Column="1" Grid.Row="8" Text="{Binding Path=Capacity}" IsEnabled="False" />
+                    <TextBox Name="tbCapa" MaxLength="150" Grid.Column="1" Grid.Row="8" Text="{Binding Path=Capacity}" IsEnabled="False" />
                             <DatePicker Name="dpOpeningDate" Grid.Column="1" Grid.Row="9" SelectedDate="{Binding Path=OpeningDate}" />
                             <!--       <TextBox Name="tbOpen" Grid.Column="1" Grid.Row="9" Text="{Binding Path=OpeningDate, StringFormat=dd-MM-yyyy}" IsEnabled="False" /> -->
                         </Grid>

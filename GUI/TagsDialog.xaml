@@ -33,7 +33,7 @@
 
             <!-- row 0 -->
             <Label ToolTip="Sets id for an tag. Once tag is saved there is no more possibility of modifying." Grid.Column="0" Grid.Row="0" Content="Id:"></Label>
-            <TextBox Name="tbId" KeyUp="tbId_KeyUp" Grid.Column="1" Grid.Row="0" VerticalContentAlignment="Center" Text="{Binding Path=Id, UpdateSourceTrigger=PropertyChanged}" Margin="0,2,2,2"></TextBox>
+            <TextBox Name="tbId" MaxLength="150" KeyUp="tbId_KeyUp" Grid.Column="1" Grid.Row="0" VerticalContentAlignment="Center" Text="{Binding Path=Id, UpdateSourceTrigger=PropertyChanged}" Margin="0,2,2,2"></TextBox>
 
 
             <!-- row 1 -->
@@ -43,7 +43,7 @@
             <!-- row 2 -->
             <Label ToolTip="Sets description for an tag." Grid.Column="0" Grid.Row="2" Content="Description:"/>
 
-            <TextBox Name="tbDescription" KeyUp="tbDescription_KeyUp" Grid.Column="1" Grid.Row="2" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Text="{Binding Path=Description, UpdateSourceTrigger=PropertyChanged}" Margin="0,2,2,2"></TextBox>
+            <TextBox Name="tbDescription" MaxLength="250" KeyUp="tbDescription_KeyUp" Grid.Column="1" Grid.Row="2" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Text="{Binding Path=Description, UpdateSourceTrigger=PropertyChanged}" Margin="0,2,2,2"></TextBox>
 
         </Grid>
 
