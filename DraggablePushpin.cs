@@ -85,7 +85,7 @@ namespace HCI
                     
                 }
                 _map.Children.Remove(this);
-                Globals.pushpins.Remove(_p);
+                Globals.pushpins.Remove(_p.Id);
                 Globals.UpdatePremises();
             }
         }

@@ -49,7 +49,8 @@ namespace HCI
                     Map m = intToMap(p.MapNumber);
                     Location l = new Location(p.Latitude, p.Longitude);
                     var pin = new DraggablePushpin(m, l, p);
-                    Globals.pushpins.Add(p, pin);
+                    pin.Template = PinTemplateFactory.getTemplate(p);
+                    Globals.pushpins.Add(p.Id, pin);
                     m.Children.Add(pin);
                 }
             }
@@ -159,16 +160,18 @@ namespace HCI
 
                 DraggablePushpin pin = null;
 
-                if (Globals.pushpins.ContainsKey(p))
+                if (Globals.pushpins.ContainsKey(p.Id))
                 {
-                    pin = Globals.pushpins[p];
+                    pin = Globals.pushpins[p.Id];
                     pin.Map.Children.Remove(pin);
                     pin.Map = m;
                 }
                 else
                 {
                     pin = new DraggablePushpin(m, pinLocation, p);
-                    Globals.pushpins.Add(p, pin);
+
+                    pin.Template = PinTemplateFactory.getTemplate(p);
+                    Globals.pushpins.Add(p.Id, pin);
                 }
                 pin.Location = pinLocation;
 
