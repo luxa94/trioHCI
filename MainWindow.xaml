@@ -244,8 +244,8 @@
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <TextBox Name="filterTextBox" TextChanged="filterTextBox_TextChanged"></TextBox>
-                <Button Grid.Column="1" Content="Clear"></Button>
+                <TextBox Name="filterTextBox" ToolTip ="Filter/Search premises on map" TextChanged="filterTextBox_TextChanged"></TextBox>
+                <Button Grid.Column="1" ToolTip ="Filter/Search premises on map" Content="Clear"></Button>
             </Grid>
         </Grid>
     </Grid>
