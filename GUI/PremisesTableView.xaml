@@ -12,7 +12,7 @@
         Title="Premises table view" Height="633" Width="800" Background="LightCyan">
     <Window.InputBindings>
         <KeyBinding Key="F1"
-              Command="cmd:CustomCommands.helpCom" />
+              Command="cmd:CustomCommands.premisesTableHelpCommand" />
     </Window.InputBindings>
     <Window.Resources>
         <ObjectDataProvider x:Key="AData"></ObjectDataProvider>
@@ -35,10 +35,7 @@
                 <wpftoolkit:DataGridTextColumn Header="Name" Binding="{Binding Name}"></wpftoolkit:DataGridTextColumn>
                 <wpftoolkit:DataGridTextColumn Header="Description" Binding="{Binding Description}"></wpftoolkit:DataGridTextColumn>
                 <wpftoolkit:DataGridTextColumn Header="Type" Binding="{Binding Type.Id}"></wpftoolkit:DataGridTextColumn>
-                <wpftoolkit:DataGridTextColumn
-                    Header="Alcohol serving"     
-                    Binding="{Binding AlcoholServing}"
-                    />
+                <wpftoolkit:DataGridTextColumn Header="Alcohol serving" Binding="{Binding AlcoholServing}"/>
                 <wpftoolkit:DataGridTextColumn Header="Price" Binding="{Binding Price}"></wpftoolkit:DataGridTextColumn>
                 <wpftoolkit:DataGridCheckBoxColumn Header="Handicapable" Binding="{Binding IsHandicapable}"></wpftoolkit:DataGridCheckBoxColumn>
                 <wpftoolkit:DataGridCheckBoxColumn Header="Smoking alowed" Binding="{Binding IsSmokingAlowed}"></wpftoolkit:DataGridCheckBoxColumn>

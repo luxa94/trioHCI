@@ -10,7 +10,7 @@
         Title="Add new tag" Height="300" Width="500" Background="LightCyan">
     <Window.InputBindings>
         <KeyBinding Key="F1"
-              Command="cmd:CustomCommands.helpCom" />
+              Command="cmd:CustomCommands.tagHelpCommand" />
     </Window.InputBindings>
     <Grid>
         <Grid.RowDefinitions>

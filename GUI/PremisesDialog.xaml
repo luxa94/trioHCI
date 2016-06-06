@@ -10,7 +10,7 @@
         Title="Add new permises" Height="700" Width="700" Background="LightCyan">
     <Window.InputBindings>
         <KeyBinding Key="F1"
-              Command="cmd:CustomCommands.helpCom" />
+              Command="cmd:CustomCommands.premisesHelpCommand" />
     </Window.InputBindings>
    
     <Grid>

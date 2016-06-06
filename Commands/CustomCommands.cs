@@ -23,8 +23,14 @@ namespace HCI.Commands
 
         public static readonly ICommand helpCom = new HelpCommand();
         public static readonly ICommand aboutCom = new AboutCommand();
-        public static readonly ICommand tutorialCom = new TutorialCommand();
         public static readonly ICommand exitCom = new ExitCommand();
+
+        public static readonly ICommand premisesHelpCommand = new PremisesHelpCommand();
+        public static readonly ICommand premisesTableHelpCommand = new PremisesTableHelpCommand();
+        public static readonly ICommand typeHelpCommand = new TypeHelpCommand();
+        public static readonly ICommand typeTableHelpCommand = new TypeTableHelpCommand();
+        public static readonly ICommand tagHelpCommand = new TagHelpCommand();
+        public static readonly ICommand tagTableHelpCommand = new TagTableHelpCommand();
 
     }
 
@@ -167,7 +173,83 @@ namespace HCI.Commands
         }
     }
 
-    public class TutorialCommand : ICommand //da hocem da radimo i sa precicama, trebalo bi da nasledom RoutedUICommand, recimo
+
+    public class PremisesHelpCommand : ICommand //da hocem da radimo i sa precicama, trebalo bi da nasledom RoutedUICommand, recimo
+    {
+        public bool CanExecute(object parameter)
+        {
+            return true;
+        }
+
+        public event EventHandler CanExecuteChanged;
+
+        public void Execute(object parameter)
+        {
+            //InteractivTutorial_Click();
+
+        }
+    }
+    public class PremisesTableHelpCommand : ICommand //da hocem da radimo i sa precicama, trebalo bi da nasledom RoutedUICommand, recimo
+    {
+        public bool CanExecute(object parameter)
+        {
+            return true;
+        }
+
+        public event EventHandler CanExecuteChanged;
+
+        public void Execute(object parameter)
+        {
+            //InteractivTutorial_Click();
+
+        }
+    }
+    public class TypeHelpCommand : ICommand //da hocem da radimo i sa precicama, trebalo bi da nasledom RoutedUICommand, recimo
+    {
+        public bool CanExecute(object parameter)
+        {
+            return true;
+        }
+
+        public event EventHandler CanExecuteChanged;
+
+        public void Execute(object parameter)
+        {
+            //InteractivTutorial_Click();
+
+        }
+    }
+    public class TypeTableHelpCommand : ICommand //da hocem da radimo i sa precicama, trebalo bi da nasledom RoutedUICommand, recimo
+    {
+        public bool CanExecute(object parameter)
+        {
+            return true;
+        }
+
+        public event EventHandler CanExecuteChanged;
+
+        public void Execute(object parameter)
+        {
+            //InteractivTutorial_Click();
+
+        }
+    }
+    public class TagHelpCommand : ICommand //da hocem da radimo i sa precicama, trebalo bi da nasledom RoutedUICommand, recimo
+    {
+        public bool CanExecute(object parameter)
+        {
+            return true;
+        }
+
+        public event EventHandler CanExecuteChanged;
+
+        public void Execute(object parameter)
+        {
+            //InteractivTutorial_Click();
+
+        }
+    }
+    public class TagTableHelpCommand : ICommand //da hocem da radimo i sa precicama, trebalo bi da nasledom RoutedUICommand, recimo
     {
         public bool CanExecute(object parameter)
         {
