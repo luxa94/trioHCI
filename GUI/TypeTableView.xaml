@@ -67,7 +67,7 @@
         <StackPanel Grid.ColumnSpan="3" Grid.Row="2" Orientation="Horizontal" FlowDirection="RightToLeft" Background="LightGray">
             <Button x:Name="btnDelete" Content="Delete" ToolTip="Delete selected item" Click="buttonDelete_Click" Margin="10,10,10,0" Padding="20,5" IsEnabled="False" Height="28" VerticalAlignment="Top"/>
             <Button x:Name="btnCancel" Content="Cancel" ToolTip="Cancel changes" Click="btnCancel_Click" Margin="10" Padding="20,5" IsEnabled="False"/>
-            <Button x:Name="btnSave" Content="Save" ToolTip="Save changes" IsDefault="True" Click="btnSave_Click" Margin="10" Padding="20,5" IsEnabled="False"/>
+            <Button x:Name="btnSave" Content="Save" ToolTip="Save changes" IsDefault="True" Click="btnSave_Click" Margin="10,10,10,0" Padding="20,5" IsEnabled="False" Height="28" VerticalAlignment="Top"/>
         </StackPanel>
         <Image x:Name="imgIcon" Grid.Column="2"  Source="{Binding PathImage}" HorizontalAlignment="Left" Height="42" Margin="28.333,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="42"/>
         <Button x:Name="btnBrowse" ToolTip="Browse picture from the file system" Content="Browse" Grid.Column="2" HorizontalAlignment="Left" Height="26" Margin="10,67,0,0" Grid.Row="1" VerticalAlignment="Top" Width="73" Click="button_Click" IsEnabled="False"/>

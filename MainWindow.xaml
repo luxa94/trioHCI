@@ -180,6 +180,7 @@
         <Grid Grid.Column="2" Grid.Row="1" Grid.RowSpan="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
@@ -227,7 +228,7 @@
                 </Button>
             </StackPanel>
 
-            <ListView ItemsSource="{Binding AllPremises}" ToolTip="Select item and drag it on the map" Name="listView"  Grid.Row="1" Grid.Column="0" PreviewMouseLeftButtonDown="treeview_PreviewMouseLeftButtonDown" MouseMove="treeview_MouseMove"  >
+            <ListView ItemsSource="{Binding AllPremises}" ToolTip="Select item and drag it on the map" Name="listView"  Grid.Row="2" Grid.Column="0" PreviewMouseLeftButtonDown="treeview_PreviewMouseLeftButtonDown" MouseMove="treeview_MouseMove"  >
                 <ListView.ItemTemplate>
 
                     <DataTemplate>
@@ -239,13 +240,18 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Grid Grid.Row="2">
+            <Grid Grid.Row="1" Background="White">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <TextBox Name="filterTextBox" TextChanged="filterTextBox_TextChanged"></TextBox>
-                <Button Grid.Column="1" Content="Clear"></Button>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Content=" Search filter:"  Padding="0"></Label>
+                <TextBox Grid.Row="1" Name="filterTextBox" ToolTip ="Filter/Search premises on map" TextChanged="filterTextBox_TextChanged"></TextBox>
+                <Button Grid.Row="1" Grid.Column="1" ToolTip ="Filter/Search premises on map" Padding="5,2,5,2" Content="Clear" Click="Button_Click"></Button>
             </Grid>
         </Grid>
     </Grid>

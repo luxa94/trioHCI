@@ -120,6 +120,7 @@ namespace HCI.GUI
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
+            MessageBox.Show("Changes are successfuly saved.");
             int sIndex = dgrMain.SelectedIndex;
             Tags[dgrMain.SelectedIndex].Id = Selected.Id;
             Tags[dgrMain.SelectedIndex].Description = Selected.Description;
