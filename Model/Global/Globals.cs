@@ -14,6 +14,8 @@ namespace HCI.Model.Global
         public static String[] PriceCategories = { "", "low prices", "medium prices", "high prices", "extremely high pricesd" };
 
         public static ObservableCollection<Premises> AllPremises = new ObservableCollection<Premises>();
+        public static Dictionary<Premises, DraggablePushpin> pushpins = new Dictionary<Premises, DraggablePushpin>();
+
 
         public static void UpdatePremises()
         {
