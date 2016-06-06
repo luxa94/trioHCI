@@ -19,13 +19,13 @@
               Modifiers="Control" 
               Command="cmd:CustomCommands.testKomanda3" />
 
-        <KeyBinding Gesture="Ctrl+P,V"
+        <KeyBinding Gesture="Ctrl+V"
               Modifiers="Control" 
               Command="cmd:CustomCommands.editPCom" />
-        <KeyBinding Gesture="Ctrl+T,V"
+        <KeyBinding Gesture="Ctrl+Y"
               Modifiers="Control" 
               Command="cmd:CustomCommands.editTypeCom" />
-        <KeyBinding Gesture="Ctrl+G,V"
+        <KeyBinding Gesture="Ctrl+B"
               Modifiers="Control" 
               Command="cmd:CustomCommands.editTagCom" />
         <KeyBinding Key="F1"
@@ -97,19 +97,19 @@
        <!--         <MenuItem Header="Add tag" Command="cmd:CustomCommands.testKomanda3" InputGestureText="Ctrl+G"></MenuItem> -->
             </MenuItem>
             <MenuItem Header="_View" x:Name="menuItem_edit">
-                <MenuItem Header="View and modify premises" Command="cmd:CustomCommands.editPCom" InputGestureText="Ctrl+P+V">
+                <MenuItem Header="View and modify premises" Command="cmd:CustomCommands.editPCom" InputGestureText="Ctrl+V">
                     <MenuItem.Icon>
                         <Image Source="GUI\edit-table.png" Width="12" Height="12"/>
                     </MenuItem.Icon>
                 </MenuItem>
 
-                <MenuItem Header="View and modify type" Command="cmd:CustomCommands.editTypeCom" InputGestureText="Ctrl+T+V">
+                <MenuItem Header="View and modify type" Command="cmd:CustomCommands.editTypeCom" InputGestureText="Ctrl+Y">
                     <MenuItem.Icon>
                         <Image Source="GUI\edit-table.png" Width="12" Height="12"/>
                     </MenuItem.Icon>
                 </MenuItem>
 
-                <MenuItem Header="View and modify tag" Command="cmd:CustomCommands.editTagCom" InputGestureText="Ctrl+G+V">
+                <MenuItem Header="View and modify tag" Command="cmd:CustomCommands.editTagCom" InputGestureText="Ctrl+B">
                     <MenuItem.Icon>
                         <Image Source="GUI\edit-table.png" Width="12" Height="12"/>
                     </MenuItem.Icon>
