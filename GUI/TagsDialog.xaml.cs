@@ -64,7 +64,7 @@ namespace HCI.GUI
 
             if (!Tutorial)
             {
-                MessageBox.Show("New tag is successfuly saved.");
+               
                 var closeable = true;
                 using (var ctx = new DatabaseModel())
                 {
@@ -84,6 +84,7 @@ namespace HCI.GUI
                     {
                         ctx.Tags.Add(tag);
                         ctx.SaveChanges();
+                        MessageBox.Show("New premises is successfuly saved.");
                     }
                 }
                 if (closeable)

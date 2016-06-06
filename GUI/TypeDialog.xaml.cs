@@ -38,7 +38,7 @@ namespace HCI.GUI
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("New type is successfuly saved.");
+           
             var closeable = true;
             using (var ctx = new DatabaseModel())
             {
@@ -67,6 +67,7 @@ namespace HCI.GUI
                 {
                     ctx.Types.Add(type);
                     ctx.SaveChanges();
+                    MessageBox.Show("New type is successfuly saved.");
                 }
             }
             if (closeable)
