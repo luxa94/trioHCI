@@ -93,6 +93,7 @@ namespace HCI.GUI
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
+            MessageBox.Show("New premises is successfuly saved.");
             Console.WriteLine("saved");
             Console.WriteLine("******* datum sacuvanog: " + premises.OpeningDate);
             premises.Tags = new ObservableCollection<Tag>(SelectedTags);

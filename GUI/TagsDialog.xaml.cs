@@ -61,8 +61,10 @@ namespace HCI.GUI
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
+
             if (!Tutorial)
             {
+                MessageBox.Show("New tag is successfuly saved.");
                 var closeable = true;
                 using (var ctx = new DatabaseModel())
                 {

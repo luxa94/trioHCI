@@ -150,6 +150,7 @@ namespace HCI.GUI
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
+            MessageBox.Show("Changes are successfuly saved.");
             //mali hack jer se izgubi selektovani jedino ovde
             if (Selected.Type == null || string.IsNullOrEmpty(Selected.Type.Id))
             {
