@@ -3,6 +3,7 @@ using HCI.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,6 +27,7 @@ namespace HCI
     {
         public ObservableCollection<HCI.Model.Type> AllTypes { get; set; }
         public ObservableCollection<HCI.Model.Premises> AllPremises { get; set; }
+        private Dictionary<Premises, DraggablePushpin> pushpins;
 
         private Point startPoint;
 
@@ -33,12 +35,25 @@ namespace HCI
         {
             InitializeComponent();
 
+            pushpins = new Dictionary<Premises, DraggablePushpin>();
+
             using (var ctx = new DatabaseModel())
             {
                 AllTypes = new ObservableCollection<HCI.Model.Type>(ctx.Types);
                 AllPremises = new ObservableCollection<Model.Premises>(ctx.Premises);
             }
 
+            foreach (var p in AllPremises)
+            {
+                if (p.MapNumber != 0)
+                {
+                    Map m = intToMap(p.MapNumber);
+                    Location l = new Location(p.Latitude, p.Longitude);
+                    var pin = new DraggablePushpin(m, l, p);
+                    pushpins.Add(p, pin);
+                    m.Children.Add(pin);
+                }
+            }
 
             this.DataContext = this;
 
@@ -129,13 +144,32 @@ namespace HCI
                 Location pinLocation = m.ViewportPointToLocation(mousePosition);
                 p.Latitude = pinLocation.Latitude;
                 p.Longitude = pinLocation.Longitude;
+                p.MapNumber = mapToInt(m);
 
+                DraggablePushpin pin = null;
 
-                DraggablePushpin pin = new DraggablePushpin(m, pinLocation, p);
+                if (pushpins.ContainsKey(p))
+                {
+                    pin = pushpins[p];
+                    pin.Map.Children.Remove(pin);
+                    pin.Map = m;
+                }
+                else
+                {
+                    pin = new DraggablePushpin(m, pinLocation, p);
+                    pushpins.Add(p, pin);
+                }
+                pin.Location = pinLocation;
 
-//                pin.Template = PushpinTemplateFactory.getTemplate(lokal);
+                using (var ctx = new DatabaseModel())
+                {
+                    ctx.Entry(p).State = EntityState.Modified;
+                    ctx.SaveChanges();
+                }
+                
                 m.Children.Add(pin);
             }
+            e.Handled = true;
         }
 
         private static T FindAncestor<T>(DependencyObject current) where T : DependencyObject
@@ -152,5 +186,40 @@ namespace HCI
             return null;
         }
 
+        private int mapToInt(Map map)
+        {
+            if (map == myMap1)
+            {
+                return 1;
+            }
+            else if (map == myMap2)
+            {
+                return 2;
+            }
+            else if (map == myMap3)
+            {
+                return 3;
+            }
+            else
+            {
+                return 4;
+            }
+        }
+
+        private Map intToMap(int i)
+        {
+            switch (i)
+            {
+                case 1:
+                    return myMap1;
+                case 2:
+                    return myMap2;
+                case 3:
+                    return myMap3;
+                case 4:
+                    return myMap;
+            }
+            return null;
+        }
     }
 }
